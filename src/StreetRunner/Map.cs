@@ -4,11 +4,11 @@ using System.Xml.Linq;
 
 namespace tests
 {
-    internal class Map
+    public class Map
     {
         public IEnumerable<Street> Streets {get;set;}
         
-        internal static Map FromOsd(string osd)
+        public static Map FromOsd(string osd)
         {
             var osdXml = XElement.Parse(osd);
 
