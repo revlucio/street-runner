@@ -1,7 +1,7 @@
 using System.Linq;
 using Xunit;
 
-namespace tests
+namespace StreetRunner.Tests
 {
     public class MapShould
     {
@@ -16,6 +16,19 @@ namespace tests
 </osm>");
 
             Assert.Equal("Main Street", map.Streets.First().Name);
+        }
+
+        [Fact]
+        public void IgnoreWaysWithoutName()
+        {
+            var map = Map.FromOsd(@"
+<osm>
+ <way>
+  <tag k=""something"" v=""Main Street""/>
+ </way>
+</osm>");
+
+            Assert.Equal(0, map.Streets.Count());
         }
 
         [Fact]

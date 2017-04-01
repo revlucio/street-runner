@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
 
-namespace tests
+namespace StreetRunner
 {
     public class Map
     {
@@ -15,6 +15,7 @@ namespace tests
             var nodes = osdXml.Elements("node");
 
             var streets = osdXml.Elements("way")
+                .Where(way => way.Elements("tag").Any(tag => tag.Attribute("k").Value == "name"))
                 .Select(way => 
                 {
                     var nameTag = way.Elements("tag").Single(tag => tag.Attribute("k").Value == "name");
