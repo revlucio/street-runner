@@ -21,17 +21,23 @@ namespace StreetRunner
             var offsetLonBy = Points.Select(p => p.Lon).Min();
             Console.WriteLine(offsetLatBy + " - " + offsetLonBy);
 
-            var scaledPoints = Points
+            var offsetPoints = Points
                 .Select(p => new Point(p.Lat - offsetLatBy, p.Lon - offsetLonBy));
 
-            var scaleLatBy = scaleLatTo / scaledPoints.Select(p => p.Lat).Max();
-            var scaleLonBy = scaleLonTo / scaledPoints.Select(p => p.Lon).Max();
+            var scaleLatBy = scaleLatTo / offsetPoints.Select(p => p.Lat).Max();
+            var scaleLonBy = scaleLonTo / offsetPoints.Select(p => p.Lon).Max();
+
+            var scaledPoints = offsetPoints
+                .Select(p => new Point(p.Lat * scaleLatBy, Math.Abs((int)(p.Lon*scaleLonBy-scaleLonTo))));
 
             var first = scaledPoints.First();
 
-            var start = $"M {(int)(first.Lat*scaleLatBy)} {(int)(first.Lon*scaleLonBy)} ";
-            var path = start + string.Join("", scaledPoints.Skip(1).Select(p => $"L {(int)(p.Lat*scaleLatBy)} {(int)(p.Lon*scaleLonBy)} "));
-            return $"<path d=\"{path}\" stroke=\"black\" fill=\"transparent\"/>";
+            var start = $"M {first.Lat} {first.Lon} ";
+            var path = string.Join("", scaledPoints
+                .Select(p => $"L {p.Lat} {p.Lon} ")
+                ).Substring(1);
+            
+            return $"<path d=\"M{path}\" stroke=\"black\" fill=\"transparent\"/>";
         }
 
         public string ToSvgPath(decimal offsetLatBy, decimal offsetLonBy, decimal scaleLatBy, decimal scaleLonBy)

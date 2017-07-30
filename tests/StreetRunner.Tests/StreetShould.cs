@@ -15,7 +15,7 @@ namespace StreetRunner.Tests
             });
             var svg = street.ToSvgPath(400, 400);
 
-            Assert.Equal("<path d=\"M 0 0 L 400 400 \" stroke=\"black\" fill=\"transparent\"/>", svg);
+            Assert.Equal("<path d=\"M 0 400 L 400 0 \" stroke=\"black\" fill=\"transparent\"/>", svg);
         }
 
         // [Fact]
