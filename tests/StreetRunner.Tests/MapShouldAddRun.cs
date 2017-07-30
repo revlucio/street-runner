@@ -10,7 +10,7 @@ namespace StreetRunner.Tests
         {
             var map = new Map(Enumerable.Empty<Street>());
             map.AddRun(@"
-<gpx>
+<gpx xmlns=""http://www.topografix.com/GPX/1/1"">
 <trk>
     <name>Test Run</name>
 </trk>
@@ -24,7 +24,7 @@ namespace StreetRunner.Tests
         {
             var map = new Map(Enumerable.Empty<Street>());
             map.AddRun(@"
-<gpx>
+<gpx xmlns=""http://www.topografix.com/GPX/1/1""> 
 <trk>
     <name>Test Run</name>
     <trkseg>
@@ -57,7 +57,7 @@ namespace StreetRunner.Tests
 
             var svg = map.ToSvgPath(100, 100);
 
-            Assert.Equal("<path d=\"M 100 0 L 0 100 \" stroke=\"red\" fill=\"transparent\"/>", svg);
+            Assert.Equal("<path d=\"M 0 100 L 100 0 \" stroke=\"red\" fill=\"transparent\"/>", svg);
         }
     }
 }

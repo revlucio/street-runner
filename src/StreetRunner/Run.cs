@@ -21,8 +21,8 @@ namespace StreetRunner
         internal static Run FromGpx(string gpx)
         {
             var gpxXml = XElement.Parse(gpx);
-            var runXml = gpxXml.Element("trk");
-            var name = runXml.Element("name").Value;
+            var runXml = gpxXml.GetElement("trk");
+            var name = runXml.GetElement("name").Value;
             IEnumerable<Point> points = GetPoints(runXml);
 
             return new Run(name, points);
@@ -30,12 +30,14 @@ namespace StreetRunner
 
         private static IEnumerable<Point> GetPoints(XElement runXml)
         {
-            if (runXml.Elements("trkseg").Any() == false) 
+            if (runXml.Elements().Any(e => e.Name.LocalName == "trkseg") == false) 
             {
                 return Enumerable.Empty<Point>();
             }
 
-            return runXml.Element("trkseg").Elements("trkpt")
+            return runXml
+                .GetElement("trkseg")
+                .GetElements("trkpt")
                 .Select(p => new Point(decimal.Parse(p.Attribute("lat").Value), decimal.Parse(p.Attribute("lon").Value)));
         }
     }

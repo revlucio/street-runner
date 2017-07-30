@@ -21,7 +21,10 @@ namespace StreetRunner
         private static Map OutputAlieStreet()
         {
             var osd = File.ReadAllText(Directory.GetCurrentDirectory() + "/east-london.osm");
+            var gpx = File.ReadAllText(Directory.GetCurrentDirectory() + "/east-london.gpx");
+            
             var map = Map.FromOsd(osd);
+            map.AddRun(gpx);
             Console.WriteLine(map.ToSvgPath(500, 500));
             return map;
         }

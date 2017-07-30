@@ -66,21 +66,21 @@ namespace StreetRunner
             var scaleLonBy = scaleLonTo / (allPoints.Select(p => p.Lon).Max() - offsetLonBy);
 
             var streetPaths = Streets.Select(street => {
-                return ToSvgPath(scaleLonTo, offsetLatBy, offsetLonBy, scaleLatBy, scaleLonBy, street.Points, "black");
+                return ToSvgPath(scaleLatTo, offsetLatBy, offsetLonBy, scaleLatBy, scaleLonBy, street.Points, "black");
             });
             var runPaths = Runs.Select(run => {
-                return ToSvgPath(scaleLonTo, offsetLatBy, offsetLonBy, scaleLatBy, scaleLonBy, run.Points, "red");
+                return ToSvgPath(scaleLatTo, offsetLatBy, offsetLonBy, scaleLatBy, scaleLonBy, run.Points, "red");
             });
             var paths = streetPaths.Concat(runPaths);
             
             return String.Join(Environment.NewLine, paths);
         }
 
-        private static string ToSvgPath(int scaleLonTo, decimal offsetLatBy, decimal offsetLonBy, decimal scaleLatBy, decimal scaleLonBy, IEnumerable<Point> points, string colour)
+        private static string ToSvgPath(int scaleLatTo, decimal offsetLatBy, decimal offsetLonBy, decimal scaleLatBy, decimal scaleLonBy, IEnumerable<Point> points, string colour)
         {
             var scaledPoints = points
                             .Select(p => new Point(p.Lat - offsetLatBy, p.Lon - offsetLonBy))
-                            .Select(p => new Point(p.Lat * scaleLatBy, Math.Abs((int)(p.Lon * scaleLonBy - scaleLonTo))));
+                            .Select(p => new Point(Math.Abs((p.Lat * scaleLatBy) - scaleLatTo), (int)(p.Lon * scaleLonBy)));
 
             var first = scaledPoints.First();
 
