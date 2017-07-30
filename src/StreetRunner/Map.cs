@@ -40,7 +40,34 @@ namespace StreetRunner
 
         public string ToSvgPath(int scaleLatTo, int scaleLonTo)
         {
-            return Streets.Single().ToSvgPath(scaleLatTo, scaleLonTo);
+            var allPoints = Streets.SelectMany(s => s.Points);
+
+            var offsetLatBy = allPoints.Select(p => p.Lat).Min();
+            var offsetLonBy = allPoints.Select(p => p.Lon).Min();
+            var scaleLatBy = scaleLatTo / (allPoints.Select(p => p.Lat).Max() - offsetLatBy);
+            var scaleLonBy = scaleLonTo / (allPoints.Select(p => p.Lon).Max() - offsetLonBy);
+
+            var paths = Streets.Select(street => {
+                return ToSvgPath(scaleLonTo, offsetLatBy, offsetLonBy, scaleLatBy, scaleLonBy, street);
+            });
+            
+            return String.Join(Environment.NewLine, paths);
+        }
+
+        private static string ToSvgPath(int scaleLonTo, decimal offsetLatBy, decimal offsetLonBy, decimal scaleLatBy, decimal scaleLonBy, Street street)
+        {
+            var scaledPoints = street.Points
+                            .Select(p => new Point(p.Lat - offsetLatBy, p.Lon - offsetLonBy))
+                            .Select(p => new Point(p.Lat * scaleLatBy, Math.Abs((int)(p.Lon * scaleLonBy - scaleLonTo))));
+
+            var first = scaledPoints.First();
+
+            var start = $"M {first.Lat} {first.Lon} ";
+            var path = string.Join("", scaledPoints
+                .Select(p => $"L {p.Lat} {p.Lon} ")
+                ).Substring(1);
+
+            return $"<path d=\"M{path}\" stroke=\"black\" fill=\"transparent\"/>";
         }
 
         public Map(IEnumerable<Street> streets)

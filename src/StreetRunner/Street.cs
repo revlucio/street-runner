@@ -39,18 +39,6 @@ namespace StreetRunner
             
             return $"<path d=\"M{path}\" stroke=\"black\" fill=\"transparent\"/>";
         }
-
-        internal string ToSvgPath(decimal offsetLatBy, decimal offsetLonBy, decimal scaleLatBy, decimal scaleLonBy)
-        {
-            var scaledPoints = Points
-                .Select(p => new Point(p.Lat - offsetLatBy, p.Lon - offsetLonBy));
-
-            var first = scaledPoints.First();
-
-            var start = $"M {(int)(first.Lat*scaleLatBy)} {(int)(first.Lon*scaleLonBy)} ";
-            var path = start + string.Join("", scaledPoints.Skip(1).Select(p => $"L {(int)(p.Lat*scaleLatBy)} {(int)(p.Lon*scaleLonBy)} "));
-            return $"<path d=\"{path}\" stroke=\"black\" fill=\"transparent\"/>";
-        }
     }
 
     public class Point
