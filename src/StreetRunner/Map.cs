@@ -7,7 +7,11 @@ namespace StreetRunner
 {
     public class Map
     {
-        public IEnumerable<Street> Streets {get;set;}
+        private IEnumerable<Street> _streets;
+
+        public IEnumerable<Street> Streets => _streets
+            // .Where(s => s.Name == "Alie Street" || s.Name == "Prescot Street" || s.Name == "Leman Street")
+            ;
         
         public static Map FromOsd(string osd)
         {
@@ -62,9 +66,8 @@ namespace StreetRunner
 
             var first = scaledPoints.First();
 
-            var start = $"M {first.Lat} {first.Lon} ";
             var path = string.Join("", scaledPoints
-                .Select(p => $"L {p.Lat} {p.Lon} ")
+                .Select(p => $"L {p.Lon} {p.Lat} ")
                 ).Substring(1);
 
             return $"<path d=\"M{path}\" stroke=\"black\" fill=\"transparent\"/>";
@@ -72,7 +75,7 @@ namespace StreetRunner
 
         public Map(IEnumerable<Street> streets)
         {
-            Streets = streets;
+            _streets = streets;
         }
     }
 }

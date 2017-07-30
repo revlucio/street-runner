@@ -17,7 +17,7 @@ namespace StreetRunner.Tests
             var map = new Map(new List<Street>{street});
             var svg = map.ToSvgPath(100, 100);
 
-            Assert.Equal("<path d=\"M 0 100 L 100 0 \" stroke=\"black\" fill=\"transparent\"/>", svg);
+            Assert.Equal("<path d=\"M 100 0 L 0 100 \" stroke=\"black\" fill=\"transparent\"/>", svg);
         }
 
         [Fact]
@@ -31,7 +31,7 @@ namespace StreetRunner.Tests
             var map = new Map(new List<Street>{street});
             var svg = map.ToSvgPath(400, 400);
 
-            Assert.Equal("<path d=\"M 0 400 L 400 0 \" stroke=\"black\" fill=\"transparent\"/>", svg);
+            Assert.Equal("<path d=\"M 400 0 L 0 400 \" stroke=\"black\" fill=\"transparent\"/>", svg);
         }
 
         [Fact]
@@ -51,8 +51,8 @@ namespace StreetRunner.Tests
             var svg = map.ToSvgPath(400, 400);
 
             Assert.Equal(
-@"<path d=""M 0 400 L 200 200 "" stroke=""black"" fill=""transparent""/>
-<path d=""M 200 200 L 400 0 "" stroke=""black"" fill=""transparent""/>"
+@"<path d=""M 400 0 L 200 200 "" stroke=""black"" fill=""transparent""/>
+<path d=""M 200 200 L 0 400 "" stroke=""black"" fill=""transparent""/>"
             , svg);
         }
     }
