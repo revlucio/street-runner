@@ -3,7 +3,7 @@ using Xunit;
 
 namespace StreetRunner.Tests
 {
-    public class MapShould
+    public class MapShouldImport
     {
         [Fact]
         public void ImportStreetFromOdf()

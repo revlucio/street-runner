@@ -15,7 +15,7 @@ namespace StreetRunner
         public string Name { get; }
         public IEnumerable<Point> Points { get; }
 
-        public string ToSvgPath(int scaleLatTo, int scaleLonTo)
+        internal string ToSvgPath(int scaleLatTo, int scaleLonTo)
         {
             var offsetLatBy = Points.Select(p => p.Lat).Min();
             var offsetLonBy = Points.Select(p => p.Lon).Min();
@@ -40,7 +40,7 @@ namespace StreetRunner
             return $"<path d=\"M{path}\" stroke=\"black\" fill=\"transparent\"/>";
         }
 
-        public string ToSvgPath(decimal offsetLatBy, decimal offsetLonBy, decimal scaleLatBy, decimal scaleLonBy)
+        internal string ToSvgPath(decimal offsetLatBy, decimal offsetLonBy, decimal scaleLatBy, decimal scaleLonBy)
         {
             var scaledPoints = Points
                 .Select(p => new Point(p.Lat - offsetLatBy, p.Lon - offsetLonBy));

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
@@ -35,6 +36,11 @@ namespace StreetRunner
                 });
 
             return new Map(streets);
+        }
+
+        public string ToSvgPath(int scaleLatTo, int scaleLonTo)
+        {
+            return Streets.Single().ToSvgPath(scaleLatTo, scaleLonTo);
         }
 
         public Map(IEnumerable<Street> streets)
