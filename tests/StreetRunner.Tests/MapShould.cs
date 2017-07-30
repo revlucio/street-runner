@@ -24,7 +24,7 @@ namespace StreetRunner.Tests
             var map = Map.FromOsd(@"
 <osm>
  <way>
-  <tag k=""something"" v=""Main Street""/>
+  <tag k=""not-name"" v=""Main Street""/>
  </way>
 </osm>");
 
@@ -49,8 +49,8 @@ namespace StreetRunner.Tests
         {
             var map = Map.FromOsd(@"
 <osm>
- <node id=""111"" lat=""11.1234567"" lon=""22.1234567""/>
- <node id=""222"" lat=""33.1234567"" lon=""44.1234567""/>
+ <node id=""111"" lat=""11.1"" lon=""22.2""/>
+ <node id=""222"" lat=""33.3"" lon=""44.4""/>
  <way>
   <nd ref=""111""/>
   <nd ref=""222""/>
@@ -60,10 +60,10 @@ namespace StreetRunner.Tests
 
             var street = map.Streets.First();
             Assert.Equal("Main Street", street.Name);
-            Assert.Equal(11.1234567m, street.Points.First().Lat);
-            Assert.Equal(22.1234567m, street.Points.First().Lon);
-            Assert.Equal(33.1234567m, street.Points.Last().Lat);
-            Assert.Equal(44.1234567m, street.Points.Last().Lon);
+            Assert.Equal(11.1m, street.Points.First().Lat);
+            Assert.Equal(22.2m, street.Points.First().Lon);
+            Assert.Equal(33.3m, street.Points.Last().Lat);
+            Assert.Equal(44.4m, street.Points.Last().Lon);
         }
     }
 }
