@@ -1,0 +1,1236 @@
+<osm version="0.6" generator="CGImap 0.5.8 (16037 thorn-02.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+  <bounds minlat="51.5014000" minlon="-0.0824000" maxlat="51.5178000" maxlon="-0.0424000" />
+  <node id="104326" visible="true" version="5" changeset="13402538" timestamp="2012-10-07T18:28:00Z" user="Metanautics fixes" uid="900987" lat="51.5148530" lon="-0.0715162" />
+  <node id="424613" visible="true" version="6" changeset="14112622" timestamp="2012-12-01T14:56:23Z" user="andreamar" uid="348243" lat="51.5108071" lon="-0.0684993">
+    <tag k="highway" v="traffic_signals" />
+  </node>
+  <node id="424624" visible="true" version="5" changeset="14070408" timestamp="2012-11-28T10:37:30Z" user="Amaroussi" uid="1016290" lat="51.5138978" lon="-0.0706712">
+    <tag k="highway" v="traffic_signals" />
+  </node>
+  <node id="18055045" visible="true" version="5" changeset="16739264" timestamp="2013-06-28T13:18:59Z" user="Amaroussi" uid="1016290" lat="51.5120440" lon="-0.0691903" />
+  <node id="18055093" visible="true" version="3" changeset="14070408" timestamp="2012-11-28T10:39:24Z" user="Amaroussi" uid="1016290" lat="51.5146746" lon="-0.0689672" />
+  <node id="18055094" visible="true" version="6" changeset="35867808" timestamp="2015-12-10T15:28:32Z" user="Amaroussi" uid="1016290" lat="51.5127661" lon="-0.0697784" />
+  <node id="28427645" visible="true" version="2" changeset="752043" timestamp="2009-03-07T17:17:07Z" user="amm" uid="21931" lat="51.5142941" lon="-0.0710400" />
+  <node id="48906847" visible="true" version="5" changeset="27427071" timestamp="2014-12-12T18:00:36Z" user="Amaroussi" uid="1016290" lat="51.5150158" lon="-0.0716126">
+    <tag k="crossing" v="traffic_signals" />
+    <tag k="highway" v="crossing" />
+  </node>
+  <node id="132302085" visible="true" version="5" changeset="14112622" timestamp="2012-12-01T14:56:22Z" user="andreamar" uid="348243" lat="51.5108545" lon="-0.0685176">
+    <tag k="highway" v="traffic_signals" />
+  </node>
+  <node id="262572488" visible="true" version="7" changeset="19479454" timestamp="2013-12-16T10:10:37Z" user="Meersbrook" uid="412560" lat="51.5114371" lon="-0.0687422" />
+  <node id="297552389" visible="true" version="6" changeset="13402538" timestamp="2012-10-07T18:28:04Z" user="Metanautics fixes" uid="900987" lat="51.5146592" lon="-0.0713890" />
+  <node id="577491347" visible="true" version="8" changeset="13402538" timestamp="2012-10-07T18:28:04Z" user="Metanautics fixes" uid="900987" lat="51.5114186" lon="-0.0728872" />
+  <node id="585124778" visible="true" version="2" changeset="13402538" timestamp="2012-10-07T18:28:04Z" user="Metanautics fixes" uid="900987" lat="51.5115541" lon="-0.0729709" />
+  <node id="585125026" visible="true" version="4" changeset="16739264" timestamp="2013-06-28T13:09:47Z" user="Amaroussi" uid="1016290" lat="51.5113782" lon="-0.0727707">
+    <tag k="highway" v="traffic_signals" />
+  </node>
+  <node id="669645092" visible="true" version="4" changeset="13402538" timestamp="2012-10-07T18:28:05Z" user="Metanautics fixes" uid="900987" lat="51.5135350" lon="-0.0717393" />
+  <node id="674683115" visible="true" version="3" changeset="16739264" timestamp="2013-06-28T13:19:00Z" user="Amaroussi" uid="1016290" lat="51.5116469" lon="-0.0708871" />
+  <node id="702475024" visible="true" version="3" changeset="13402538" timestamp="2012-10-07T18:28:05Z" user="Metanautics fixes" uid="900987" lat="51.5145809" lon="-0.0713052" />
+  <node id="702476520" visible="true" version="2" changeset="13402538" timestamp="2012-10-07T18:28:05Z" user="Metanautics fixes" uid="900987" lat="51.5132000" lon="-0.0730682">
+    <tag k="crossing" v="zebra" />
+    <tag k="highway" v="crossing" />
+  </node>
+  <node id="727631333" visible="true" version="3" changeset="20091198" timestamp="2014-01-19T19:15:30Z" user="yourealwaysbe" uid="1878856" lat="51.5142370" lon="-0.0705845" />
+  <node id="727631368" visible="true" version="3" changeset="20091198" timestamp="2014-01-19T19:15:30Z" user="yourealwaysbe" uid="1878856" lat="51.5142546" lon="-0.0703435" />
+  <node id="727631388" visible="true" version="2" changeset="7324441" timestamp="2011-02-18T17:34:11Z" user="dankarran" uid="1185" lat="51.5142371" lon="-0.0703807" />
+  <node id="727631409" visible="true" version="2" changeset="7324441" timestamp="2011-02-18T17:34:11Z" user="dankarran" uid="1185" lat="51.5141379" lon="-0.0702671" />
+  <node id="727631425" visible="true" version="3" changeset="20091198" timestamp="2014-01-19T19:15:30Z" user="yourealwaysbe" uid="1878856" lat="51.5140769" lon="-0.0704173" />
+  <node id="870276101" visible="true" version="6" changeset="18447339" timestamp="2013-10-20T09:22:12Z" user="DLMatthews" uid="162917" lat="51.5112742" lon="-0.0727496">
+    <tag k="crossing" v="toucan" />
+    <tag k="highway" v="crossing" />
+  </node>
+  <node id="881944060" visible="true" version="2" changeset="20090135" timestamp="2014-01-19T18:14:53Z" user="yourealwaysbe" uid="1878856" lat="51.5112103" lon="-0.0686537" />
+  <node id="1159347273" visible="true" version="1" changeset="7324441" timestamp="2011-02-18T17:34:03Z" user="dankarran" uid="1185" lat="51.5136496" lon="-0.0722368" />
+  <node id="1159347279" visible="true" version="1" changeset="7324441" timestamp="2011-02-18T17:34:04Z" user="dankarran" uid="1185" lat="51.5135661" lon="-0.0722260" />
+  <node id="1159347280" visible="true" version="1" changeset="7324441" timestamp="2011-02-18T17:34:04Z" user="dankarran" uid="1185" lat="51.5136429" lon="-0.0725640" />
+  <node id="1159347290" visible="true" version="2" changeset="26825254" timestamp="2014-11-16T16:22:51Z" user="yourealwaysbe" uid="1878856" lat="51.5136690" lon="-0.0730655" />
+  <node id="1159347310" visible="true" version="1" changeset="7324441" timestamp="2011-02-18T17:34:04Z" user="dankarran" uid="1185" lat="51.5136796" lon="-0.0725694" />
+  <node id="1159347312" visible="true" version="1" changeset="7324441" timestamp="2011-02-18T17:34:04Z" user="dankarran" uid="1185" lat="51.5135594" lon="-0.0729771" />
+  <node id="1159347320" visible="true" version="1" changeset="7324441" timestamp="2011-02-18T17:34:04Z" user="dankarran" uid="1185" lat="51.5134092" lon="-0.0724192" />
+  <node id="1159347323" visible="true" version="1" changeset="7324441" timestamp="2011-02-18T17:34:04Z" user="dankarran" uid="1185" lat="51.5134826" lon="-0.0721563" />
+  <node id="1159347330" visible="true" version="1" changeset="7324441" timestamp="2011-02-18T17:34:05Z" user="dankarran" uid="1185" lat="51.5136362" lon="-0.0722743" />
+  <node id="1159347340" visible="true" version="1" changeset="7324441" timestamp="2011-02-18T17:34:05Z" user="dankarran" uid="1185" lat="51.5135461" lon="-0.0728054" />
+  <node id="1159347367" visible="true" version="1" changeset="7324441" timestamp="2011-02-18T17:34:06Z" user="dankarran" uid="1185" lat="51.5132823" lon="-0.0731004" />
+  <node id="1159347370" visible="true" version="2" changeset="26825096" timestamp="2014-11-16T16:18:44Z" user="yourealwaysbe" uid="1878856" lat="51.5140535" lon="-0.0708907" />
+  <node id="1159347375" visible="true" version="1" changeset="7324441" timestamp="2011-02-18T17:34:06Z" user="dankarran" uid="1185" lat="51.5135694" lon="-0.0729127" />
+  <node id="1159347391" visible="true" version="1" changeset="7324441" timestamp="2011-02-18T17:34:06Z" user="dankarran" uid="1185" lat="51.5137030" lon="-0.0723119" />
+  <node id="1159347414" visible="true" version="2" changeset="26825254" timestamp="2014-11-16T16:22:51Z" user="yourealwaysbe" uid="1878856" lat="51.5136260" lon="-0.0732466" />
+  <node id="1159347426" visible="true" version="1" changeset="7324441" timestamp="2011-02-18T17:34:07Z" user="dankarran" uid="1185" lat="51.5136262" lon="-0.0730039" />
+  <node id="1159347439" visible="true" version="1" changeset="7324441" timestamp="2011-02-18T17:34:07Z" user="dankarran" uid="1185" lat="51.5135828" lon="-0.0721831" />
+  <node id="1159347447" visible="true" version="2" changeset="26825254" timestamp="2014-11-16T16:22:51Z" user="yourealwaysbe" uid="1878856" lat="51.5136790" lon="-0.0730260" />
+  <node id="1159347450" visible="true" version="1" changeset="7324441" timestamp="2011-02-18T17:34:07Z" user="dankarran" uid="1185" lat="51.5135127" lon="-0.0729556" />
+  <node id="1159347452" visible="true" version="1" changeset="7324441" timestamp="2011-02-18T17:34:07Z" user="dankarran" uid="1185" lat="51.5136262" lon="-0.0728483" />
+  <node id="1159347478" visible="true" version="1" changeset="7324441" timestamp="2011-02-18T17:34:08Z" user="dankarran" uid="1185" lat="51.5136429" lon="-0.0729502" />
+  <node id="1233335396" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:35Z" user="Meersbrook" uid="412560" lat="51.5112360" lon="-0.0724571" />
+  <node id="1233335397" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:35Z" user="Meersbrook" uid="412560" lat="51.5111902" lon="-0.0724307" />
+  <node id="1233335413" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:35Z" user="Meersbrook" uid="412560" lat="51.5113023" lon="-0.0724999" />
+  <node id="1233335415" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:35Z" user="Meersbrook" uid="412560" lat="51.5113296" lon="-0.0723582" />
+  <node id="1233335417" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:35Z" user="Meersbrook" uid="412560" lat="51.5111130" lon="-0.0722232" />
+  <node id="1233335419" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:35Z" user="Meersbrook" uid="412560" lat="51.5111130" lon="-0.0722309" />
+  <node id="1233335420" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:35Z" user="Meersbrook" uid="412560" lat="51.5111055" lon="-0.0722397" />
+  <node id="1233335425" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:35Z" user="Meersbrook" uid="412560" lat="51.5111021" lon="-0.0722891" />
+  <node id="1233335426" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:35Z" user="Meersbrook" uid="412560" lat="51.5111068" lon="-0.0722924" />
+  <node id="1233335427" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:35Z" user="Meersbrook" uid="412560" lat="51.5111007" lon="-0.0723385" />
+  <node id="1233335428" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:35Z" user="Meersbrook" uid="412560" lat="51.5111936" lon="-0.0724186" />
+  <node id="1233335430" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:35Z" user="Meersbrook" uid="412560" lat="51.5113595" lon="-0.0721393" />
+  <node id="1233335431" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:35Z" user="Meersbrook" uid="412560" lat="51.5112226" lon="-0.0720745" />
+  <node id="1233335433" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:35Z" user="Meersbrook" uid="412560" lat="51.5112131" lon="-0.0721264" />
+  <node id="1233335435" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:35Z" user="Meersbrook" uid="412560" lat="51.5112011" lon="-0.0721990" />
+  <node id="1233335437" visible="true" version="3" changeset="19479454" timestamp="2013-12-16T10:10:35Z" user="Meersbrook" uid="412560" lat="51.5110802" lon="-0.0721387" />
+  <node id="1233335438" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:35Z" user="Meersbrook" uid="412560" lat="51.5110747" lon="-0.0722023" />
+  <node id="1233335443" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:35Z" user="Meersbrook" uid="412560" lat="51.5113692" lon="-0.0721518" />
+  <node id="1233335444" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:35Z" user="Meersbrook" uid="412560" lat="51.5113793" lon="-0.0721487" />
+  <node id="1233335446" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:35Z" user="Meersbrook" uid="412560" lat="51.5113849" lon="-0.0721376" />
+  <node id="1233335447" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:35Z" user="Meersbrook" uid="412560" lat="51.5113845" lon="-0.0721205" />
+  <node id="1233335449" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:35Z" user="Meersbrook" uid="412560" lat="51.5113777" lon="-0.0721173" />
+  <node id="1233335451" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:35Z" user="Meersbrook" uid="412560" lat="51.5113941" lon="-0.0720276" />
+  <node id="1233335453" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:35Z" user="Meersbrook" uid="412560" lat="51.5113972" lon="-0.0720291" />
+  <node id="1233335454" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:35Z" user="Meersbrook" uid="412560" lat="51.5114048" lon="-0.0720080" />
+  <node id="1233335456" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:35Z" user="Meersbrook" uid="412560" lat="51.5114056" lon="-0.0719833" />
+  <node id="1233335458" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:35Z" user="Meersbrook" uid="412560" lat="51.5113966" lon="-0.0719729" />
+  <node id="1233335459" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:35Z" user="Meersbrook" uid="412560" lat="51.5113897" lon="-0.0719733" />
+  <node id="1233335461" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:35Z" user="Meersbrook" uid="412560" lat="51.5113861" lon="-0.0719741" />
+  <node id="1233335463" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:35Z" user="Meersbrook" uid="412560" lat="51.5113835" lon="-0.0719882" />
+  <node id="1233335465" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:35Z" user="Meersbrook" uid="412560" lat="51.5112340" lon="-0.0719174" />
+  <node id="1233335467" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:35Z" user="Meersbrook" uid="412560" lat="51.5112438" lon="-0.0718642" />
+  <node id="1233335469" visible="true" version="3" changeset="46822939" timestamp="2017-03-13T20:22:53Z" user="trigpoint" uid="12992" lat="51.5112609" lon="-0.0717616" />
+  <node id="1233335476" visible="true" version="3" changeset="44161410" timestamp="2016-12-04T16:48:55Z" user="Daniel McLaughlin" uid="2546116" lat="51.5111509" lon="-0.0717477" />
+  <node id="1233335478" visible="true" version="3" changeset="19479454" timestamp="2013-12-16T10:10:35Z" user="Meersbrook" uid="412560" lat="51.5110931" lon="-0.0720707" />
+  <node id="1233335506" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:36Z" user="Meersbrook" uid="412560" lat="51.5114127" lon="-0.0715921" />
+  <node id="1233335508" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:36Z" user="Meersbrook" uid="412560" lat="51.5113150" lon="-0.0715504" />
+  <node id="1233335538" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:36Z" user="Meersbrook" uid="412560" lat="51.5113120" lon="-0.0707689" />
+  <node id="1233335539" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:36Z" user="Meersbrook" uid="412560" lat="51.5112778" lon="-0.0709845" />
+  <node id="1233335540" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:36Z" user="Meersbrook" uid="412560" lat="51.5113136" lon="-0.0709992" />
+  <node id="1233335541" visible="true" version="3" changeset="21633504" timestamp="2014-04-11T19:38:32Z" user="yourealwaysbe" uid="1878856" lat="51.5113289" lon="-0.0713554" />
+  <node id="1233335542" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:36Z" user="Meersbrook" uid="412560" lat="51.5113739" lon="-0.0713747" />
+  <node id="1233335543" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:36Z" user="Meersbrook" uid="412560" lat="51.5113602" lon="-0.0714575" />
+  <node id="1233335544" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:36Z" user="Meersbrook" uid="412560" lat="51.5113030" lon="-0.0714330" />
+  <node id="1233335546" visible="true" version="3" changeset="21633504" timestamp="2014-04-11T19:38:33Z" user="yourealwaysbe" uid="1878856" lat="51.5112857" lon="-0.0715379" />
+  <node id="1233335548" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:36Z" user="Meersbrook" uid="412560" lat="51.5114474" lon="-0.0716070" />
+  <node id="1233335551" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:36Z" user="Meersbrook" uid="412560" lat="51.5114647" lon="-0.0715021" />
+  <node id="1233335558" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:36Z" user="Meersbrook" uid="412560" lat="51.5115567" lon="-0.0709136" />
+  <node id="1233335559" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:36Z" user="Meersbrook" uid="412560" lat="51.5115372" lon="-0.0708610" />
+  <node id="1233335573" visible="true" version="2" changeset="21633504" timestamp="2014-04-11T19:38:32Z" user="yourealwaysbe" uid="1878856" lat="51.5113382" lon="-0.0705070" />
+  <node id="1233335575" visible="true" version="2" changeset="21633504" timestamp="2014-04-11T19:38:32Z" user="yourealwaysbe" uid="1878856" lat="51.5113521" lon="-0.0704121" />
+  <node id="1233335577" visible="true" version="2" changeset="21633504" timestamp="2014-04-11T19:38:32Z" user="yourealwaysbe" uid="1878856" lat="51.5116194" lon="-0.0705228" />
+  <node id="1233335578" visible="true" version="2" changeset="21633504" timestamp="2014-04-11T19:38:32Z" user="yourealwaysbe" uid="1878856" lat="51.5116038" lon="-0.0706194" />
+  <node id="1233335623" visible="true" version="3" changeset="21633504" timestamp="2014-04-11T19:38:32Z" user="yourealwaysbe" uid="1878856" lat="51.5116397" lon="-0.0699275" />
+  <node id="1233335625" visible="true" version="3" changeset="21633504" timestamp="2014-04-11T19:38:32Z" user="yourealwaysbe" uid="1878856" lat="51.5117107" lon="-0.0699569" />
+  <node id="1233366451" visible="true" version="1" changeset="7772325" timestamp="2011-04-05T07:46:43Z" user="Ed Avis" uid="31257" lat="51.5132520" lon="-0.0718891" />
+  <node id="1233366452" visible="true" version="1" changeset="7772325" timestamp="2011-04-05T07:46:43Z" user="Ed Avis" uid="31257" lat="51.5132676" lon="-0.0718400" />
+  <node id="1233366453" visible="true" version="1" changeset="7772325" timestamp="2011-04-05T07:46:43Z" user="Ed Avis" uid="31257" lat="51.5133388" lon="-0.0719604" />
+  <node id="1233366454" visible="true" version="1" changeset="7772325" timestamp="2011-04-05T07:46:43Z" user="Ed Avis" uid="31257" lat="51.5133800" lon="-0.0718308" />
+  <node id="1233366455" visible="true" version="1" changeset="7772325" timestamp="2011-04-05T07:46:43Z" user="Ed Avis" uid="31257" lat="51.5132932" lon="-0.0717595" />
+  <node id="1233366456" visible="true" version="1" changeset="7772325" timestamp="2011-04-05T07:46:44Z" user="Ed Avis" uid="31257" lat="51.5134062" lon="-0.0717485" />
+  <node id="1233366457" visible="true" version="1" changeset="7772325" timestamp="2011-04-05T07:46:44Z" user="Ed Avis" uid="31257" lat="51.5132984" lon="-0.0716600" />
+  <node id="1233366458" visible="true" version="1" changeset="7772325" timestamp="2011-04-05T07:46:44Z" user="Ed Avis" uid="31257" lat="51.5132936" lon="-0.0716752" />
+  <node id="1233366459" visible="true" version="1" changeset="7772325" timestamp="2011-04-05T07:46:44Z" user="Ed Avis" uid="31257" lat="51.5132708" lon="-0.0716564" />
+  <node id="1233366460" visible="true" version="1" changeset="7772325" timestamp="2011-04-05T07:46:44Z" user="Ed Avis" uid="31257" lat="51.5132552" lon="-0.0717055" />
+  <node id="1233366461" visible="true" version="1" changeset="7772325" timestamp="2011-04-05T07:46:44Z" user="Ed Avis" uid="31257" lat="51.5132777" lon="-0.0717240" />
+  <node id="1233366462" visible="true" version="1" changeset="7772325" timestamp="2011-04-05T07:46:44Z" user="Ed Avis" uid="31257" lat="51.5132720" lon="-0.0717421" />
+  <node id="1233366463" visible="true" version="1" changeset="7772325" timestamp="2011-04-05T07:46:44Z" user="Ed Avis" uid="31257" lat="51.5134315" lon="-0.0716692" />
+  <node id="1233366464" visible="true" version="1" changeset="7772325" timestamp="2011-04-05T07:46:44Z" user="Ed Avis" uid="31257" lat="51.5133181" lon="-0.0715761" />
+  <node id="1233366465" visible="true" version="1" changeset="7772325" timestamp="2011-04-05T07:46:44Z" user="Ed Avis" uid="31257" lat="51.5132929" lon="-0.0716555" />
+  <node id="1233366474" visible="true" version="1" changeset="7772325" timestamp="2011-04-05T07:46:44Z" user="Ed Avis" uid="31257" lat="51.5133631" lon="-0.0716130" />
+  <node id="1233366479" visible="true" version="1" changeset="7772325" timestamp="2011-04-05T07:46:44Z" user="Ed Avis" uid="31257" lat="51.5130037" lon="-0.0721548" />
+  <node id="1233366483" visible="true" version="1" changeset="7772325" timestamp="2011-04-05T07:46:45Z" user="Ed Avis" uid="31257" lat="51.5131186" lon="-0.0722116" />
+  <node id="1233366499" visible="true" version="1" changeset="7772325" timestamp="2011-04-05T07:46:45Z" user="Ed Avis" uid="31257" lat="51.5129757" lon="-0.0721409" />
+  <node id="1233366500" visible="true" version="1" changeset="7772325" timestamp="2011-04-05T07:46:45Z" user="Ed Avis" uid="31257" lat="51.5128882" lon="-0.0725977" />
+  <node id="1233366501" visible="true" version="1" changeset="7772325" timestamp="2011-04-05T07:46:45Z" user="Ed Avis" uid="31257" lat="51.5129076" lon="-0.0726073" />
+  <node id="1233366502" visible="true" version="1" changeset="7772325" timestamp="2011-04-05T07:46:45Z" user="Ed Avis" uid="31257" lat="51.5130326" lon="-0.0726690" />
+  <node id="1233366503" visible="true" version="1" changeset="7772325" timestamp="2011-04-05T07:46:45Z" user="Ed Avis" uid="31257" lat="51.5130370" lon="-0.0726458" />
+  <node id="1233366504" visible="true" version="1" changeset="7772325" timestamp="2011-04-05T07:46:45Z" user="Ed Avis" uid="31257" lat="51.5131639" lon="-0.0727085" />
+  <node id="1233366505" visible="true" version="1" changeset="7772325" timestamp="2011-04-05T07:46:45Z" user="Ed Avis" uid="31257" lat="51.5131709" lon="-0.0727120" />
+  <node id="1233366507" visible="true" version="1" changeset="7772325" timestamp="2011-04-05T07:46:45Z" user="Ed Avis" uid="31257" lat="51.5132515" lon="-0.0722910" />
+  <node id="1233366509" visible="true" version="1" changeset="7772325" timestamp="2011-04-05T07:46:45Z" user="Ed Avis" uid="31257" lat="51.5131162" lon="-0.0722242" />
+  <node id="1233370029" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:36Z" user="Meersbrook" uid="412560" lat="51.5110748" lon="-0.0721674" />
+  <node id="1233370034" visible="true" version="2" changeset="19479454" timestamp="2013-12-16T10:10:37Z" user="Meersbrook" uid="412560" lat="51.5111086" lon="-0.0719886" />
+  <node id="1233371203" visible="true" version="2" changeset="16739264" timestamp="2013-06-28T13:19:00Z" user="Amaroussi" uid="1016290" lat="51.5117365" lon="-0.0703209" />
+  <node id="1233371215" visible="true" version="2" changeset="16739264" timestamp="2013-06-28T13:19:00Z" user="Amaroussi" uid="1016290" lat="51.5117818" lon="-0.0700371" />
+  <node id="1233371229" visible="true" version="2" changeset="16739264" timestamp="2013-06-28T13:19:00Z" user="Amaroussi" uid="1016290" lat="51.5118497" lon="-0.0696121" />
+  <node id="1557407051" visible="true" version="2" changeset="21633504" timestamp="2014-04-11T19:38:32Z" user="yourealwaysbe" uid="1878856" lat="51.5112252" lon="-0.0703594" />
+  <node id="1557407054" visible="true" version="2" changeset="21633504" timestamp="2014-04-11T19:38:32Z" user="yourealwaysbe" uid="1878856" lat="51.5112961" lon="-0.0698820" />
+  <node id="1557407063" visible="true" version="2" changeset="21633504" timestamp="2014-04-11T19:38:32Z" user="yourealwaysbe" uid="1878856" lat="51.5116239" lon="-0.0700161" />
+  <node id="1557407068" visible="true" version="2" changeset="21633504" timestamp="2014-04-11T19:38:32Z" user="yourealwaysbe" uid="1878856" lat="51.5116964" lon="-0.0700457" />
+  <node id="1590148308" visible="true" version="4" changeset="16739264" timestamp="2013-06-28T13:09:48Z" user="Amaroussi" uid="1016290" lat="51.5113906" lon="-0.0724908" />
+  <node id="1590148309" visible="true" version="2" changeset="13402538" timestamp="2012-10-07T18:28:01Z" user="Metanautics fixes" uid="900987" lat="51.5114194" lon="-0.0723116" />
+  <node id="1590148311" visible="true" version="2" changeset="16739264" timestamp="2013-06-28T13:19:00Z" user="Amaroussi" uid="1016290" lat="51.5116730" lon="-0.0707318" />
+  <node id="1590148325" visible="true" version="1" changeset="10393937" timestamp="2012-01-15T00:09:29Z" user="Paul The Archivist" uid="82783" lat="51.5129402" lon="-0.0723264" />
+  <node id="1590148328" visible="true" version="2" changeset="13402538" timestamp="2012-10-07T18:28:01Z" user="Metanautics fixes" uid="900987" lat="51.5131797" lon="-0.0732732" />
+  <node id="1590148332" visible="true" version="1" changeset="10393937" timestamp="2012-01-15T00:09:30Z" user="Paul The Archivist" uid="82783" lat="51.5132174" lon="-0.0724690" />
+  <node id="1590148335" visible="true" version="2" changeset="13402538" timestamp="2012-10-07T18:28:02Z" user="Metanautics fixes" uid="900987" lat="51.5133341" lon="-0.0723485" />
+  <node id="1590148337" visible="true" version="2" changeset="13402538" timestamp="2012-10-07T18:28:02Z" user="Metanautics fixes" uid="900987" lat="51.5135804" lon="-0.0716185" />
+  <node id="1590148338" visible="true" version="2" changeset="13402538" timestamp="2012-10-07T18:28:02Z" user="Metanautics fixes" uid="900987" lat="51.5138170" lon="-0.0709135" />
+  <node id="1692237460" visible="true" version="2" changeset="14070408" timestamp="2012-11-28T10:46:27Z" user="Amaroussi" uid="1016290" lat="51.5145398" lon="-0.0691477" />
+  <node id="1692237464" visible="true" version="2" changeset="14070408" timestamp="2012-11-28T10:46:27Z" user="Amaroussi" uid="1016290" lat="51.5144613" lon="-0.0693154" />
+  <node id="1794997548" visible="true" version="1" changeset="11953052" timestamp="2012-06-19T21:25:33Z" user="mcld" uid="238584" lat="51.5112058" lon="-0.0686512" />
+  <node id="1794997563" visible="true" version="1" changeset="11953052" timestamp="2012-06-19T21:25:33Z" user="mcld" uid="238584" lat="51.5109744" lon="-0.0683883">
+    <tag k="barrier" v="bollard" />
+  </node>
+  <node id="1864047134" visible="true" version="1" changeset="12711244" timestamp="2012-08-13T09:27:41Z" user="SomePlaceMapperCT" uid="445666" lat="51.5110139" lon="-0.0727943" />
+  <node id="1951199808" visible="true" version="3" changeset="27427071" timestamp="2014-12-12T18:00:35Z" user="Amaroussi" uid="1016290" lat="51.5151680" lon="-0.0716990" />
+  <node id="1990915215" visible="true" version="3" changeset="16739264" timestamp="2013-06-28T13:09:48Z" user="Amaroussi" uid="1016290" lat="51.5113139" lon="-0.0727108">
+    <tag k="highway" v="traffic_signals" />
+  </node>
+  <node id="2038021424" visible="true" version="1" changeset="14070408" timestamp="2012-11-28T10:46:27Z" user="Amaroussi" uid="1016290" lat="51.5145745" lon="-0.0690867" />
+  <node id="2038021425" visible="true" version="1" changeset="14070408" timestamp="2012-11-28T10:46:27Z" user="Amaroussi" uid="1016290" lat="51.5146089" lon="-0.0690408" />
+  <node id="2145745298" visible="true" version="1" changeset="14949117" timestamp="2013-02-07T20:15:44Z" user="peregrination" uid="486343" lat="51.5142221" lon="-0.0700744" />
+  <node id="2364371182" visible="true" version="3" changeset="16739264" timestamp="2013-06-28T13:06:43Z" user="Amaroussi" uid="1016290" lat="51.5112012" lon="-0.0727802" />
+  <node id="2364378224" visible="true" version="2" changeset="16739264" timestamp="2013-06-28T13:06:43Z" user="Amaroussi" uid="1016290" lat="51.5111474" lon="-0.0727941" />
+  <node id="2364379980" visible="true" version="2" changeset="16739264" timestamp="2013-06-28T13:09:48Z" user="Amaroussi" uid="1016290" lat="51.5113707" lon="-0.0725820" />
+  <node id="2364379981" visible="true" version="1" changeset="16739264" timestamp="2013-06-28T13:06:43Z" user="Amaroussi" uid="1016290" lat="51.5112493" lon="-0.0727610" />
+  <node id="2364381957" visible="true" version="1" changeset="16739264" timestamp="2013-06-28T13:09:47Z" user="Amaroussi" uid="1016290" lat="51.5112975" lon="-0.0727322" />
+  <node id="2364381959" visible="true" version="2" changeset="18447339" timestamp="2013-10-20T09:22:11Z" user="DLMatthews" uid="162917" lat="51.5113878" lon="-0.0728314">
+    <tag k="crossing" v="pelican" />
+    <tag k="highway" v="crossing" />
+  </node>
+  <node id="2364381960" visible="true" version="1" changeset="16739264" timestamp="2013-06-28T13:09:47Z" user="Amaroussi" uid="1016290" lat="51.5113737" lon="-0.0726974" />
+  <node id="2364381961" visible="true" version="1" changeset="16739264" timestamp="2013-06-28T13:09:47Z" user="Amaroussi" uid="1016290" lat="51.5113795" lon="-0.0725914" />
+  <node id="2364381963" visible="true" version="1" changeset="16739264" timestamp="2013-06-28T13:09:47Z" user="Amaroussi" uid="1016290" lat="51.5113452" lon="-0.0726571" />
+  <node id="2364389869" visible="true" version="1" changeset="16739264" timestamp="2013-06-28T13:18:59Z" user="Amaroussi" uid="1016290" lat="51.5116108" lon="-0.0711134">
+    <tag k="highway" v="crossing" />
+  </node>
+  <node id="2364389870" visible="true" version="2" changeset="16739264" timestamp="2013-06-28T13:19:40Z" user="Amaroussi" uid="1016290" lat="51.5118834" lon="-0.0691192" />
+  <node id="2364389871" visible="true" version="1" changeset="16739264" timestamp="2013-06-28T13:18:59Z" user="Amaroussi" uid="1016290" lat="51.5119069" lon="-0.0692976" />
+  <node id="2364389872" visible="true" version="1" changeset="16739264" timestamp="2013-06-28T13:18:59Z" user="Amaroussi" uid="1016290" lat="51.5119316" lon="-0.0691084" />
+  <node id="2364389873" visible="true" version="1" changeset="16739264" timestamp="2013-06-28T13:18:59Z" user="Amaroussi" uid="1016290" lat="51.5118591" lon="-0.0690750" />
+  <node id="2364389874" visible="true" version="2" changeset="16739264" timestamp="2013-06-28T13:19:40Z" user="Amaroussi" uid="1016290" lat="51.5120031" lon="-0.0691849" />
+  <node id="2364389875" visible="true" version="2" changeset="16739264" timestamp="2013-06-28T13:19:40Z" user="Amaroussi" uid="1016290" lat="51.5119086" lon="-0.0692439" />
+  <node id="2364389876" visible="true" version="2" changeset="16739264" timestamp="2013-06-28T13:19:40Z" user="Amaroussi" uid="1016290" lat="51.5119428" lon="-0.0692171" />
+  <node id="2364389879" visible="true" version="1" changeset="16739264" timestamp="2013-06-28T13:18:59Z" user="Amaroussi" uid="1016290" lat="51.5118141" lon="-0.0690227" />
+  <node id="2364389880" visible="true" version="1" changeset="16739264" timestamp="2013-06-28T13:18:59Z" user="Amaroussi" uid="1016290" lat="51.5120849" lon="-0.0692199">
+    <tag k="highway" v="crossing" />
+  </node>
+  <node id="2364390075" visible="true" version="1" changeset="16739264" timestamp="2013-06-28T13:19:40Z" user="Amaroussi" uid="1016290" lat="51.5119229" lon="-0.0692506" />
+  <node id="2364390076" visible="true" version="1" changeset="16739264" timestamp="2013-06-28T13:19:40Z" user="Amaroussi" uid="1016290" lat="51.5118974" lon="-0.0691598" />
+  <node id="2364390077" visible="true" version="1" changeset="16739264" timestamp="2013-06-28T13:19:40Z" user="Amaroussi" uid="1016290" lat="51.5119681" lon="-0.0691957" />
+  <node id="2364390078" visible="true" version="1" changeset="16739264" timestamp="2013-06-28T13:19:40Z" user="Amaroussi" uid="1016290" lat="51.5119043" lon="-0.0691973" />
+  <node id="2520866669" visible="true" version="1" changeset="18727153" timestamp="2013-11-05T11:05:14Z" user="Amaroussi" uid="1016290" lat="51.5137850" lon="-0.0710115" />
+  <node id="2628927759" visible="true" version="3" changeset="21036336" timestamp="2014-03-10T23:06:47Z" user="yourealwaysbe" uid="1878856" lat="51.5112725" lon="-0.0684787" />
+  <node id="2628927762" visible="true" version="2" changeset="20451282" timestamp="2014-02-08T17:56:38Z" user="yourealwaysbe" uid="1878856" lat="51.5113071" lon="-0.0682714" />
+  <node id="2628927765" visible="true" version="2" changeset="20735138" timestamp="2014-02-23T16:46:00Z" user="yourealwaysbe" uid="1878856" lat="51.5113923" lon="-0.0683299" />
+  <node id="2628927767" visible="true" version="4" changeset="21036336" timestamp="2014-03-10T23:06:47Z" user="yourealwaysbe" uid="1878856" lat="51.5113169" lon="-0.0685134" />
+  <node id="2628949627" visible="true" version="1" changeset="20090480" timestamp="2014-01-19T18:36:19Z" user="yourealwaysbe" uid="1878856" lat="51.5112358" lon="-0.0684485" />
+  <node id="2628949628" visible="true" version="2" changeset="20451282" timestamp="2014-02-08T17:56:38Z" user="yourealwaysbe" uid="1878856" lat="51.5112551" lon="-0.0682578" />
+  <node id="2628949629" visible="true" version="3" changeset="21036336" timestamp="2014-03-10T23:06:47Z" user="yourealwaysbe" uid="1878856" lat="51.5114170" lon="-0.0685915" />
+  <node id="2628949630" visible="true" version="1" changeset="20090480" timestamp="2014-01-19T18:36:19Z" user="yourealwaysbe" uid="1878856" lat="51.5114691" lon="-0.0683748" />
+  <node id="2628949631" visible="true" version="3" changeset="21036336" timestamp="2014-03-10T23:06:47Z" user="yourealwaysbe" uid="1878856" lat="51.5114978" lon="-0.0686546" />
+  <node id="2628949632" visible="true" version="2" changeset="20735138" timestamp="2014-02-23T16:46:00Z" user="yourealwaysbe" uid="1878856" lat="51.5115576" lon="-0.0684563" />
+  <node id="2628949634" visible="true" version="2" changeset="20898616" timestamp="2014-03-03T21:50:37Z" user="mentor" uid="38588" lat="51.5112757" lon="-0.0684598" />
+  <node id="2628949637" visible="true" version="3" changeset="21036336" timestamp="2014-03-10T23:06:47Z" user="yourealwaysbe" uid="1878856" lat="51.5115381" lon="-0.0686861" />
+  <node id="2628949638" visible="true" version="3" changeset="21036336" timestamp="2014-03-10T23:06:47Z" user="yourealwaysbe" uid="1878856" lat="51.5115305" lon="-0.0685502" />
+  <node id="2628949639" visible="true" version="3" changeset="21036336" timestamp="2014-03-10T23:06:47Z" user="yourealwaysbe" uid="1878856" lat="51.5115757" lon="-0.0687154" />
+  <node id="2628949640" visible="true" version="4" changeset="21036336" timestamp="2014-03-10T23:06:47Z" user="yourealwaysbe" uid="1878856" lat="51.5116085" lon="-0.0686090" />
+  <node id="2628949641" visible="true" version="4" changeset="21036336" timestamp="2014-03-10T23:06:47Z" user="yourealwaysbe" uid="1878856" lat="51.5115712" lon="-0.0685809" />
+  <node id="2628949642" visible="true" version="3" changeset="21036336" timestamp="2014-03-10T23:06:47Z" user="yourealwaysbe" uid="1878856" lat="51.5116143" lon="-0.0687456" />
+  <node id="2628949643" visible="true" version="4" changeset="21036336" timestamp="2014-03-10T23:06:47Z" user="yourealwaysbe" uid="1878856" lat="51.5116463" lon="-0.0686375" />
+  <node id="2628949645" visible="true" version="3" changeset="21036336" timestamp="2014-03-10T23:06:47Z" user="yourealwaysbe" uid="1878856" lat="51.5116559" lon="-0.0687781" />
+  <node id="2628949647" visible="true" version="4" changeset="21036336" timestamp="2014-03-10T23:06:47Z" user="yourealwaysbe" uid="1878856" lat="51.5116878" lon="-0.0686688" />
+  <node id="2628949649" visible="true" version="3" changeset="21036336" timestamp="2014-03-10T23:06:47Z" user="yourealwaysbe" uid="1878856" lat="51.5116962" lon="-0.0688095" />
+  <node id="2628949651" visible="true" version="4" changeset="21036336" timestamp="2014-03-10T23:06:47Z" user="yourealwaysbe" uid="1878856" lat="51.5117268" lon="-0.0686982" />
+  <node id="2628949653" visible="true" version="3" changeset="21036336" timestamp="2014-03-10T23:06:47Z" user="yourealwaysbe" uid="1878856" lat="51.5117335" lon="-0.0688386" />
+  <node id="2628949655" visible="true" version="4" changeset="21036336" timestamp="2014-03-10T23:06:47Z" user="yourealwaysbe" uid="1878856" lat="51.5117642" lon="-0.0687265" />
+  <node id="2628949660" visible="true" version="2" changeset="21036336" timestamp="2014-03-10T23:06:47Z" user="yourealwaysbe" uid="1878856" lat="51.5117752" lon="-0.0688712" />
+  <node id="2628949661" visible="true" version="3" changeset="20735138" timestamp="2014-02-23T16:46:00Z" user="yourealwaysbe" uid="1878856" lat="51.5118026" lon="-0.0687554" />
+  <node id="2628949662" visible="true" version="3" changeset="21036336" timestamp="2014-03-10T23:06:47Z" user="yourealwaysbe" uid="1878856" lat="51.5118146" lon="-0.0689019" />
+  <node id="2628949665" visible="true" version="3" changeset="20735138" timestamp="2014-02-23T16:46:00Z" user="yourealwaysbe" uid="1878856" lat="51.5118384" lon="-0.0687898" />
+  <node id="2628949666" visible="true" version="3" changeset="21036336" timestamp="2014-03-10T23:06:47Z" user="yourealwaysbe" uid="1878856" lat="51.5118549" lon="-0.0689334" />
+  <node id="2628949667" visible="true" version="1" changeset="20090480" timestamp="2014-01-19T18:36:19Z" user="yourealwaysbe" uid="1878856" lat="51.5118785" lon="-0.0688502" />
+  <node id="2628949668" visible="true" version="1" changeset="20090480" timestamp="2014-01-19T18:36:19Z" user="yourealwaysbe" uid="1878856" lat="51.5118559" lon="-0.0688307" />
+  <node id="2628949669" visible="true" version="2" changeset="21036262" timestamp="2014-03-10T23:01:44Z" user="yourealwaysbe" uid="1878856" lat="51.5118974" lon="-0.0689666" />
+  <node id="2628949670" visible="true" version="3" changeset="21036262" timestamp="2014-03-10T23:01:44Z" user="yourealwaysbe" uid="1878856" lat="51.5119151" lon="-0.0688732" />
+  <node id="2628990091" visible="true" version="1" changeset="20091120" timestamp="2014-01-19T19:11:06Z" user="yourealwaysbe" uid="1878856" lat="51.5119920" lon="-0.0690574" />
+  <node id="2628990092" visible="true" version="1" changeset="20091120" timestamp="2014-01-19T19:11:06Z" user="yourealwaysbe" uid="1878856" lat="51.5120429" lon="-0.0687556" />
+  <node id="2628990093" visible="true" version="1" changeset="20091120" timestamp="2014-01-19T19:11:06Z" user="yourealwaysbe" uid="1878856" lat="51.5121456" lon="-0.0687878" />
+  <node id="2628990094" visible="true" version="1" changeset="20091120" timestamp="2014-01-19T19:11:06Z" user="yourealwaysbe" uid="1878856" lat="51.5121189" lon="-0.0689582" />
+  <node id="2628990095" visible="true" version="1" changeset="20091120" timestamp="2014-01-19T19:11:06Z" user="yourealwaysbe" uid="1878856" lat="51.5123695" lon="-0.0691461" />
+  <node id="2628990096" visible="true" version="1" changeset="20091120" timestamp="2014-01-19T19:11:06Z" user="yourealwaysbe" uid="1878856" lat="51.5123275" lon="-0.0693082" />
+  <node id="2628990097" visible="true" version="1" changeset="20091120" timestamp="2014-01-19T19:11:06Z" user="yourealwaysbe" uid="1878856" lat="51.5121848" lon="-0.0685920" />
+  <node id="2628990098" visible="true" version="1" changeset="20091120" timestamp="2014-01-19T19:11:06Z" user="yourealwaysbe" uid="1878856" lat="51.5126380" lon="-0.0688187" />
+  <node id="2628990099" visible="true" version="1" changeset="20091120" timestamp="2014-01-19T19:11:06Z" user="yourealwaysbe" uid="1878856" lat="51.5125221" lon="-0.0691979" />
+  <node id="2628990100" visible="true" version="1" changeset="20091120" timestamp="2014-01-19T19:11:06Z" user="yourealwaysbe" uid="1878856" lat="51.5124196" lon="-0.0691198" />
+  <node id="2628990101" visible="true" version="1" changeset="20091120" timestamp="2014-01-19T19:11:06Z" user="yourealwaysbe" uid="1878856" lat="51.5124711" lon="-0.0689474" />
+  <node id="2628990102" visible="true" version="1" changeset="20091120" timestamp="2014-01-19T19:11:06Z" user="yourealwaysbe" uid="1878856" lat="51.5123834" lon="-0.0690923" />
+  <node id="2628990103" visible="true" version="1" changeset="20091120" timestamp="2014-01-19T19:11:06Z" user="yourealwaysbe" uid="1878856" lat="51.5127991" lon="-0.0696864" />
+  <node id="2628990104" visible="true" version="1" changeset="20091120" timestamp="2014-01-19T19:11:06Z" user="yourealwaysbe" uid="1878856" lat="51.5128679" lon="-0.0694628" />
+  <node id="2628990105" visible="true" version="1" changeset="20091120" timestamp="2014-01-19T19:11:06Z" user="yourealwaysbe" uid="1878856" lat="51.5129960" lon="-0.0690467" />
+  <node id="2628990106" visible="true" version="2" changeset="46411344" timestamp="2017-02-26T09:52:03Z" user="Reino Baptista" uid="2820801" lat="51.5134668" lon="-0.0694196" />
+  <node id="2628990107" visible="true" version="2" changeset="46411344" timestamp="2017-02-26T09:52:03Z" user="Reino Baptista" uid="2820801" lat="51.5132701" lon="-0.0700843" />
+  <node id="2628990108" visible="true" version="1" changeset="20091120" timestamp="2014-01-19T19:11:06Z" user="yourealwaysbe" uid="1878856" lat="51.5133898" lon="-0.0696788" />
+  <node id="2628990112" visible="true" version="1" changeset="20091120" timestamp="2014-01-19T19:11:06Z" user="yourealwaysbe" uid="1878856" lat="51.5130788" lon="-0.0699260" />
+  <node id="2628992353" visible="true" version="1" changeset="20091198" timestamp="2014-01-19T19:15:30Z" user="yourealwaysbe" uid="1878856" lat="51.5140059" lon="-0.0705876" />
+  <node id="2628992354" visible="true" version="1" changeset="20091198" timestamp="2014-01-19T19:15:30Z" user="yourealwaysbe" uid="1878856" lat="51.5141745" lon="-0.0707566" />
+  <node id="2628992355" visible="true" version="1" changeset="20091198" timestamp="2014-01-19T19:15:30Z" user="yourealwaysbe" uid="1878856" lat="51.5144274" lon="-0.0705179" />
+  <node id="2628992356" visible="true" version="1" changeset="20091198" timestamp="2014-01-19T19:15:30Z" user="yourealwaysbe" uid="1878856" lat="51.5143005" lon="-0.0708665" />
+  <node id="2686959632" visible="true" version="1" changeset="20735138" timestamp="2014-02-23T16:45:57Z" user="yourealwaysbe" uid="1878856" lat="51.5113635" lon="-0.0683057" />
+  <node id="2686959634" visible="true" version="1" changeset="20735138" timestamp="2014-02-23T16:45:57Z" user="yourealwaysbe" uid="1878856" lat="51.5113607" lon="-0.0684724" />
+  <node id="2686959635" visible="true" version="1" changeset="20735138" timestamp="2014-02-23T16:45:57Z" user="yourealwaysbe" uid="1878856" lat="51.5113302" lon="-0.0684547" />
+  <node id="2686959636" visible="true" version="1" changeset="20735138" timestamp="2014-02-23T16:45:58Z" user="yourealwaysbe" uid="1878856" lat="51.5112932" lon="-0.0686861" />
+  <node id="2686959651" visible="true" version="1" changeset="20735138" timestamp="2014-02-23T16:45:58Z" user="yourealwaysbe" uid="1878856" lat="51.5118519" lon="-0.0688213" />
+  <node id="2686959662" visible="true" version="1" changeset="20735138" timestamp="2014-02-23T16:45:58Z" user="yourealwaysbe" uid="1878856" lat="51.5115468" lon="-0.0684936" />
+  <node id="2784038470" visible="true" version="1" changeset="21633504" timestamp="2014-04-11T19:38:31Z" user="yourealwaysbe" uid="1878856" lat="51.5115724" lon="-0.0708136" />
+  <node id="2784038471" visible="true" version="1" changeset="21633504" timestamp="2014-04-11T19:38:31Z" user="yourealwaysbe" uid="1878856" lat="51.5114555" lon="-0.0705566" />
+  <node id="2784038472" visible="true" version="1" changeset="21633504" timestamp="2014-04-11T19:38:32Z" user="yourealwaysbe" uid="1878856" lat="51.5114250" lon="-0.0707554" />
+  <node id="2784038473" visible="true" version="1" changeset="21633504" timestamp="2014-04-11T19:38:32Z" user="yourealwaysbe" uid="1878856" lat="51.5114702" lon="-0.0704610" />
+  <node id="2784038474" visible="true" version="1" changeset="21633504" timestamp="2014-04-11T19:38:32Z" user="yourealwaysbe" uid="1878856" lat="51.5112923" lon="-0.0711591" />
+  <node id="2784038475" visible="true" version="1" changeset="21633504" timestamp="2014-04-11T19:38:32Z" user="yourealwaysbe" uid="1878856" lat="51.5113549" lon="-0.0711872" />
+  <node id="2809341679" visible="true" version="1" changeset="21868688" timestamp="2014-04-22T18:19:48Z" user="yourealwaysbe" uid="1878856" lat="51.5133354" lon="-0.0693155" />
+  <node id="2830393554" visible="true" version="1" changeset="22074273" timestamp="2014-05-01T22:25:49Z" user="yourealwaysbe" uid="1878856" lat="51.5134032" lon="-0.0731509" />
+  <node id="2830393556" visible="true" version="1" changeset="22074273" timestamp="2014-05-01T22:25:49Z" user="yourealwaysbe" uid="1878856" lat="51.5133577" lon="-0.0726955" />
+  <node id="3190213573" visible="true" version="1" changeset="26824944" timestamp="2014-11-16T16:11:43Z" user="yourealwaysbe" uid="1878856" lat="51.5132769" lon="-0.0701968" />
+  <node id="3190213575" visible="true" version="1" changeset="26824944" timestamp="2014-11-16T16:11:43Z" user="yourealwaysbe" uid="1878856" lat="51.5142982" lon="-0.0701505" />
+  <node id="3190213576" visible="true" version="1" changeset="26824944" timestamp="2014-11-16T16:11:43Z" user="yourealwaysbe" uid="1878856" lat="51.5142068" lon="-0.0703460" />
+  <node id="3190213579" visible="true" version="1" changeset="26824944" timestamp="2014-11-16T16:11:43Z" user="yourealwaysbe" uid="1878856" lat="51.5143030" lon="-0.0704025" />
+  <node id="3190213586" visible="true" version="1" changeset="26824944" timestamp="2014-11-16T16:11:43Z" user="yourealwaysbe" uid="1878856" lat="51.5145844" lon="-0.0695364" />
+  <node id="3190213587" visible="true" version="1" changeset="26824944" timestamp="2014-11-16T16:11:43Z" user="yourealwaysbe" uid="1878856" lat="51.5144951" lon="-0.0694184" />
+  <node id="3190213588" visible="true" version="1" changeset="26824944" timestamp="2014-11-16T16:11:43Z" user="yourealwaysbe" uid="1878856" lat="51.5146453" lon="-0.0692521" />
+  <node id="3190213589" visible="true" version="1" changeset="26824944" timestamp="2014-11-16T16:11:43Z" user="yourealwaysbe" uid="1878856" lat="51.5146778" lon="-0.0693192" />
+  <node id="3190213592" visible="true" version="1" changeset="26824944" timestamp="2014-11-16T16:11:43Z" user="yourealwaysbe" uid="1878856" lat="51.5143431" lon="-0.0695865" />
+  <node id="3190213593" visible="true" version="1" changeset="26824944" timestamp="2014-11-16T16:11:43Z" user="yourealwaysbe" uid="1878856" lat="51.5144364" lon="-0.0693725" />
+  <node id="3190227381" visible="true" version="1" changeset="26825096" timestamp="2014-11-16T16:18:44Z" user="yourealwaysbe" uid="1878856" lat="51.5140229" lon="-0.0710654" />
+  <node id="3190227382" visible="true" version="1" changeset="26825096" timestamp="2014-11-16T16:18:44Z" user="yourealwaysbe" uid="1878856" lat="51.5141039" lon="-0.0709400" />
+  <node id="3190227383" visible="true" version="1" changeset="26825096" timestamp="2014-11-16T16:18:44Z" user="yourealwaysbe" uid="1878856" lat="51.5140006" lon="-0.0710438" />
+  <node id="3190227385" visible="true" version="1" changeset="26825096" timestamp="2014-11-16T16:18:44Z" user="yourealwaysbe" uid="1878856" lat="51.5140472" lon="-0.0710891" />
+  <node id="3190227387" visible="true" version="1" changeset="26825096" timestamp="2014-11-16T16:18:44Z" user="yourealwaysbe" uid="1878856" lat="51.5135076" lon="-0.0731945" />
+  <node id="3231708916" visible="true" version="1" changeset="27427071" timestamp="2014-12-12T17:59:51Z" user="Amaroussi" uid="1016290" lat="51.5152070" lon="-0.0717225" />
+  <node id="3696071647" visible="true" version="1" changeset="33325722" timestamp="2015-08-13T21:56:33Z" user="yourealwaysbe" uid="1878856" lat="51.5133934" lon="-0.0702858" />
+  <node id="3906237239" visible="true" version="1" changeset="36122933" timestamp="2015-12-23T10:56:43Z" user="peregrination" uid="486343" lat="51.5135902" lon="-0.0697275" />
+  <node id="3906237240" visible="true" version="1" changeset="36122933" timestamp="2015-12-23T10:56:43Z" user="peregrination" uid="486343" lat="51.5136929" lon="-0.0698064" />
+  <node id="3906239524" visible="true" version="1" changeset="36122964" timestamp="2015-12-23T10:58:34Z" user="peregrination" uid="486343" lat="51.5134499" lon="-0.0702222" />
+  <node id="3906239525" visible="true" version="2" changeset="40466423" timestamp="2016-07-03T21:03:26Z" user="yourealwaysbe" uid="1878856" lat="51.5137591" lon="-0.0704301" />
+  <node id="4071768343" visible="true" version="1" changeset="37976954" timestamp="2016-03-21T13:29:08Z" user="eastender" uid="2969887" lat="51.5143845" lon="-0.0711236">
+    <tag k="bus" v="yes" />
+    <tag k="local_ref" v="OH" />
+    <tag k="name" v="Leman Street / Aldgate East Station" />
+    <tag k="public_transport" v="stop_position" />
+  </node>
+  <node id="4281139393" visible="true" version="1" changeset="40466423" timestamp="2016-07-03T21:03:25Z" user="yourealwaysbe" uid="1878856" lat="51.5136056" lon="-0.0701136" />
+  <node id="4281139394" visible="true" version="1" changeset="40466423" timestamp="2016-07-03T21:03:25Z" user="yourealwaysbe" uid="1878856" lat="51.5137998" lon="-0.0702623" />
+  <node id="4414750024" visible="true" version="1" changeset="42371682" timestamp="2016-09-23T11:42:37Z" user="ecatmur" uid="352985" lat="51.5151776" lon="-0.0717048" />
+  <node id="4538130835" visible="true" version="1" changeset="44161529" timestamp="2016-12-04T16:53:21Z" user="Daniel McLaughlin" uid="2546116" lat="51.5111402" lon="-0.0718062" />
+  <node id="4538130838" visible="true" version="1" changeset="44161529" timestamp="2016-12-04T16:53:21Z" user="Daniel McLaughlin" uid="2546116" lat="51.5111355" lon="-0.0718320" />
+  <node id="4617424213" visible="true" version="2" changeset="46411344" timestamp="2017-02-26T09:52:03Z" user="Reino Baptista" uid="2820801" lat="51.5142349" lon="-0.0698236" />
+  <node id="4732798987" visible="true" version="1" changeset="46822939" timestamp="2017-03-13T20:22:53Z" user="trigpoint" uid="12992" lat="51.5111556" lon="-0.0717164" />
+  <way id="4893985" visible="true" version="21" changeset="18727153" timestamp="2013-11-05T10:59:56Z" user="Amaroussi" uid="1016290">
+    <nd ref="18055045" />
+    <nd ref="2364389874" />
+    <nd ref="2364390077" />
+    <nd ref="2364389876" />
+    <nd ref="2364390075" />
+    <nd ref="2364389871" />
+    <tag k="highway" v="trunk" />
+    <tag k="lanes" v="1" />
+    <tag k="lit" v="yes" />
+    <tag k="maxspeed" v="30 mph" />
+    <tag k="name" v="Prescot Street" />
+    <tag k="oneway" v="yes" />
+    <tag k="operator" v="Transport for London" />
+    <tag k="ref" v="A1210" />
+    <tag k="sidewalk" v="right" />
+  </way>
+  <way id="5600557" visible="true" version="21" changeset="37976954" timestamp="2016-03-21T13:29:09Z" user="eastender" uid="2969887">
+    <nd ref="104326" />
+    <nd ref="297552389" />
+    <nd ref="702475024" />
+    <nd ref="4071768343" />
+    <nd ref="28427645" />
+    <nd ref="424624" />
+    <nd ref="3696071647" />
+    <nd ref="3190213573" />
+    <nd ref="18055094" />
+    <tag k="highway" v="trunk" />
+    <tag k="history" v="Retrieved from v4" />
+    <tag k="lanes" v="2" />
+    <tag k="lit" v="yes" />
+    <tag k="maxspeed" v="30 mph" />
+    <tag k="name" v="Leman Street" />
+    <tag k="oneway" v="yes" />
+    <tag k="operator" v="Transport for London" />
+    <tag k="ref" v="A1202" />
+    <tag k="sidewalk" v="both" />
+  </way>
+  <way id="18754467" visible="true" version="9" changeset="37851795" timestamp="2016-03-15T18:37:47Z" user="Welshie" uid="508">
+    <nd ref="18055045" />
+    <nd ref="2364389872" />
+    <nd ref="2364389879" />
+    <tag k="highway" v="primary" />
+    <tag k="lanes" v="1" />
+    <tag k="lit" v="yes" />
+    <tag k="maxspeed" v="20 mph" />
+    <tag k="name" v="Leman Street" />
+    <tag k="oneway" v="yes" />
+    <tag k="ref" v="A1202" />
+    <tag k="sidewalk" v="left" />
+  </way>
+  <way id="25958684" visible="true" version="10" changeset="37851795" timestamp="2016-03-15T18:37:47Z" user="Welshie" uid="508">
+    <nd ref="262572488" />
+    <nd ref="2686959636" />
+    <tag k="highway" v="primary" />
+    <tag k="lit" v="yes" />
+    <tag k="maxheight" v="4.8" />
+    <tag k="maxspeed" v="20 mph" />
+    <tag k="name" v="Leman Street" />
+    <tag k="ref" v="A1202" />
+    <tag k="sidewalk" v="both" />
+  </way>
+  <way id="45897347" visible="true" version="15" changeset="25789589" timestamp="2014-10-01T13:10:25Z" user="woodpeck_repair" uid="145231">
+    <nd ref="1590148308" />
+    <nd ref="2364381961" />
+    <nd ref="2364381960" />
+    <nd ref="585125026" />
+    <nd ref="2364381959" />
+    <nd ref="577491347" />
+    <nd ref="585124778" />
+    <tag k="highway" v="trunk" />
+    <tag k="lanes" v="1" />
+    <tag k="lit" v="yes" />
+    <tag k="maxspeed" v="30 mph" />
+    <tag k="name" v="Prescot Street" />
+    <tag k="oneway" v="yes" />
+    <tag k="operator" v="Transport for London" />
+    <tag k="ref" v="A1210" />
+    <tag k="sidewalk" v="right" />
+  </way>
+  <way id="58718297" visible="true" version="2" changeset="26824944" timestamp="2014-11-16T16:11:46Z" user="yourealwaysbe" uid="1878856">
+    <nd ref="727631333" />
+    <nd ref="3190213579" />
+    <nd ref="727631368" />
+    <nd ref="727631388" />
+    <nd ref="3190213576" />
+    <nd ref="727631409" />
+    <nd ref="727631425" />
+    <nd ref="727631333" />
+    <tag k="addr:housenumber" v="55" />
+    <tag k="addr:street" v="Alie Street" />
+    <tag k="amenity" v="place_of_worship" />
+    <tag k="building" v="yes" />
+    <tag k="denomination" v="lutheran" />
+    <tag k="name" v="St. George's German Lutheran Church" />
+    <tag k="name:de" v="St. Georgs Deutsche Lutherische Kirche" />
+    <tag k="name:en" v="St. George's German Lutheran Church" />
+    <tag k="photo" v="http://www.flickr.com/photos/martin-kliehm/2561042044/" />
+    <tag k="postal_code" v="E1 8BB" />
+    <tag k="religion" v="christian" />
+    <tag k="source" v="OS" />
+    <tag k="website" v="http://www.stgeorgesgermanchurch.org.uk/" />
+  </way>
+  <way id="100299964" visible="true" version="4" changeset="26825096" timestamp="2014-11-16T16:18:45Z" user="yourealwaysbe" uid="1878856">
+    <nd ref="1159347391" />
+    <nd ref="1159347330" />
+    <nd ref="1159347273" />
+    <nd ref="1159347439" />
+    <nd ref="1159347279" />
+    <nd ref="1159347323" />
+    <nd ref="1159347320" />
+    <nd ref="2830393556" />
+    <nd ref="1159347367" />
+    <nd ref="2830393554" />
+    <nd ref="3190227387" />
+    <nd ref="1159347414" />
+    <nd ref="1159347290" />
+    <nd ref="1159347447" />
+    <nd ref="1159347426" />
+    <nd ref="1159347478" />
+    <nd ref="1159347375" />
+    <nd ref="1159347312" />
+    <nd ref="1159347450" />
+    <nd ref="1159347340" />
+    <nd ref="1159347452" />
+    <nd ref="1159347310" />
+    <nd ref="1159347280" />
+    <nd ref="1159347391" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:housenumber" v="1" />
+    <tag k="addr:street" v="Alie Street" />
+    <tag k="building" v="yes" />
+  </way>
+  <way id="107275348" visible="true" version="4" changeset="44169566" timestamp="2016-12-05T00:43:50Z" user="Daniel McLaughlin" uid="2546116">
+    <nd ref="1233335415" />
+    <nd ref="1233335430" />
+    <nd ref="1233335431" />
+    <nd ref="1233335433" />
+    <nd ref="1233335435" />
+    <nd ref="1233335437" />
+    <nd ref="1233370029" />
+    <nd ref="1233335438" />
+    <nd ref="1233335417" />
+    <nd ref="1233335415" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:country" v="GB" />
+    <tag k="addr:housenumber" v="30" />
+    <tag k="addr:street" v="Prescot Street" />
+    <tag k="building" v="yes" />
+    <tag k="name" v="Presbytery of English Martyrs Church" />
+    <tag k="source" v="Bing" />
+  </way>
+  <way id="107275356" visible="true" version="3" changeset="21633504" timestamp="2014-04-11T19:38:33Z" user="yourealwaysbe" uid="1878856">
+    <nd ref="1233335551" />
+    <nd ref="1233335558" />
+    <nd ref="1233335559" />
+    <nd ref="1233335538" />
+    <nd ref="1233335539" />
+    <nd ref="1233335540" />
+    <nd ref="2784038474" />
+    <nd ref="2784038475" />
+    <nd ref="1233335541" />
+    <nd ref="1233335542" />
+    <nd ref="1233335543" />
+    <nd ref="1233335551" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:housenumber" v="21" />
+    <tag k="addr:street" v="Prescot Street" />
+    <tag k="building" v="yes" />
+    <tag k="name" v="Royal College of Psychiatrists" />
+    <tag k="office" v="yes" />
+    <tag k="source" v="Bing" />
+  </way>
+  <way id="107275360" visible="true" version="3" changeset="21633504" timestamp="2014-04-11T19:38:33Z" user="yourealwaysbe" uid="1878856">
+    <nd ref="1233335573" />
+    <nd ref="1233335575" />
+    <nd ref="2784038473" />
+    <nd ref="1233335577" />
+    <nd ref="1233335578" />
+    <nd ref="2784038471" />
+    <nd ref="1233335573" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:housenumber" v="15" />
+    <tag k="addr:postcode" v="E1 8AZ" />
+    <tag k="addr:street" v="Prescot Street" />
+    <tag k="amenity" v="pub" />
+    <tag k="building" v="no" />
+    <tag k="name" v="Princess Of Prussia" />
+    <tag k="operator" v="Shepherd Neame" />
+    <tag k="source" v="Bing" />
+    <tag k="toilets" v="yes" />
+    <tag k="toilets:access" v="customers" />
+  </way>
+  <way id="107275369" visible="true" version="3" changeset="42328295" timestamp="2016-09-21T16:28:12Z" user="peregrination" uid="486343">
+    <nd ref="1233335396" />
+    <nd ref="1233335413" />
+    <nd ref="1233335415" />
+    <nd ref="1233335417" />
+    <nd ref="1233335419" />
+    <nd ref="1233335420" />
+    <nd ref="1233335425" />
+    <nd ref="1233335426" />
+    <nd ref="1233335427" />
+    <nd ref="1233335428" />
+    <nd ref="1233335397" />
+    <nd ref="1233335396" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:country" v="GB" />
+    <tag k="addr:housenumber" v="32-33" />
+    <tag k="addr:street" v="Prescot Street" />
+    <tag k="building" v="yes" />
+    <tag k="name" v="Prescot House" />
+    <tag k="source" v="Bing" />
+  </way>
+  <way id="107280282" visible="true" version="2" changeset="10393937" timestamp="2012-01-15T00:09:36Z" user="Paul The Archivist" uid="82783">
+    <nd ref="1233366451" />
+    <nd ref="1233366453" />
+    <nd ref="1233366454" />
+    <nd ref="1233366455" />
+    <nd ref="1233366452" />
+    <nd ref="1233366451" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:country" v="GB" />
+    <tag k="addr:housename" v="Symons House" />
+    <tag k="addr:housenumber" v="22" />
+    <tag k="addr:street" v="Alie Street" />
+    <tag k="building" v="yes" />
+    <tag k="source" v="Bing" />
+  </way>
+  <way id="107280285" visible="true" version="2" changeset="10393937" timestamp="2012-01-15T00:09:36Z" user="Paul The Archivist" uid="82783">
+    <nd ref="1233366454" />
+    <nd ref="1233366456" />
+    <nd ref="1233366457" />
+    <nd ref="1233366458" />
+    <nd ref="1233366459" />
+    <nd ref="1233366460" />
+    <nd ref="1233366461" />
+    <nd ref="1233366462" />
+    <nd ref="1233366455" />
+    <nd ref="1233366454" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:country" v="GB" />
+    <tag k="addr:housenumber" v="24" />
+    <tag k="addr:street" v="Alie Street" />
+    <tag k="building" v="yes" />
+    <tag k="source" v="Bing" />
+  </way>
+  <way id="107280296" visible="true" version="2" changeset="10393937" timestamp="2012-01-15T00:09:35Z" user="Paul The Archivist" uid="82783">
+    <nd ref="1590148332" />
+    <nd ref="1233366507" />
+    <nd ref="1233366509" />
+    <nd ref="1233366483" />
+    <nd ref="1233366479" />
+    <nd ref="1233366499" />
+    <nd ref="1590148325" />
+    <nd ref="1590148332" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:country" v="GB" />
+    <tag k="addr:housename" v="Michael's House" />
+    <tag k="addr:housenumber" v="12" />
+    <tag k="addr:street" v="Alie Street" />
+    <tag k="building" v="yes" />
+    <tag k="source" v="Bing;survey" />
+  </way>
+  <way id="107280345" visible="true" version="2" changeset="10393937" timestamp="2012-01-15T00:09:36Z" user="Paul The Archivist" uid="82783">
+    <nd ref="1233366457" />
+    <nd ref="1233366456" />
+    <nd ref="1233366463" />
+    <nd ref="1233366474" />
+    <nd ref="1233366464" />
+    <nd ref="1233366465" />
+    <nd ref="1233366457" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:country" v="GB" />
+    <tag k="addr:housenumber" v="26" />
+    <tag k="addr:street" v="Alie Street" />
+    <tag k="building" v="yes" />
+    <tag k="source" v="Bing" />
+  </way>
+  <way id="142295824" visible="true" version="2" changeset="21633504" timestamp="2014-04-11T19:38:33Z" user="yourealwaysbe" uid="1878856">
+    <nd ref="1557407051" />
+    <nd ref="1557407054" />
+    <nd ref="1557407063" />
+    <nd ref="1557407068" />
+    <nd ref="1233335577" />
+    <nd ref="2784038473" />
+    <nd ref="1233335575" />
+    <nd ref="1557407051" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:housenumber" v="9" />
+    <tag k="addr:street" v="Prescot Street" />
+    <tag k="building" v="yes" />
+    <tag k="note" v="Offices of the Co-operative Bank and Barts and the London NHS Trust" />
+    <tag k="office" v="yes" />
+    <tag k="source" v="Bing;survey" />
+  </way>
+  <way id="142295825" visible="true" version="2" changeset="21633504" timestamp="2014-04-11T19:38:34Z" user="yourealwaysbe" uid="1878856">
+    <nd ref="1557407068" />
+    <nd ref="1233335625" />
+    <nd ref="1233335623" />
+    <nd ref="1557407063" />
+    <nd ref="1557407068" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:housenumber" v="7" />
+    <tag k="addr:street" v="Prescot Street" />
+    <tag k="building" v="yes" />
+    <tag k="source" v="Bing" />
+  </way>
+  <way id="145640232" visible="true" version="7" changeset="37851795" timestamp="2016-03-15T18:37:41Z" user="Welshie" uid="508">
+    <nd ref="1590148328" />
+    <nd ref="702476520" />
+    <nd ref="1590148335" />
+    <nd ref="669645092" />
+    <nd ref="1590148337" />
+    <nd ref="2520866669" />
+    <tag k="highway" v="secondary" />
+    <tag k="lanes" v="1" />
+    <tag k="lit" v="yes" />
+    <tag k="maxspeed" v="20 mph" />
+    <tag k="name" v="Alie Street" />
+    <tag k="oneway" v="yes" />
+    <tag k="ref" v="B134" />
+    <tag k="sidewalk" v="both" />
+    <tag k="source" v="Bing;survey" />
+  </way>
+  <way id="145640233" visible="true" version="3" changeset="21633504" timestamp="2014-04-11T19:38:35Z" user="yourealwaysbe" uid="1878856">
+    <nd ref="1233335543" />
+    <nd ref="1233335544" />
+    <nd ref="1233335546" />
+    <nd ref="1233335508" />
+    <nd ref="1233335506" />
+    <nd ref="1233335548" />
+    <nd ref="1233335551" />
+    <nd ref="1233335543" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:country" v="GB" />
+    <tag k="addr:housenumber" v="23" />
+    <tag k="addr:street" v="Prescot Street" />
+    <tag k="building" v="yes" />
+    <tag k="source" v="Bing" />
+  </way>
+  <way id="145640234" visible="true" version="1" changeset="10393937" timestamp="2012-01-15T00:09:31Z" user="Paul The Archivist" uid="82783">
+    <nd ref="1590148332" />
+    <nd ref="1590148325" />
+    <nd ref="1233366500" />
+    <nd ref="1233366501" />
+    <nd ref="1233366502" />
+    <nd ref="1233366503" />
+    <nd ref="1233366504" />
+    <nd ref="1233366505" />
+    <nd ref="1590148332" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:country" v="GB" />
+    <tag k="addr:housenumber" v="6" />
+    <tag k="addr:street" v="Alie Street" />
+    <tag k="building" v="yes" />
+    <tag k="source" v="Bing;survey" />
+  </way>
+  <way id="156988385" visible="true" version="11" changeset="46411344" timestamp="2017-02-26T09:52:03Z" user="Reino Baptista" uid="2820801">
+    <nd ref="424624" />
+    <nd ref="4617424213" />
+    <nd ref="3190213592" />
+    <nd ref="3190213593" />
+    <nd ref="1692237464" />
+    <nd ref="1692237460" />
+    <nd ref="2038021424" />
+    <nd ref="2038021425" />
+    <nd ref="18055093" />
+    <tag k="highway" v="secondary" />
+    <tag k="lit" v="yes" />
+    <tag k="maxspeed" v="20 mph" />
+    <tag k="name" v="Alie Street" />
+    <tag k="oneway" v="yes" />
+    <tag k="ref" v="B134" />
+    <tag k="sidewalk" v="both" />
+    <tag k="source" v="Bing" />
+    <tag k="source:name" v="OS_OpenData_StreetView" />
+    <tag k="source:ref" v="OS_OpenData_StreetView" />
+  </way>
+  <way id="168213303" visible="true" version="3" changeset="42528522" timestamp="2016-09-29T20:28:01Z" user="Mauls" uid="24119">
+    <nd ref="1794997548" />
+    <nd ref="1794997563" />
+    <tag k="highway" v="unclassified" />
+    <tag k="maxspeed" v="20 mph" />
+    <tag k="name" v="Leman Street" />
+    <tag k="source" v="survey" />
+  </way>
+  <way id="215645181" visible="true" version="6" changeset="18727153" timestamp="2013-11-05T11:01:26Z" user="Amaroussi" uid="1016290">
+    <nd ref="1590148308" />
+    <nd ref="2364379980" />
+    <nd ref="2364381963" />
+    <nd ref="1990915215" />
+    <nd ref="2364381957" />
+    <nd ref="870276101" />
+    <nd ref="2364379981" />
+    <nd ref="2364371182" />
+    <nd ref="2364378224" />
+    <nd ref="1864047134" />
+    <tag k="highway" v="trunk" />
+    <tag k="lanes" v="1" />
+    <tag k="lit" v="yes" />
+    <tag k="maxspeed" v="30 mph" />
+    <tag k="name" v="Prescot Street" />
+    <tag k="oneway" v="yes" />
+    <tag k="operator" v="Transport for London" />
+    <tag k="ref" v="A1210" />
+    <tag k="sidewalk" v="left" />
+  </way>
+  <way id="227779462" visible="true" version="4" changeset="37851795" timestamp="2016-03-15T18:37:48Z" user="Welshie" uid="508">
+    <nd ref="2364389879" />
+    <nd ref="2364389873" />
+    <nd ref="2364389870" />
+    <nd ref="2364390076" />
+    <nd ref="2364390078" />
+    <nd ref="2364389875" />
+    <nd ref="2364389871" />
+    <tag k="highway" v="primary" />
+    <tag k="lanes" v="1" />
+    <tag k="lit" v="yes" />
+    <tag k="maxspeed" v="20 mph" />
+    <tag k="name" v="Leman Street" />
+    <tag k="oneway" v="yes" />
+    <tag k="ref" v="A1202" />
+    <tag k="sidewalk" v="left" />
+  </way>
+  <way id="227779463" visible="true" version="4" changeset="25789589" timestamp="2014-10-01T13:09:41Z" user="woodpeck_repair" uid="145231">
+    <nd ref="2364389871" />
+    <nd ref="1233371229" />
+    <nd ref="1233371215" />
+    <nd ref="1233371203" />
+    <nd ref="1590148311" />
+    <nd ref="674683115" />
+    <nd ref="2364389869" />
+    <nd ref="1590148309" />
+    <nd ref="1590148308" />
+    <tag k="highway" v="trunk" />
+    <tag k="lanes" v="2" />
+    <tag k="lit" v="yes" />
+    <tag k="maxspeed" v="30 mph" />
+    <tag k="name" v="Prescot Street" />
+    <tag k="oneway" v="yes" />
+    <tag k="operator" v="Transport for London" />
+    <tag k="ref" v="A1210" />
+    <tag k="sidewalk" v="both" />
+  </way>
+  <way id="227779464" visible="true" version="3" changeset="37851795" timestamp="2016-03-15T18:37:47Z" user="Welshie" uid="508">
+    <nd ref="2364389879" />
+    <nd ref="262572488" />
+    <tag k="highway" v="primary" />
+    <tag k="lit" v="yes" />
+    <tag k="maxspeed" v="20 mph" />
+    <tag k="name" v="Leman Street" />
+    <tag k="ref" v="A1202" />
+    <tag k="sidewalk" v="both" />
+  </way>
+  <way id="244815860" visible="true" version="3" changeset="37851795" timestamp="2016-03-15T18:37:40Z" user="Welshie" uid="508">
+    <nd ref="2520866669" />
+    <nd ref="1590148338" />
+    <nd ref="424624" />
+    <tag k="highway" v="secondary" />
+    <tag k="lanes" v="2" />
+    <tag k="lit" v="yes" />
+    <tag k="maxspeed" v="20 mph" />
+    <tag k="name" v="Alie Street" />
+    <tag k="oneway" v="yes" />
+    <tag k="ref" v="B134" />
+    <tag k="sidewalk" v="both" />
+    <tag k="source" v="Bing;survey" />
+  </way>
+  <way id="257330857" visible="true" version="4" changeset="20898616" timestamp="2014-03-03T21:50:37Z" user="mentor" uid="38588">
+    <nd ref="2628927759" />
+    <nd ref="2628949634" />
+    <nd ref="2628927762" />
+    <nd ref="2686959632" />
+    <nd ref="2686959635" />
+    <nd ref="2628927767" />
+    <nd ref="2628927759" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:housenumber" v="141" />
+    <tag k="addr:postcode" v="E1 8EY" />
+    <tag k="addr:street" v="Leman Street" />
+    <tag k="amenity" v="restaurant" />
+    <tag k="building" v="yes" />
+    <tag k="cuisine" v="indian" />
+    <tag k="name" v="The Empress" />
+    <tag k="type" v="multipolygon" />
+    <tag k="wheelchair" v="limited" />
+  </way>
+  <way id="257334015" visible="true" version="2" changeset="20735138" timestamp="2014-02-23T16:46:01Z" user="yourealwaysbe" uid="1878856">
+    <nd ref="2628949629" />
+    <nd ref="2628927767" />
+    <nd ref="2686959635" />
+    <nd ref="2686959634" />
+    <nd ref="2628927765" />
+    <nd ref="2628949630" />
+    <nd ref="2628949629" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:housenumber" v="139" />
+    <tag k="addr:postcode" v="E1 8EY" />
+    <tag k="addr:street" v="Leman Street" />
+    <tag k="amenity" v="pub" />
+    <tag k="building" v="yes" />
+    <tag k="name" v="The Brown Bear" />
+    <tag k="phone" v="02074813792" />
+  </way>
+  <way id="257334016" visible="true" version="2" changeset="20735138" timestamp="2014-02-23T16:46:03Z" user="yourealwaysbe" uid="1878856">
+    <nd ref="2628949629" />
+    <nd ref="2628949631" />
+    <nd ref="2628949638" />
+    <nd ref="2686959662" />
+    <nd ref="2628949632" />
+    <nd ref="2628949630" />
+    <nd ref="2628949629" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:housenumber" v="137" />
+    <tag k="addr:postcode" v="E1 8EY" />
+    <tag k="addr:street" v="Leman Street" />
+    <tag k="amenity" v="restaurant" />
+    <tag k="building" v="yes" />
+    <tag k="cuisine" v="indian" />
+    <tag k="name" v="Red Chilli" />
+  </way>
+  <way id="257334018" visible="true" version="3" changeset="20877541" timestamp="2014-03-03T00:03:44Z" user="yourealwaysbe" uid="1878856">
+    <nd ref="2628949628" />
+    <nd ref="2628927762" />
+    <nd ref="2628949634" />
+    <nd ref="2628949627" />
+    <nd ref="2628949628" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:housenumber" v="143" />
+    <tag k="addr:postcode" v="E1 8EY" />
+    <tag k="addr:street" v="Leman Street" />
+    <tag k="building" v="yes" />
+    <tag k="name" v="Atkins Mcleado" />
+    <tag k="office" v="estate_agent" />
+  </way>
+  <way id="257334019" visible="true" version="2" changeset="20877541" timestamp="2014-03-03T00:03:44Z" user="yourealwaysbe" uid="1878856">
+    <nd ref="2628949631" />
+    <nd ref="2628949637" />
+    <nd ref="2628949641" />
+    <nd ref="2628949638" />
+    <nd ref="2628949631" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:housenumber" v="135" />
+    <tag k="addr:postcode" v="E1 8EY" />
+    <tag k="addr:street" v="Leman Street" />
+    <tag k="building" v="yes" />
+    <tag k="name" v="Atkins Mcleod" />
+    <tag k="office" v="estate_agent" />
+  </way>
+  <way id="257334020" visible="true" version="1" changeset="20090480" timestamp="2014-01-19T18:36:20Z" user="yourealwaysbe" uid="1878856">
+    <nd ref="2628949637" />
+    <nd ref="2628949639" />
+    <nd ref="2628949640" />
+    <nd ref="2628949641" />
+    <nd ref="2628949637" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:housenumber" v="133" />
+    <tag k="addr:postcode" v="E1 8EY" />
+    <tag k="addr:street" v="Leman Street" />
+    <tag k="amenity" v="cafe" />
+    <tag k="building" v="yes" />
+    <tag k="cuisine" v="lebanese" />
+    <tag k="name" v="Bon Appetit" />
+  </way>
+  <way id="257334021" visible="true" version="1" changeset="20090480" timestamp="2014-01-19T18:36:20Z" user="yourealwaysbe" uid="1878856">
+    <nd ref="2628949639" />
+    <nd ref="2628949642" />
+    <nd ref="2628949643" />
+    <nd ref="2628949640" />
+    <nd ref="2628949639" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:housenumber" v="131" />
+    <tag k="addr:postcode" v="E1 8EY" />
+    <tag k="addr:street" v="Leman Street" />
+    <tag k="building" v="yes" />
+    <tag k="name" v="Scissor City" />
+    <tag k="shop" v="hairdresser" />
+  </way>
+  <way id="257334022" visible="true" version="1" changeset="20090480" timestamp="2014-01-19T18:36:20Z" user="yourealwaysbe" uid="1878856">
+    <nd ref="2628949642" />
+    <nd ref="2628949645" />
+    <nd ref="2628949647" />
+    <nd ref="2628949643" />
+    <nd ref="2628949642" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:housenumber" v="129" />
+    <tag k="addr:postcode" v="E1 8EY" />
+    <tag k="addr:street" v="Leman Street" />
+    <tag k="amenity" v="fast_food" />
+    <tag k="building" v="yes" />
+    <tag k="cuisine" v="chicken" />
+    <tag k="name" v="Perfect Fried Chicken" />
+  </way>
+  <way id="257334023" visible="true" version="3" changeset="20735138" timestamp="2014-02-23T16:46:02Z" user="yourealwaysbe" uid="1878856">
+    <nd ref="2628949645" />
+    <nd ref="2628949649" />
+    <nd ref="2628949651" />
+    <nd ref="2628949647" />
+    <nd ref="2628949645" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:housenumber" v="127" />
+    <tag k="addr:postcode" v="E1 8EY" />
+    <tag k="addr:street" v="Leman Street" />
+    <tag k="amenity" v="cafe" />
+    <tag k="building" v="yes" />
+    <tag k="name" v="Long Shot" />
+  </way>
+  <way id="257334024" visible="true" version="4" changeset="21622181" timestamp="2014-04-11T08:32:18Z" user="yourealwaysbe" uid="1878856">
+    <nd ref="2628949649" />
+    <nd ref="2628949653" />
+    <nd ref="2628949655" />
+    <nd ref="2628949651" />
+    <nd ref="2628949649" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:housenumber" v="125" />
+    <tag k="addr:postcode" v="E1 8EY" />
+    <tag k="addr:street" v="Leman Street" />
+    <tag k="building" v="yes" />
+    <tag k="name" v="Wine Tiers" />
+    <tag k="shop" v="yes" />
+  </way>
+  <way id="257334025" visible="true" version="2" changeset="40466423" timestamp="2016-07-03T21:03:26Z" user="yourealwaysbe" uid="1878856">
+    <nd ref="2628949653" />
+    <nd ref="2628949660" />
+    <nd ref="2628949661" />
+    <nd ref="2628949655" />
+    <nd ref="2628949653" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:housenumber" v="123" />
+    <tag k="addr:postcode" v="E1 8EY" />
+    <tag k="addr:street" v="Leman Street" />
+    <tag k="amenity" v="cafe" />
+    <tag k="building" v="yes" />
+    <tag k="name" v="Mapa Cafe" />
+  </way>
+  <way id="257334026" visible="true" version="2" changeset="20735138" timestamp="2014-02-23T16:46:03Z" user="yourealwaysbe" uid="1878856">
+    <nd ref="2628949660" />
+    <nd ref="2628949662" />
+    <nd ref="2628949665" />
+    <nd ref="2628949661" />
+    <nd ref="2628949660" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:housenumber" v="121" />
+    <tag k="addr:postcode" v="E1 8EY" />
+    <tag k="addr:street" v="Leman Street" />
+    <tag k="amenity" v="cafe" />
+    <tag k="building" v="yes" />
+    <tag k="name" v="Leman's" />
+  </way>
+  <way id="257334027" visible="true" version="5" changeset="29476760" timestamp="2015-03-14T17:38:53Z" user="andygol" uid="94578">
+    <nd ref="2628949662" />
+    <nd ref="2628949666" />
+    <nd ref="2628949667" />
+    <nd ref="2628949668" />
+    <nd ref="2686959651" />
+    <nd ref="2628949665" />
+    <nd ref="2628949662" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:housenumber" v="119" />
+    <tag k="addr:postcode" v="E1 8EY" />
+    <tag k="addr:street" v="Leman Street" />
+    <tag k="building" v="yes" />
+    <tag k="name" v="Taxi Loans" />
+    <tag k="shop" v="money_lender" />
+  </way>
+  <way id="257334028" visible="true" version="1" changeset="20090480" timestamp="2014-01-19T18:36:21Z" user="yourealwaysbe" uid="1878856">
+    <nd ref="2628949666" />
+    <nd ref="2628949669" />
+    <nd ref="2628949670" />
+    <nd ref="2628949667" />
+    <nd ref="2628949666" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:housenumber" v="117" />
+    <tag k="addr:postcode" v="E1 8EY" />
+    <tag k="addr:street" v="Leman Street" />
+    <tag k="building" v="yes" />
+    <tag k="name" v="Armstrong and Butler" />
+    <tag k="shop" v="laundry" />
+  </way>
+  <way id="257338275" visible="true" version="4" changeset="42536842" timestamp="2016-09-30T08:44:37Z" user="Mauls" uid="24119">
+    <nd ref="2628990091" />
+    <nd ref="2628990092" />
+    <nd ref="2628990093" />
+    <nd ref="2628990094" />
+    <nd ref="2628990095" />
+    <nd ref="2628990096" />
+    <nd ref="2628990091" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:housename" v="Sugar House" />
+    <tag k="addr:housenumber" v="99" />
+    <tag k="addr:postcode" v="E1 8GH" />
+    <tag k="addr:street" v="Leman Street" />
+    <tag k="building" v="residential" />
+  </way>
+  <way id="257338276" visible="true" version="4" changeset="42536842" timestamp="2016-09-30T08:44:37Z" user="Mauls" uid="24119">
+    <nd ref="2628990093" />
+    <nd ref="2628990097" />
+    <nd ref="2628990098" />
+    <nd ref="2628990099" />
+    <nd ref="2628990100" />
+    <nd ref="2628990101" />
+    <nd ref="2628990093" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:housename" v="Christopher Court" />
+    <tag k="addr:housenumber" v="97" />
+    <tag k="addr:postcode" v="E1 8GJ" />
+    <tag k="addr:street" v="Leman Street" />
+    <tag k="building" v="residential" />
+  </way>
+  <way id="257338277" visible="true" version="4" changeset="42536842" timestamp="2016-09-30T08:44:37Z" user="Mauls" uid="24119">
+    <nd ref="2628990102" />
+    <nd ref="2628990095" />
+    <nd ref="2628990096" />
+    <nd ref="2628990103" />
+    <nd ref="2628990104" />
+    <nd ref="2628990099" />
+    <nd ref="2628990100" />
+    <nd ref="2628990102" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:housename" v="Sterling Mansions" />
+    <tag k="addr:housenumber" v="75" />
+    <tag k="addr:postcode" v="E1 8EY" />
+    <tag k="addr:street" v="Leman Street" />
+    <tag k="building" v="residential" />
+  </way>
+  <way id="257338278" visible="true" version="4" changeset="46008913" timestamp="2017-02-11T23:06:10Z" user="Harry Wood" uid="1611">
+    <nd ref="2628990103" />
+    <nd ref="2628990104" />
+    <nd ref="2628990105" />
+    <nd ref="2809341679" />
+    <nd ref="2628990106" />
+    <nd ref="2628990108" />
+    <nd ref="2628990107" />
+    <nd ref="2628990112" />
+    <nd ref="2628990103" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:housenumber" v="65" />
+    <tag k="addr:postcode" v="E1 8NX" />
+    <tag k="addr:street" v="Leman Street" />
+    <tag k="building" v="residential" />
+    <tag k="building:levels" v="10" />
+    <tag k="name" v="Student Castle" />
+    <tag k="wheelchair" v="yes" />
+  </way>
+  <way id="257338682" visible="true" version="1" changeset="20091198" timestamp="2014-01-19T19:15:30Z" user="yourealwaysbe" uid="1878856">
+    <nd ref="727631425" />
+    <nd ref="2628992353" />
+    <nd ref="2628992354" />
+    <nd ref="727631333" />
+    <nd ref="727631425" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:housenumber" v="19a" />
+    <tag k="addr:postcode" v="E1 8EN" />
+    <tag k="addr:street" v="Leman Street" />
+    <tag k="amenity" v="pub" />
+    <tag k="building" v="yes" />
+    <tag k="name" v="The Dispensary" />
+    <tag k="website" v="http://www.thedispensarylondon.co.uk/" />
+  </way>
+  <way id="257338683" visible="true" version="3" changeset="43454576" timestamp="2016-11-07T00:18:00Z" user="peregrination" uid="486343">
+    <nd ref="3190213579" />
+    <nd ref="2628992355" />
+    <nd ref="2628992356" />
+    <nd ref="2628992354" />
+    <nd ref="727631333" />
+    <nd ref="3190213579" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:housenumber" v="19" />
+    <tag k="addr:postcode" v="E1 8EJ" />
+    <tag k="addr:street" v="Leman Street" />
+    <tag k="building" v="apartments" />
+    <tag k="name" v="City Reach" />
+  </way>
+  <way id="273567425" visible="true" version="1" changeset="21633504" timestamp="2014-04-11T19:38:32Z" user="yourealwaysbe" uid="1878856">
+    <nd ref="2784038470" />
+    <nd ref="1233335578" />
+    <nd ref="2784038471" />
+    <nd ref="2784038472" />
+    <nd ref="2784038470" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:housenumber" v="16" />
+    <tag k="addr:street" v="Prescot Street" />
+    <tag k="amenity" v="restaurant" />
+    <tag k="building" v="yes" />
+    <tag k="cuisine" v="indian" />
+    <tag k="name" v="Cafe Spice Namaste" />
+    <tag k="website" v="http://www.cafespice.co.uk/" />
+  </way>
+  <way id="313105726" visible="true" version="1" changeset="26824944" timestamp="2014-11-16T16:11:44Z" user="yourealwaysbe" uid="1878856">
+    <nd ref="727631409" />
+    <nd ref="2145745298" />
+    <nd ref="3190213575" />
+    <nd ref="3190213576" />
+    <nd ref="727631409" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:housenumber" v="55-57" />
+    <tag k="addr:street" v="Alie Street" />
+    <tag k="building" v="residential" />
+  </way>
+  <way id="313105730" visible="true" version="1" changeset="26824944" timestamp="2014-11-16T16:11:44Z" user="yourealwaysbe" uid="1878856">
+    <nd ref="3190213586" />
+    <nd ref="3190213587" />
+    <nd ref="3190213588" />
+    <nd ref="3190213589" />
+    <nd ref="3190213586" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:housenumber" v="81" />
+    <tag k="addr:street" v="Alie Street" />
+    <tag k="building" v="commercial" />
+  </way>
+  <way id="313106669" visible="true" version="1" changeset="26825096" timestamp="2014-11-16T16:18:44Z" user="yourealwaysbe" uid="1878856">
+    <nd ref="3190227382" />
+    <nd ref="1159347370" />
+    <nd ref="3190227383" />
+    <nd ref="3190227381" />
+    <nd ref="3190227385" />
+    <nd ref="3190227382" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:housenumber" v="32-38" />
+    <tag k="addr:street" v="Leman Street" />
+    <tag k="building" v="commercial" />
+    <tag k="name" v="Frazer House" />
+  </way>
+  <way id="316976811" visible="true" version="2" changeset="42371682" timestamp="2016-09-23T11:42:40Z" user="ecatmur" uid="352985">
+    <nd ref="3231708916" />
+    <nd ref="4414750024" />
+    <nd ref="1951199808" />
+    <nd ref="48906847" />
+    <nd ref="104326" />
+    <tag k="highway" v="trunk" />
+    <tag k="lanes" v="2" />
+    <tag k="lit" v="yes" />
+    <tag k="maxspeed" v="30 mph" />
+    <tag k="name" v="Leman Street" />
+    <tag k="oneway" v="yes" />
+    <tag k="operator" v="Transport for London" />
+    <tag k="ref" v="A1202" />
+    <tag k="sidewalk" v="both" />
+  </way>
+  <way id="372792295" visible="true" version="2" changeset="37851795" timestamp="2016-03-15T18:37:47Z" user="Welshie" uid="508">
+    <nd ref="2686959636" />
+    <nd ref="881944060" />
+    <nd ref="1794997548" />
+    <nd ref="132302085" />
+    <nd ref="424613" />
+    <tag k="highway" v="primary" />
+    <tag k="lit" v="yes" />
+    <tag k="maxheight" v="4.8" />
+    <tag k="maxspeed" v="20 mph" />
+    <tag k="name" v="Leman Street" />
+    <tag k="ref" v="A1202" />
+    <tag k="sidewalk" v="both" />
+  </way>
+  <way id="385261489" visible="true" version="1" changeset="35867808" timestamp="2015-12-10T15:26:45Z" user="Amaroussi" uid="1016290">
+    <nd ref="18055094" />
+    <nd ref="2364389880" />
+    <nd ref="18055045" />
+    <tag k="highway" v="trunk" />
+    <tag k="history" v="Retrieved from v4" />
+    <tag k="lanes" v="2" />
+    <tag k="lit" v="yes" />
+    <tag k="maxspeed" v="30 mph" />
+    <tag k="name" v="Leman Street" />
+    <tag k="oneway" v="yes" />
+    <tag k="operator" v="Transport for London" />
+    <tag k="ref" v="A1202" />
+    <tag k="sidewalk" v="both" />
+  </way>
+  <way id="387321384" visible="true" version="4" changeset="46008913" timestamp="2017-02-11T23:06:11Z" user="Harry Wood" uid="1611">
+    <nd ref="3906239524" />
+    <nd ref="3906237239" />
+    <nd ref="3906237240" />
+    <nd ref="4281139393" />
+    <nd ref="4281139394" />
+    <nd ref="3906239525" />
+    <nd ref="3906239524" />
+    <tag k="addr:city" v="London" />
+    <tag k="addr:housename" v="Cashmere House" />
+    <tag k="addr:housenumber" v="36" />
+    <tag k="addr:street" v="Leman Street" />
+    <tag k="building" v="apartments" />
+    <tag k="building:levels" v="11" />
+  </way>
+  <way id="457712648" visible="true" version="3" changeset="46822939" timestamp="2017-03-13T20:22:53Z" user="trigpoint" uid="12992">
+    <nd ref="4538130835" />
+    <nd ref="4538130838" />
+    <nd ref="1233370034" />
+    <nd ref="1233335478" />
+    <nd ref="1233335433" />
+    <nd ref="1233335431" />
+    <nd ref="1233335430" />
+    <nd ref="1233335443" />
+    <nd ref="1233335444" />
+    <nd ref="1233335446" />
+    <nd ref="1233335447" />
+    <nd ref="1233335449" />
+    <nd ref="1233335451" />
+    <nd ref="1233335453" />
+    <nd ref="1233335454" />
+    <nd ref="1233335456" />
+    <nd ref="1233335458" />
+    <nd ref="1233335459" />
+    <nd ref="1233335461" />
+    <nd ref="1233335463" />
+    <nd ref="1233335465" />
+    <nd ref="1233335467" />
+    <nd ref="1233335469" />
+    <nd ref="4732798987" />
+    <nd ref="1233335476" />
+    <nd ref="4538130835" />
+    <tag k="addr:postcode" v="E1 8BB" />
+    <tag k="addr:street" v="Prescot Street" />
+    <tag k="amenity" v="place_of_worship" />
+    <tag k="building" v="church" />
+    <tag k="denomination" v="catholic" />
+    <tag k="name" v="Church of the English Martyrs" />
+    <tag k="religion" v="christian" />
+    <tag k="source" v="Bing" />
+  </way>
+</osm>
