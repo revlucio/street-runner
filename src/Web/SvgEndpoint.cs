@@ -1,6 +1,7 @@
 using System;
+using StreetRunner;
 
-namespace StreetRunner.Tests
+namespace Web
 {
     public class SvgEndpoint
     {
