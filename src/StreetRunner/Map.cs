@@ -18,7 +18,13 @@ namespace StreetRunner
 
         public void AddRun(string gpx)
         {
-            _runs.Add(Run.FromGpx(gpx));
+            var run = Run.FromGpx(gpx);
+            _runs.Add(run);
+            _streets.ToList().ForEach(street => {
+                if (street.Points.Select(p => p.Lat).All(point => run.Points.Select(p => p.Lat).Contains(point))) {
+                    street.Covered = true;
+                }
+            });
         }
 
         public static Map FromOsd(string osd)

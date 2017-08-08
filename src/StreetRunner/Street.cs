@@ -10,10 +10,12 @@ namespace StreetRunner
         {
             Name = name;
             Points = points;
+            Covered = false;
         }
 
         public string Name { get; }
         public IEnumerable<Point> Points { get; }
+        public bool Covered { get; set; }
 
         internal string ToSvgPath(int scaleLatTo, int scaleLonTo)
         {
