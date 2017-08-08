@@ -9,7 +9,7 @@ namespace StreetRunner
     {
         private string runName;
 
-        private Run(string runName, IEnumerable<Point> points)
+        public Run(string runName, IEnumerable<Point> points)
         {
             this.runName = runName;
             this.Points = points;

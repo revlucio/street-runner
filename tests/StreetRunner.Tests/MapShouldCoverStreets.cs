@@ -22,47 +22,42 @@ namespace StreetRunner.Tests
         [Fact]
         public void RunDoesNotCoverStreetAtAll_IsNotCovered() 
         {
-            var street = new Street("name", new List<Point> 
-            {
-                { new Point(0m, 0m) },
-                { new Point(100m, 100m) },
-            });
-            var map = new Map(new List<Street>{street});
-            map.AddRun(@"
-<gpx xmlns=""http://www.topografix.com/GPX/1/1""> 
-<trk>
-    <name>Test Run</name>
-    <trkseg>
-      <trkpt lat=""200"" lon=""200""></trkpt>
-      <trkpt lat=""300"" lon=""300""></trkpt>
-    </trkseg>
-</trk>
-</gpx>");
-
-            Assert.False(map.Streets.Single().Covered);
+            Assert.False(IsCovered(
+                new List<Point> 
+                {
+                    new Point(0m, 0m),
+                    new Point(100m, 100m),
+                }, 
+                new List<Point> {
+                    new Point(200m, 200m),
+                    new Point(300m, 300m),
+                })
+            );
         }
 
         [Fact]
         public void RunCoversStreetPerfectly_IsCovered() 
         {
-            var street = new Street("name", new List<Point> 
-            {
-                { new Point(0m, 0m) },
-                { new Point(100m, 100m) },
-            });
-            var map = new Map(new List<Street>{street});
-            map.AddRun(@"
-<gpx xmlns=""http://www.topografix.com/GPX/1/1""> 
-<trk>
-    <name>Test Run</name>
-    <trkseg>
-      <trkpt lat=""0"" lon=""0""></trkpt>
-      <trkpt lat=""100"" lon=""100""></trkpt>
-    </trkseg>
-</trk>
-</gpx>");
+            Assert.True(IsCovered(
+                new List<Point> 
+                {
+                    new Point(0m, 0m),
+                    new Point(100m, 100m),
+                }, 
+                new List<Point> {
+                    new Point(0m, 0m),
+                    new Point(100m, 100m),
+                })
+            );
+        }
 
-            Assert.True(map.Streets.Single().Covered);
+        private bool IsCovered(IEnumerable<Point> streetPoints, IEnumerable<Point> runPoints) {
+            var street = new Street("name", streetPoints);
+            var map = new Map(new List<Street>{street});
+            var run = new Run("name", runPoints);
+            map.AddRun(run);
+
+            return map.Streets.Single().Covered;
         }
     }
 }

@@ -19,6 +19,10 @@ namespace StreetRunner
         public void AddRun(string gpx)
         {
             var run = Run.FromGpx(gpx);
+            AddRun(run);
+        }
+
+        public void AddRun(Run run) {
             _runs.Add(run);
             _streets.ToList().ForEach(street => {
                 street.CheckIfCovered(run);

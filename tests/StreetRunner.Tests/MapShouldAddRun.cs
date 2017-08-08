@@ -69,16 +69,11 @@ namespace StreetRunner.Tests
                 new Point(200, 200),
             });
             var map = new Map(new List<Street> { street });
-            map.AddRun(@"
-<gpx>
-<trk>
-    <name>Test Run</name>
-    <trkseg>
-      <trkpt lat=""100"" lon=""100""></trkpt>
-      <trkpt lat=""200"" lon=""200""></trkpt>
-    </trkseg>
-</trk>
-</gpx>");
+            var run = new Run("name", new List<Point> {
+                new Point(100, 100),
+                new Point(200, 200),
+            });
+            map.AddRun(run);
 
             var svg = map.ToSvgPath(100, 100);
 

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -23,17 +22,5 @@ namespace StreetRunner
                 this.Covered = true;
             }
         }
-    }
-
-    public class Point
-    {
-        public Point(decimal lat, decimal lon) 
-        {
-            Lat = lat;
-            Lon = lon;
-        }
-
-        public decimal Lat { get; }
-        public decimal Lon { get; }
     }
 }
