@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -18,7 +19,9 @@ namespace StreetRunner
 
         internal void CheckIfCovered(Run run)
         {
-            if (this.Points.Select(p => p.Lat).All(point => run.Points.Select(p => p.Lat).Contains(point))) {
+            if (this.Points.Any(streetPoint 
+                => run.Points.Any(runPoint 
+                    => streetPoint.CalculateDistanceInMetres(runPoint) < 110))) {
                 this.Covered = true;
             }
         }

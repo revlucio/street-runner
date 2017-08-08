@@ -18,7 +18,7 @@ namespace StreetRunner
         public string Name => runName;
         public IEnumerable<Point> Points { get; }
 
-        internal static Run FromGpx(string gpx)
+        public static Run FromGpx(string gpx)
         {
             var gpxXml = XElement.Parse(gpx);
             var runXml = gpxXml.GetElement("trk");

@@ -6,15 +6,27 @@ namespace Web
     public class SvgEndpoint
     {
         private string osm;
+        private string gpx;
 
         public SvgEndpoint(string osm)
         {
             this.osm = osm;
         }
 
+        public SvgEndpoint(string osm, string gpx)
+        {
+            this.osm = osm;
+            this.gpx = gpx;
+        }
+
         public string Get()
         {
-            var path = Map.FromOsd(this.osm).ToSvgPath(500, 500);
+            var map = Map.FromOsd(this.osm);
+            if (this.gpx != null) {
+                map.AddRun(Run.FromGpx(this.gpx));
+            }
+            
+            var path = map.ToSvgPath(500, 500);
 
             return 
 $@"<html>

@@ -19,17 +19,14 @@ namespace Web
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddConsole();
-
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            // loggerFactory.AddConsole();
+            app.UseDeveloperExceptionPage();
 
             app.Run(async (context) =>
             {
                 var osm = File.ReadAllText("/Users/luke/code/street-runner/src/Web/stripped-down-east-london.osm");
-                var response = new SvgEndpoint(osm).Get();
+                var gpx = File.ReadAllText("/Users/luke/code/street-runner/src/Web/east-london-run.gpx");
+                var response = new SvgEndpoint(osm, gpx).Get();
 
                 context.Response.ContentType = "text/html";
                 await context.Response.WriteAsync(response);

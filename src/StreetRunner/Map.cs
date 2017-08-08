@@ -24,8 +24,9 @@ namespace StreetRunner
 
         public void AddRun(Run run) {
             _runs.Add(run);
-            _streets.ToList().ForEach(street => {
+            _streets = _streets.Select(street => {
                 street.CheckIfCovered(run);
+                return street;
             });
         }
 

@@ -51,6 +51,22 @@ namespace StreetRunner.Tests
             );
         }
 
+        [Fact]
+        public void RunIsAtLeast100MetresToAnyStreetPoint_IsCovered() 
+        {
+            // 0.0009 is approx 100m
+            var ninetyMetres = 0.0008m;
+            Assert.True(IsCovered(
+                new List<Point> 
+                {
+                    new Point(50m, 50m),
+                }, 
+                new List<Point> {
+                    new Point(50m + ninetyMetres, 50m),
+                })
+            );
+        }
+
         private bool IsCovered(IEnumerable<Point> streetPoints, IEnumerable<Point> runPoints) {
             var street = new Street("name", streetPoints);
             var map = new Map(new List<Street>{street});
