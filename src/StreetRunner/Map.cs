@@ -21,9 +21,7 @@ namespace StreetRunner
             var run = Run.FromGpx(gpx);
             _runs.Add(run);
             _streets.ToList().ForEach(street => {
-                if (street.Points.Select(p => p.Lat).All(point => run.Points.Select(p => p.Lat).Contains(point))) {
-                    street.Covered = true;
-                }
+                street.CheckIfCovered(run);
             });
         }
 
@@ -72,7 +70,8 @@ namespace StreetRunner
             var scaleLonBy = scaleLonTo / (allPoints.Select(p => p.Lon).Max() - offsetLonBy);
 
             var streetPaths = Streets.Select(street => {
-                return ToSvgPath(scaleLatTo, offsetLatBy, offsetLonBy, scaleLatBy, scaleLonBy, street.Points, "black");
+                var colour = street.Covered ? "yellow" : "black";
+                return ToSvgPath(scaleLatTo, offsetLatBy, offsetLonBy, scaleLatBy, scaleLonBy, street.Points, colour);
             });
             var runPaths = Runs.Select(run => {
                 return ToSvgPath(scaleLatTo, offsetLatBy, offsetLonBy, scaleLatBy, scaleLonBy, run.Points, "red");

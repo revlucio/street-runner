@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
@@ -58,6 +59,32 @@ namespace StreetRunner.Tests
             var svg = map.ToSvgPath(100, 100);
 
             Assert.Equal("<path d=\"M 0 100 L 100 0 \" stroke=\"red\" fill=\"transparent\"/>", svg);
+        }
+
+        [Fact]
+        public void CoveredStreetIsYellow()
+        {
+            var street = new Street("name", new List<Point> {
+                new Point(100, 100),
+                new Point(200, 200),
+            });
+            var map = new Map(new List<Street> { street });
+            map.AddRun(@"
+<gpx>
+<trk>
+    <name>Test Run</name>
+    <trkseg>
+      <trkpt lat=""100"" lon=""100""></trkpt>
+      <trkpt lat=""200"" lon=""200""></trkpt>
+    </trkseg>
+</trk>
+</gpx>");
+
+            var svg = map.ToSvgPath(100, 100);
+
+            Assert.Equal(
+@"<path d=""M 0 100 L 100 0 "" stroke=""yellow"" fill=""transparent""/>
+<path d=""M 0 100 L 100 0 "" stroke=""red"" fill=""transparent""/>", svg);
         }
     }
 }
