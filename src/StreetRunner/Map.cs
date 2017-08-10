@@ -10,9 +10,7 @@ namespace StreetRunner
         private IEnumerable<Street> _streets;
         private List<Run> _runs = new List<Run>();
 
-        public IEnumerable<Street> Streets => _streets
-            // .Where(s => s.Name == "Alie Street" || s.Name == "Prescot Street" || s.Name == "Leman Street")
-            ;
+        public IEnumerable<Street> Streets => _streets;
 
         public IEnumerable<Run> Runs => _runs;
 
@@ -48,6 +46,9 @@ namespace StreetRunner
                             .Attribute("v").Value;
                     }
 
+                    var highwayTag = way.Elements("tag").Single(tag => tag.Attribute("k").Value == "highway");
+                    var type = highwayTag.Attribute("v").Value;
+
                     var points = way.Elements("nd")
                         .Select(node => 
                         {
@@ -58,26 +59,58 @@ namespace StreetRunner
                             return new Point(lat, lon);
                         });
 
-                    return new Street(name, points);
+                    return new Street(name, points, type);
                 });
 
             return new Map(streets);
         }
 
-        public string ToSvgPath(int scaleLatTo, int scaleLonTo)
+        public class Rect 
         {
-            var streetPoints = Streets.SelectMany(s => s.Points);
-            var runPoints = Runs.SelectMany(r => r.Points);
-            var allPoints = streetPoints.Concat(runPoints);
+            public decimal MaxLat { get; set; }
+            public decimal MaxLon { get; set; }
+            public decimal MinLat { get; set; }
+            public decimal MinLon { get; set; }
+        }
+
+        private Rect GetBoundingRect() 
+        {
+            var streetPoints = Streets.SelectMany(s => s.Points).ToList();
+            var runPoints = Runs.SelectMany(r => r.Points).ToList();
+            var allPoints = streetPoints.Concat(runPoints).ToList();
             if (allPoints.Any() == false) 
             {
-                return "";
+                return null;
             }
 
-            var offsetLatBy = allPoints.Select(p => p.Lat).Min();
-            var offsetLonBy = allPoints.Select(p => p.Lon).Min();
-            var scaleLatBy = scaleLatTo / (allPoints.Select(p => p.Lat).Max() - offsetLatBy);
-            var scaleLonBy = scaleLonTo / (allPoints.Select(p => p.Lon).Max() - offsetLonBy);
+            return new Rect
+            {
+                MinLat = allPoints.Select(p => p.Lat).Min(),
+                MinLon = allPoints.Select(p => p.Lon).Min(),
+                MaxLat = allPoints.Select(p => p.Lat).Max(),
+                MaxLon = allPoints.Select(p => p.Lon).Max(),
+            };
+        }
+
+        private Rect GetEastLondonBoundingRect() 
+        {
+            return new Rect 
+            {
+                MaxLat = 51.5156111m,
+                MinLat = 51.5007243m,
+                MaxLon = -0.0418513m,
+                MinLon = -0.0851122m,
+            };
+        }
+
+        public string ToSvgPath(int scaleLatTo, int scaleLonTo)
+        {
+            var rect = GetBoundingRect();
+
+            var offsetLatBy = rect.MinLat;
+            var offsetLonBy = rect.MinLon;
+            var scaleLatBy = scaleLatTo / (rect.MaxLat - offsetLatBy);
+            var scaleLonBy = scaleLonTo / (rect.MaxLon - offsetLonBy);
 
             var streetPaths = Streets.Select(street => {
                 var colour = street.Covered ? "yellow" : "black";

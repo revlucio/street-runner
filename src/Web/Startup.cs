@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using StreetRunner;
 
 namespace Web
 {
@@ -22,8 +22,15 @@ namespace Web
             // loggerFactory.AddConsole();
             app.UseDeveloperExceptionPage();
 
-            var osm = File.ReadAllText("/Users/luke/code/street-runner/src/Web/stripped-down-east-london.osm");
+            var osm = File.ReadAllText("/Users/luke/code/street-runner/src/Web/east-london.osm");
             var gpx = File.ReadAllText("/Users/luke/code/street-runner/src/Web/east-london-run.gpx");
+
+            app.Map("/favicon.ico", favicon => {
+                favicon.Run(async (context) => {
+                    context.Response.StatusCode = 200;
+                    await Task.CompletedTask;
+                });
+            });
 
             app.Map("/street", street => {
                 street.Run(async (context) => {
@@ -34,9 +41,17 @@ namespace Web
                 });
             });
 
+            app.Map("/stats", street => {
+                street.Run(async (context) => {
+                    var response = new StatsEndpoint(osm).Get();
+
+                    context.Response.ContentType = "text/plain";
+                    await context.Response.WriteAsync(response);
+                });
+            });
+
             app.Run(async (context) =>
             {
-                
                 var response = new SvgEndpoint(osm, gpx).Get();
 
                 context.Response.ContentType = "text/html";
