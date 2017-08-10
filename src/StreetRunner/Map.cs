@@ -37,11 +37,16 @@ namespace StreetRunner
             var nodes = osdXml.Elements("node");
 
             var streets = osdXml.Elements("way")
-                .Where(way => way.Elements("tag").Any(tag => tag.Attribute("k").Value == "name"))
+                .Where(way => way.Elements("tag").Any(tag => tag.Attribute("k").Value == "highway"))
                 .Select(way => 
                 {
-                    var nameTag = way.Elements("tag").Single(tag => tag.Attribute("k").Value == "name");
-                    var name = nameTag.Attribute("v").Value;
+                    var name = string.Empty;
+                    if (way.Elements("tag").Any(tag => tag.Attribute("k").Value == "name")) {
+                        name = way
+                            .Elements("tag")
+                            .Single(tag => tag.Attribute("k").Value == "name")
+                            .Attribute("v").Value;
+                    }
 
                     var points = way.Elements("nd")
                         .Select(node => 

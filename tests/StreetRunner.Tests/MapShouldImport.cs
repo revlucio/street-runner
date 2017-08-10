@@ -11,7 +11,21 @@ namespace StreetRunner.Tests
             var map = Map.FromOsd(@"
 <osm>
  <way>
+  <tag k=""highway"" v=""secondary"" />
+ </way>
+</osm>");
+
+            Assert.Equal(1, map.Streets.Count());
+        }
+
+        [Fact]
+        public void ImportStreetNameFromOdf()
+        {
+            var map = Map.FromOsd(@"
+<osm>
+ <way>
   <tag k=""name"" v=""Main Street""/>
+  <tag k=""highway"" v=""secondary"" />
  </way>
 </osm>");
 
@@ -19,12 +33,12 @@ namespace StreetRunner.Tests
         }
 
         [Fact]
-        public void IgnoreWaysWithoutName()
+        public void ImportOnlyHighways()
         {
             var map = Map.FromOsd(@"
 <osm>
  <way>
-  <tag k=""not-name"" v=""Main Street""/>
+  <tag k=""building"" v=""yes"" />
  </way>
 </osm>");
 
@@ -36,9 +50,9 @@ namespace StreetRunner.Tests
         {
             var map = Map.FromOsd(@"
 <osm>
- <way><tag k=""name"" v=""Main Street""/></way>
- <way><tag k=""name"" v=""Main Street""/></way>
- <way><tag k=""name"" v=""Main Street""/></way>
+ <way><tag k=""highway"" v=""secondary""/></way>
+ <way><tag k=""highway"" v=""secondary""/></way>
+ <way><tag k=""highway"" v=""secondary""/></way>
 </osm>");
 
             Assert.Equal(3, map.Streets.Count());
@@ -54,12 +68,11 @@ namespace StreetRunner.Tests
  <way>
   <nd ref=""111""/>
   <nd ref=""222""/>
-  <tag k=""name"" v=""Main Street""/>
+  <tag k=""highway"" v=""secondary""/>
  </way>
 </osm>");
 
             var street = map.Streets.First();
-            Assert.Equal("Main Street", street.Name);
             Assert.Equal(11.1m, street.Points.First().Lat);
             Assert.Equal(22.2m, street.Points.First().Lon);
             Assert.Equal(33.3m, street.Points.Last().Lat);

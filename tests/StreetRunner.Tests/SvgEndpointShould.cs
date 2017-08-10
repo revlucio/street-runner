@@ -27,7 +27,7 @@ namespace StreetRunner.Tests
  <way>
   <nd ref=""111""/>
   <nd ref=""222""/>
-  <tag k=""name"" v=""Main Street""/>
+  <tag k=""highway"" v=""secondary""/>
  </way>
 </osm>            
 ";

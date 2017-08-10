@@ -22,10 +22,21 @@ namespace Web
             // loggerFactory.AddConsole();
             app.UseDeveloperExceptionPage();
 
+            var osm = File.ReadAllText("/Users/luke/code/street-runner/src/Web/stripped-down-east-london.osm");
+            var gpx = File.ReadAllText("/Users/luke/code/street-runner/src/Web/east-london-run.gpx");
+
+            app.Map("/street", street => {
+                street.Run(async (context) => {
+                    var response = new StreetsEndpoint(osm).Get();
+
+                    context.Response.ContentType = "text/plain";
+                    await context.Response.WriteAsync(response);
+                });
+            });
+
             app.Run(async (context) =>
             {
-                var osm = File.ReadAllText("/Users/luke/code/street-runner/src/Web/stripped-down-east-london.osm");
-                var gpx = File.ReadAllText("/Users/luke/code/street-runner/src/Web/east-london-run.gpx");
+                
                 var response = new SvgEndpoint(osm, gpx).Get();
 
                 context.Response.ContentType = "text/html";
