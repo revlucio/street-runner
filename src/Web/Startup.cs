@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,7 +20,6 @@ namespace Web
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            // loggerFactory.AddConsole();
             app.UseDeveloperExceptionPage();
 
             var osm = File.ReadAllText("/Users/luke/code/street-runner/src/Web/map-files/east-london.osm");
@@ -34,16 +34,31 @@ namespace Web
 
             app.MapTo("/street", new StreetsEndpoint(osm).Get);
             app.MapTo("/stats", new StatsEndpoint(osm).Get);
-            app.MapTo("/svg", new SvgEndpoint(osm).Get, "text/html");
-            app.MapTo("/map", new MapEndpoint().Get);
-
-            app.Run(async (context) =>
+            app.Map("/map", map => 
             {
-                var response = "404 - not found";
-                context.Response.ContentType = "text/plain";
-                context.Response.StatusCode = 404;
-                await context.Response.WriteAsync(response);
+                map.Run(async (context) => 
+                {
+                    string response;
+                    if (context.Request.Path == string.Empty) 
+                    {
+                        context.Response.ContentType = "text/plain";
+                        response = new MapEndpoint().Get();
+                    }
+                    else
+                    {
+                        var mapDir = Path.Combine(AppContext.BaseDirectory, "map-files");
+                        var mapFilename = context.Request.Path;
+                        osm = File.ReadAllText($"{mapDir}/{mapFilename}.osm");
+
+                        context.Response.ContentType = "text/html";
+                        response = new SvgEndpoint(osm, gpx).Get();
+                    }
+
+                    await context.Response.WriteAsync(response);
+                });
             });
+
+            app.ReturnNotFound();
         }
     }
 }

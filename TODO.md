@@ -1,7 +1,13 @@
 # TODO
 
+GOAL:
+    - given an area of london, how much have i covered in my runs?
+    - load east london
+    - load a run
+    - output % of streets covered
+
 - need a better UI for looking into the files
-    - dropdown for selecting osm files /map
+    - 
 
 - crop the streets to just ones within the run box
 

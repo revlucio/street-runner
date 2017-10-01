@@ -8,12 +8,12 @@ namespace Web
     public static class ApplicationBuilderExtensions 
     {
         public static IApplicationBuilder MapTo(
-            this IApplicationBuilder application, 
-            string url, 
+            this IApplicationBuilder app, 
+            PathString url, 
             Func<string> func, 
             string contentType = "text/plain") 
         {
-            return application.Map(url, api => 
+            return app.Map(url, api => 
             {
                 api.Run(async (context) => 
                 {
@@ -23,5 +23,16 @@ namespace Web
                 });
             });
         }    
+
+        public static void ReturnNotFound(this IApplicationBuilder app)
+        {
+            app.Run(async (context) =>
+            {
+                var response = "404 - not found";
+                context.Response.ContentType = "text/plain";
+                context.Response.StatusCode = 404;
+                await context.Response.WriteAsync(response);
+            });
+        }
     }
 }
