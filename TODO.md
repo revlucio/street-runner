@@ -1,7 +1,7 @@
 # TODO
 
-- build a simple web host that renders the SVG X
-    - extend this so you can choose osm files / gpx files
+- need a better UI for looking into the files
+    - dropdown for selecting osm files /map
 
 - crop the streets to just ones within the run box
 
@@ -29,3 +29,15 @@ ideas:
     - run things async !
 
 probably need to put in some unit tests around perf...
+
+## design
+
+domain:
+    - StreetMap
+        give it an osm file and a list of gpx files
+        can output stats on how many streets are covered
+        can output svg file to visualise this
+    - StreetMapBuilder
+        give it filenames and it returns svg
+    - OsmToStreetsConverter
+    - GpxToRunsConverter

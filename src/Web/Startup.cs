@@ -32,29 +32,15 @@ namespace Web
                 });
             });
 
-            app.Map("/street", street => {
-                street.Run(async (context) => {
-                    var response = new StreetsEndpoint(osm).Get();
-
-                    context.Response.ContentType = "text/plain";
-                    await context.Response.WriteAsync(response);
-                });
-            });
-
-            app.Map("/stats", street => {
-                street.Run(async (context) => {
-                    var response = new StatsEndpoint(osm).Get();
-
-                    context.Response.ContentType = "text/plain";
-                    await context.Response.WriteAsync(response);
-                });
-            });
+            app.MapTo("/street", new StreetsEndpoint(osm).Get);
+            app.MapTo("/stats", new StatsEndpoint(osm).Get);
+            app.MapTo("/svg", new SvgEndpoint(osm).Get, "text/html");
 
             app.Run(async (context) =>
             {
-                var response = new SvgEndpoint(osm, gpx).Get();
-
-                context.Response.ContentType = "text/html";
+                var response = "404 - not found";
+                context.Response.ContentType = "text/plain";
+                context.Response.StatusCode = 404;
                 await context.Response.WriteAsync(response);
             });
         }
