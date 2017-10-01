@@ -37,14 +37,18 @@ namespace StreetRunner
         {
             var osdXml = XElement.Parse(osd);
 
-            var nodes = osdXml.Elements("node");
+            // this lookup was very slow, scanning through just once now
+            var nodeDict = osdXml
+                .Elements("node")
+                .ToDictionary(node => node.Attribute("id").Value, node => node);
 
             var streets = osdXml.Elements("way")
                 .Where(way => way.Elements("tag").Any(tag => tag.Attribute("k").Value == "highway"))
                 .Select(way => 
                 {
                     var name = string.Empty;
-                    if (way.Elements("tag").Any(tag => tag.Attribute("k").Value == "name")) {
+                    if (way.Elements("tag").Any(tag => tag.Attribute("k").Value == "name")) 
+                    {
                         name = way
                             .Elements("tag")
                             .Single(tag => tag.Attribute("k").Value == "name")
@@ -58,14 +62,17 @@ namespace StreetRunner
                         .Select(node => 
                         {
                             var id = node.Attribute("ref").Value;
-                            var match = nodes.Single(n => n.Attribute("id").Value == id);
+                            var match = nodeDict[id];
                             var lat = decimal.Parse(match.Attribute("lat").Value);
                             var lon = decimal.Parse(match.Attribute("lon").Value);
                             return new Point(lat, lon);
-                        });
+                        })
+                        .ToList();
+                    
 
                     return new Street(name, points, type);
-                });
+                })
+                .ToList();
 
             return new Map(streets);
         }
@@ -86,7 +93,7 @@ namespace StreetRunner
                 MinLon = allPoints.Select(p => p.Lon).Min(),
                 MaxLat = allPoints.Select(p => p.Lat).Max(),
                 MaxLon = allPoints.Select(p => p.Lon).Max(),
-            };
+            };;
         }
 
         private Rect GetEastLondonBoundingRect() 
@@ -103,7 +110,6 @@ namespace StreetRunner
         public string ToSvgPath(int scaleLatTo, int scaleLonTo)
         {
             var rect = GetBoundingRect();
-            Logger.LogTime("start");
 
             var offsetLatBy = rect.MinLat;
             var offsetLonBy = rect.MinLon;
@@ -111,21 +117,18 @@ namespace StreetRunner
             var scaleLonBy = scaleLonTo / (rect.MaxLon - offsetLonBy);
 
             var streetPaths = Streets
-                //.AsParallel()
                 .Select(street => {
                     var colour = street.Covered ? "yellow" : "black";
                     return ToSvgPath(scaleLatTo, offsetLatBy, offsetLonBy, scaleLatBy, scaleLonBy, street.Points, colour);
                 });
 
             var runPaths = Runs
-                //.AsParallel()
                 .Select(run => {
                     return ToSvgPath(scaleLatTo, offsetLatBy, offsetLonBy, scaleLatBy, scaleLonBy, run.Points, "red");
                 });
 
             var paths = streetPaths.Concat(runPaths);
             var result = String.Join(Environment.NewLine, paths);
-            Logger.LogTime("streets");
             return result;
         }
 

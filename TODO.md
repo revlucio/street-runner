@@ -1,22 +1,19 @@
-# TODO
+# TODO - and notes
 
-GOAL:
+## end goal
     - given an area of london, how much have i covered in my runs?
     - load east london
     - load a run
     - output % of streets covered
 
-- need a better UI for looking into the files
-    - 
+## areas to focus on
 
-- crop the streets to just ones within the run box
+- converting from osm/gpx to Map
+- outputting a nice svg
+- calculating what streets are covered by the runs (perf)
+- outputting statistics
 
-- calculate which streets are covered by the run
-    - basic unit tests with calculation X
-    - highlight the roads with colours in svg X
-    - improve complexity of 'covered' calculation
 
-- BAM thats the MVP!
 
 - add street names to the svg
 - highlight streets as you hover
@@ -25,6 +22,14 @@ GOAL:
 - put it onto heroku
 
 ## performance
+
+small-east-london.osm:
+start - 4.6s
+AsParallel() - 3.4s
+ToList in FromOsm() so xml is not read multiple times - 2.2s
+using a dict for lookup - .1s !!!
+
+Xml reading is 99% of the time! dont need to AsParallel anymore!
 
 Currently to render 1 run in east london (with cached min/max) is 151s
 
@@ -47,3 +52,7 @@ domain:
         give it filenames and it returns svg
     - OsmToStreetsConverter
     - GpxToRunsConverter
+
+need to design a json api that is fully tested
+
+need to have tighter control on the boundaries

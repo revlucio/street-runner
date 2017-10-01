@@ -9,7 +9,7 @@ namespace StreetRunner.Tests
 {
     public class MapShouldOutputFast
     {
-        [Fact(Skip = "still too slow")]
+        [Fact]
         public void OutputSmallFile() 
         {
             var osm = File.ReadAllText("/Users/luke/code/street-runner/src/StreetRunner/small-east-london.osm");
@@ -18,7 +18,7 @@ namespace StreetRunner.Tests
             var svg = Map.FromOsd(osm).ToSvgPath(500, 500);
             timer.Stop();
             
-            Assert.InRange(timer.ElapsedMilliseconds, 0, 5000);
+            Assert.InRange(timer.ElapsedMilliseconds, 0, 100);
         }
     }
 }
