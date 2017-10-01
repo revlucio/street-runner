@@ -9,6 +9,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="map-files\*.*" CopyToOutputDirectory="Always" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
     <ProjectReference Include="../StreetRunner/StreetRunner.csproj"/>
   </ItemGroup>

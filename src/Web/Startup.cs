@@ -22,7 +22,7 @@ namespace Web
             // loggerFactory.AddConsole();
             app.UseDeveloperExceptionPage();
 
-            var osm = File.ReadAllText("/Users/luke/code/street-runner/src/Web/east-london.osm");
+            var osm = File.ReadAllText("/Users/luke/code/street-runner/src/Web/map-files/east-london.osm");
             var gpx = File.ReadAllText("/Users/luke/code/street-runner/src/Web/east-london-run.gpx");
 
             app.Map("/favicon.ico", favicon => {
@@ -35,6 +35,7 @@ namespace Web
             app.MapTo("/street", new StreetsEndpoint(osm).Get);
             app.MapTo("/stats", new StatsEndpoint(osm).Get);
             app.MapTo("/svg", new SvgEndpoint(osm).Get, "text/html");
+            app.MapTo("/map", new MapEndpoint().Get);
 
             app.Run(async (context) =>
             {
