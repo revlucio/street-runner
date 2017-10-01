@@ -11,8 +11,8 @@ namespace StreetRunner.Tests
         public void OutputListOfStreets()
         {
             var expected = 
-@"Main Street
-Wall Street
+@"  Main Street
+  Wall Street
 ";
 
             var osm = @"

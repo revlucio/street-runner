@@ -32,26 +32,37 @@ namespace Web
                 });
             });
 
-            app.MapTo("/street", new StreetsEndpoint(osm).Get);
             app.MapTo("/stats", new StatsEndpoint(osm).Get);
             app.Map("/map", map => 
             {
                 map.Run(async (context) => 
                 {
+                    context.Response.ContentType = "text/plain";
                     string response;
+
                     if (context.Request.Path == string.Empty) 
                     {
-                        context.Response.ContentType = "text/plain";
                         response = new MapEndpoint().Get();
                     }
                     else
                     {
                         var mapDir = Path.Combine(AppContext.BaseDirectory, "map-files");
-                        var mapFilename = context.Request.Path;
+                        var mapFilename = context.Request.Path
+                            .ToString()
+                            .Replace("/street", string.Empty);
                         osm = File.ReadAllText($"{mapDir}/{mapFilename}.osm");
 
-                        context.Response.ContentType = "text/html";
-                        response = new SvgEndpoint(osm, gpx).Get();
+                        Console.WriteLine(context.Request.Path.ToString());
+
+                        if (context.Request.Path.ToString().EndsWith("/street"))
+                        {
+                            response = new StreetsEndpoint(osm, gpx).Get();
+                        }
+                        else 
+                        {
+                            context.Response.ContentType = "text/html";
+                            response = new SvgEndpoint(osm, gpx).Get();
+                        }
                     }
 
                     await context.Response.WriteAsync(response);

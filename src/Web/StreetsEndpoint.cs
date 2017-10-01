@@ -28,7 +28,13 @@ namespace Web
             }
             
             return map.Streets
-                .Aggregate(string.Empty, (result, street) => result + street.Name + Environment.NewLine);
+                .Aggregate(string.Empty, (result, street) => $"{result}{FormatStreetStatus(street)}{Environment.NewLine}");
+        }
+
+        private string FormatStreetStatus(Street street) 
+        {
+            var mark = street.Covered ? "X" : " ";
+            return $"{mark} {street.Name}";
         }
     }
 }
