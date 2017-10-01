@@ -24,12 +24,11 @@
 ## performance
 
 small-east-london.osm:
-start - 4.6s
-AsParallel() - 3.4s
-ToList in FromOsm() so xml is not read multiple times - 2.2s
-using a dict for lookup - .1s !!!
++ a run
 
-Xml reading is 99% of the time! dont need to AsParallel anymore!
+3.6s
+caching streets - 1.9s
+caching points in runs - 0.7s
 
 Currently to render 1 run in east london (with cached min/max) is 151s
 

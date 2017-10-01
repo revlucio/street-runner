@@ -23,7 +23,8 @@ namespace StreetRunner
         {
             if (this.Points.Any(streetPoint 
                 => run.Points.Any(runPoint 
-                    => streetPoint.CalculateDistanceInMetres(runPoint) < 110))) {
+                    => streetPoint.CalculateDistanceInMetres(runPoint) < 110))) 
+            {
                 this.Covered = true;
             }
         }

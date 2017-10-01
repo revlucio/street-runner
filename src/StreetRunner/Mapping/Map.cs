@@ -30,7 +30,8 @@ namespace StreetRunner
             _streets = _streets.Select(street => {
                 street.CheckIfCovered(run);
                 return street;
-            });
+            })
+            .ToList();
         }
 
         public static Map FromOsd(string osd)
@@ -93,7 +94,7 @@ namespace StreetRunner
                 MinLon = allPoints.Select(p => p.Lon).Min(),
                 MaxLat = allPoints.Select(p => p.Lat).Max(),
                 MaxLon = allPoints.Select(p => p.Lon).Max(),
-            };;
+            };
         }
 
         private Rect GetEastLondonBoundingRect() 

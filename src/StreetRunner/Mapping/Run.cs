@@ -25,7 +25,7 @@ namespace StreetRunner
             var name = runXml.GetElement("name").Value;
             IEnumerable<Point> points = GetPoints(runXml);
 
-            return new Run(name, points);
+            return new Run(name, points.ToList());
         }
 
         private static IEnumerable<Point> GetPoints(XElement runXml)
