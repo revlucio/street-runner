@@ -11,8 +11,8 @@ namespace StreetRunner
     {
         static void Main(string[] args)
         {
-            // StripDownOsd();
-            RunStreetRunner();
+            StripDownOsd();
+            // RunStreetRunner();
         }
 
         private static void RunStreetRunner()
@@ -47,6 +47,10 @@ namespace StreetRunner
                 })
                 .Remove();
 
+            xml.GetElements("way")
+                .Take(5000)
+                .Remove();
+
             xml.GetElements("relation").Remove();
 
             var nodeIds = xml.GetElements("way")
@@ -59,7 +63,7 @@ namespace StreetRunner
                 .Where(node => !nodeIds.Contains(node.Attribute("id").Value))
                 .Remove();
 
-            File.WriteAllText("stripped-down-east-london.osm", xml.ToString());
+            File.WriteAllText("small-east-london.osm", xml.ToString());
         }
 
         private static Map OutputAlieStreet()

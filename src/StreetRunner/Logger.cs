@@ -12,7 +12,7 @@ namespace StreetRunner
             if (_timer == null) {
                 _timer = Stopwatch.StartNew();
             }
-            Console.WriteLine(_timer.ElapsedMilliseconds.ToString("00000") + " " + message);
+            //Console.WriteLine(_timer.ElapsedMilliseconds.ToString("00000") + " " + message);
         }
     }
 }

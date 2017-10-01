@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Xml.Linq;
 
 namespace StreetRunner
@@ -106,22 +107,30 @@ namespace StreetRunner
         public string ToSvgPath(int scaleLatTo, int scaleLonTo)
         {
             var rect = GetBoundingRect();
+            Logger.LogTime("start");
 
             var offsetLatBy = rect.MinLat;
             var offsetLonBy = rect.MinLon;
             var scaleLatBy = scaleLatTo / (rect.MaxLat - offsetLatBy);
             var scaleLonBy = scaleLonTo / (rect.MaxLon - offsetLonBy);
 
-            var streetPaths = Streets.Select(street => {
-                var colour = street.Covered ? "yellow" : "black";
-                return ToSvgPath(scaleLatTo, offsetLatBy, offsetLonBy, scaleLatBy, scaleLonBy, street.Points, colour);
-            });
-            var runPaths = Runs.Select(run => {
-                return ToSvgPath(scaleLatTo, offsetLatBy, offsetLonBy, scaleLatBy, scaleLonBy, run.Points, "red");
-            });
+            var streetPaths = Streets
+                //.AsParallel()
+                .Select(street => {
+                    var colour = street.Covered ? "yellow" : "black";
+                    return ToSvgPath(scaleLatTo, offsetLatBy, offsetLonBy, scaleLatBy, scaleLonBy, street.Points, colour);
+                });
+
+            var runPaths = Runs
+                //.AsParallel()
+                .Select(run => {
+                    return ToSvgPath(scaleLatTo, offsetLatBy, offsetLonBy, scaleLatBy, scaleLonBy, run.Points, "red");
+                });
+
             var paths = streetPaths.Concat(runPaths);
-            
-            return String.Join(Environment.NewLine, paths);
+            var result = String.Join(Environment.NewLine, paths);
+            Logger.LogTime("streets");
+            return result;
         }
 
         private static string ToSvgPath(int scaleLatTo, decimal offsetLatBy, decimal offsetLonBy, decimal scaleLatBy, decimal scaleLonBy, IEnumerable<Point> points, string colour)
