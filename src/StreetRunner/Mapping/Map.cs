@@ -6,14 +6,18 @@ using System.Xml.Linq;
 
 namespace StreetRunner
 {
-    public class Map
+    public partial class Map
     {
         private IEnumerable<Street> _streets;
         private List<Run> _runs = new List<Run>();
 
         public IEnumerable<Street> Streets => _streets;
-
         public IEnumerable<Run> Runs => _runs;
+
+        public Map(IEnumerable<Street> streets)
+        {
+            _streets = streets;
+        }
 
         public void AddRun(string gpx)
         {
@@ -64,14 +68,6 @@ namespace StreetRunner
                 });
 
             return new Map(streets);
-        }
-
-        public class Rect 
-        {
-            public decimal MaxLat { get; set; }
-            public decimal MaxLon { get; set; }
-            public decimal MinLat { get; set; }
-            public decimal MinLon { get; set; }
         }
 
         private Rect GetBoundingRect() 
@@ -146,11 +142,6 @@ namespace StreetRunner
                 ).Substring(1);
 
             return $"<path d=\"M{path}\" stroke=\"{colour}\" fill=\"transparent\"/>";
-        }
-
-        public Map(IEnumerable<Street> streets)
-        {
-            _streets = streets;
         }
     }
 }
