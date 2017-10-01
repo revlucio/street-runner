@@ -17,9 +17,9 @@ namespace StreetRunner.Tests
         [Fact]
         public void ReturnCorrectDistanceIfTheyAreNotTheSame() 
         {
-            var distance = new Point(50, 50).CalculateDistanceInMetres(new Point(50.1m, 50.1m));
+            var distance = new Point(50, 50).CalculateDistanceInMetres(new Point(50.001m, 50.001m));
 
-            Assert.Equal(13229, distance);
+            Assert.Equal(132, distance);
         }
     }
 }

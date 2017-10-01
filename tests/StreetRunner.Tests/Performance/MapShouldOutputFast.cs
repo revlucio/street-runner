@@ -33,7 +33,7 @@ namespace StreetRunner.Tests
             var svg = map.ToSvgPath(500, 500);
             timer.Stop();
             
-            Assert.InRange(timer.ElapsedMilliseconds, 0, 1000);
+            Assert.InRange(timer.ElapsedMilliseconds, 0, 400);
         }
     }
 }
