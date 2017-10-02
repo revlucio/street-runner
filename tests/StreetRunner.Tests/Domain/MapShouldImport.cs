@@ -9,7 +9,7 @@ namespace tests.Domain
         [Fact]
         public void ImportStreetFromOdf()
         {
-            var map = Map.FromOsd(@"
+            var map = MapFactory.FromOsd(@"
 <osm>
  <way>
   <tag k=""highway"" v=""secondary"" />
@@ -22,7 +22,7 @@ namespace tests.Domain
         [Fact]
         public void ImportStreetNameFromOdf()
         {
-            var map = Map.FromOsd(@"
+            var map = MapFactory.FromOsd(@"
 <osm>
  <way>
   <tag k=""name"" v=""Main Street""/>
@@ -36,7 +36,7 @@ namespace tests.Domain
         [Fact]
         public void ImportOnlyHighways()
         {
-            var map = Map.FromOsd(@"
+            var map = MapFactory.FromOsd(@"
 <osm>
  <way>
   <tag k=""building"" v=""yes"" />
@@ -49,7 +49,7 @@ namespace tests.Domain
         [Fact]
         public void ImportManyStreetsFromOdf()
         {
-            var map = Map.FromOsd(@"
+            var map = MapFactory.FromOsd(@"
 <osm>
  <way><tag k=""highway"" v=""secondary""/></way>
  <way><tag k=""highway"" v=""secondary""/></way>
@@ -62,7 +62,7 @@ namespace tests.Domain
         [Fact]
         public void ImportStartAndEndNodes()
         {
-            var map = Map.FromOsd(@"
+            var map = MapFactory.FromOsd(@"
 <osm>
  <node id=""111"" lat=""11.1"" lon=""22.2""/>
  <node id=""222"" lat=""33.3"" lon=""44.4""/>

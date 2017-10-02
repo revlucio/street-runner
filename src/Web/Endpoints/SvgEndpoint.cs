@@ -20,7 +20,7 @@ namespace Web.Endpoints
 
         public string Get()
         {
-            var map = Map.FromOsd(this.osm);
+            var map = MapFactory.FromOsd(this.osm);
             if (this.gpx != null) {
                 map.AddRun(Run.FromGpx(this.gpx));
             }
