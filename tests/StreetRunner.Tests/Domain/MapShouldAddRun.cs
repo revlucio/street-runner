@@ -57,7 +57,7 @@ namespace tests.Domain
 </trk>
 </gpx>");
 
-            var svg = map.ToSvgPath(100, 100);
+            var svg = map.ToSvg(100, 100);
 
             Assert.Equal("<path d=\"M 0 100 L 100 0 \" stroke=\"red\" fill=\"transparent\"/>", svg);
         }
@@ -76,7 +76,7 @@ namespace tests.Domain
             });
             map.AddRun(run);
 
-            var svg = map.ToSvgPath(100, 100);
+            var svg = map.ToSvg(100, 100);
 
             Assert.Equal(
 @"<path d=""M 0 100 L 100 0 "" stroke=""yellow"" fill=""transparent""/>

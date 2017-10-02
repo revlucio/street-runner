@@ -6,7 +6,7 @@ namespace StreetRunner.Mapping
 {
     public static class MapExtensions
     {
-        public static string ToSvgPath(this Map map, int scaleLatTo, int scaleLonTo)
+        public static string ToSvg(this Map map, int scaleLatTo, int scaleLonTo)
         {
             var rect = GetBoundingRect(map);
 
@@ -16,20 +16,20 @@ namespace StreetRunner.Mapping
             var scaleLonBy = scaleLonTo / (rect.MaxLon - offsetLonBy);
 
             var streetPaths = map.Streets
-                .Select<Street, string>(street =>
+                .Select(street =>
                 {
                     var colour = street.Covered ? "yellow" : "black";
                     return ToSvgPath(scaleLatTo, offsetLatBy, offsetLonBy, scaleLatBy, scaleLonBy, street.Points, colour);
                 });
 
             var runPaths = map.Runs
-                .Select<Run, string>(run =>
+                .Select(run =>
                 {
                     return ToSvgPath(scaleLatTo, offsetLatBy, offsetLonBy, scaleLatBy, scaleLonBy, run.Points, "red");
                 });
 
             var paths = streetPaths.Concat(runPaths);
-            var result = String.Join(Environment.NewLine, paths);
+            var result = string.Join(Environment.NewLine, paths);
             return result;
         }
         
@@ -58,11 +58,10 @@ namespace StreetRunner.Mapping
                 .Select(p => new Point(p.Lat - offsetLatBy, p.Lon - offsetLonBy))
                 .Select(p => new Point(Math.Abs((p.Lat * scaleLatBy) - scaleLatTo), (int)(p.Lon * scaleLonBy)));
 
-            var first = scaledPoints.First();
-
-            var path = String.Join("", scaledPoints
-                .Select(p => $"L {p.Lon} {p.Lat} ")
-            ).Substring(1);
+            var path = string.Join("", scaledPoints
+                        .Select(p => $"L {p.Lon} {p.Lat} ")
+                        )
+                .Substring(1);
 
             return $"<path d=\"M{path}\" stroke=\"{colour}\" fill=\"transparent\"/>";
         }

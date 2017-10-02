@@ -75,7 +75,7 @@ namespace StreetRunner
             
             var map = MapFactory.FromOsd(osd);
             map.AddRun(gpx);
-            Console.WriteLine(map.ToSvgPath(500, 500));
+            Console.WriteLine(map.ToSvg(500, 500));
             return map;
         }
     }

@@ -13,7 +13,7 @@ namespace tests.Performance
             var osm = File.ReadAllText($"{Settings.FilesDirectory()}/small-east-london.osm");
 
             var timer = Stopwatch.StartNew();
-            var svg = MapFactory.FromOsd(osm).ToSvgPath(500, 500);
+            var svg = MapFactory.FromOsd(osm).ToSvg(500, 500);
             timer.Stop();
             
             Assert.InRange(timer.ElapsedMilliseconds, 0, 100);
@@ -29,7 +29,7 @@ namespace tests.Performance
             var timer = Stopwatch.StartNew();
             var map = MapFactory.FromOsd(osm);
             map.AddRun(gpx);
-            var svg = map.ToSvgPath(500, 500);
+            var svg = map.ToSvg(500, 500);
             timer.Stop();
             
             Assert.InRange(timer.ElapsedMilliseconds, 0, 400);

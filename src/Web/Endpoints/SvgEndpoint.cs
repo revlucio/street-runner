@@ -25,7 +25,7 @@ namespace Web.Endpoints
                 map.AddRun(Run.FromGpx(this.gpx));
             }
             
-            var path = map.ToSvgPath(500, 500);
+            var path = map.ToSvg(500, 500);
 
             return 
 $@"<html>

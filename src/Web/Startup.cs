@@ -23,8 +23,9 @@ namespace Web
         {
             app.UseDeveloperExceptionPage();
 
-            var osm = File.ReadAllText("/Users/luke/code/street-runner/src/Web/map-files/east-london.osm");
-            var gpx = File.ReadAllText("/Users/luke/code/street-runner/src/Web/east-london-run.gpx");
+            var dir = Settings.MapFilesDirectory();
+            var osm = File.ReadAllText($"{dir}/east-london.osm");
+            var gpx = File.ReadAllText($"{dir}/east-london-run.gpx");
 
             app.Map("/favicon.ico", favicon => {
                 favicon.Run(async (context) => {
@@ -47,11 +48,10 @@ namespace Web
                     }
                     else
                     {
-                        var mapDir = Path.Combine(AppContext.BaseDirectory, "map-files");
                         var mapFilename = context.Request.Path
                             .ToString()
                             .Replace("/street", string.Empty);
-                        osm = File.ReadAllText($"{mapDir}/{mapFilename}.osm");
+                        osm = File.ReadAllText($"{Settings.MapFilesDirectory()}/{mapFilename}.osm");
 
                         Console.WriteLine(context.Request.Path.ToString());
 
