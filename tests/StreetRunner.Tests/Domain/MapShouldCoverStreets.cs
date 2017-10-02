@@ -3,7 +3,7 @@ using System.Linq;
 using StreetRunner.Mapping;
 using Xunit;
 
-namespace tests
+namespace tests.Domain
 {
     public class MapShouldCoverStreets
     {

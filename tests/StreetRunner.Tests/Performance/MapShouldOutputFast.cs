@@ -10,7 +10,7 @@ namespace tests.Performance
         [Fact]
         public void OutputSmallFile() 
         {
-            var osm = File.ReadAllText("/Users/luke/code/street-runner/src/StreetRunner/small-east-london.osm");
+            var osm = File.ReadAllText($"{Settings.FilesDirectory()}/small-east-london.osm");
 
             var timer = Stopwatch.StartNew();
             var svg = Map.FromOsd(osm).ToSvgPath(500, 500);
@@ -22,8 +22,9 @@ namespace tests.Performance
         [Fact]
         public void OutputSmallFileWithRun() 
         {
-            var osm = File.ReadAllText("/Users/luke/code/street-runner/src/StreetRunner/small-east-london.osm");
-            var gpx = File.ReadAllText("/Users/luke/code/street-runner/src/StreetRunner/east-london-run.gpx");
+            var filesDir = Settings.FilesDirectory();
+            var osm = File.ReadAllText($"{filesDir}/small-east-london.osm");
+            var gpx = File.ReadAllText($"{filesDir}/east-london-run.gpx");
 
             var timer = Stopwatch.StartNew();
             var map = Map.FromOsd(osm);
