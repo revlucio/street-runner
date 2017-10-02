@@ -1,9 +1,9 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
+using StreetRunner.Xml;
 
-namespace StreetRunner
+namespace StreetRunner.Mapping
 {
     public class Run
     {

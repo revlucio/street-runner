@@ -1,20 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
-
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\" />
-  </ItemGroup>
-
   <ItemGroup>
     <None Update="map-files\*.*" CopyToOutputDirectory="Always" />
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
-    <ProjectReference Include="../StreetRunner/StreetRunner.csproj"/>
+    <ProjectReference Include="../StreetRunner/StreetRunner.csproj" />
   </ItemGroup>
-
 </Project>

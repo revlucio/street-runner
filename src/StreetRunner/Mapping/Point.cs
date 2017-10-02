@@ -1,6 +1,6 @@
 using System;
 
-namespace StreetRunner
+namespace StreetRunner.Mapping
 {
     public class Point
     {

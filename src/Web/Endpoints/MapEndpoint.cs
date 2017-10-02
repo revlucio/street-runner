@@ -1,9 +1,8 @@
 using System;
 using System.IO;
 using System.Linq;
-using StreetRunner;
 
-namespace Web
+namespace Web.Endpoints
 {
     public class MapEndpoint
     {

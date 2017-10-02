@@ -1,8 +1,7 @@
-using System;
 using System.Linq;
-using StreetRunner;
+using StreetRunner.Mapping;
 
-namespace Web
+namespace Web.Endpoints
 {
     public class StatsEndpoint
     {

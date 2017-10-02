@@ -1,4 +1,4 @@
-namespace StreetRunner
+namespace StreetRunner.Mapping
 {
     public partial class Map
     {

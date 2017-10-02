@@ -1,11 +1,9 @@
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
+using StreetRunner.Mapping;
 using Xunit;
 
-namespace StreetRunner.Tests
+namespace tests.Performance
 {
     public class MapShouldOutputFast
     {

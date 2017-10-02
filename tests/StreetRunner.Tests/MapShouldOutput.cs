@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using System.Linq;
+using StreetRunner.Mapping;
 using Xunit;
 
-namespace StreetRunner.Tests
+namespace tests
 {
     public class MapShouldOutput
     {

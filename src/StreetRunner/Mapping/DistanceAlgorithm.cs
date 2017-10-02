@@ -1,6 +1,6 @@
 using System;
 
-namespace StreetRunner
+namespace StreetRunner.Mapping
 {
     // Uses the Haversine formula to calculate distance between two points on the globe
     // Lifted from: https://stackoverflow.com/a/12600225

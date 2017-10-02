@@ -1,8 +1,7 @@
-using System.Collections.Generic;
+using StreetRunner.Mapping;
 using Xunit;
-using System.Linq;
 
-namespace StreetRunner.Tests
+namespace tests
 {
     public class PointShould
     {

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
 
-namespace StreetRunner
+namespace StreetRunner.Xml
 {
     public static class XElementExtensions
     {
