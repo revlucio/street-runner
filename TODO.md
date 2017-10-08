@@ -1,17 +1,32 @@
-# TODO - and notes
+# TODO
+
+- tdd a json api for loading map and run files
+- the api will load up stats
+
+StatsEndPoint
+-number of streets
+-number of streets covered
+
+- can all be done in-memory using the owin testserver
+- unit test the actual domain for the algorithm parts
+
+- display all of london (define london)
+- cut london into parts (borough, then postcode)
+- display it nicely (openstreetmap?)
+- load runs from strava and calculate area covered
+- osm files have many things besides roads. should first clean them when read in
+- improve covered algorithm accuracy
+
+- host it on heroku and show asier
+- have all of london loaded up and connect to strava
+- need to persist run results to disk or a nosql store
+
 
 ## end goal
 - given an area of london, how much have i covered in my runs?
 - load east london
 - load a run
 - output % of streets covered
-
-## areas to focus on
-
-- converting from osm/gpx to Map
-- outputting a nice svg
-- calculating what streets are covered by the runs (perf)
-- outputting statistics
 
 ## stats
 
@@ -24,3 +39,9 @@
 - hook into strava apis to download historical runs
 - start to optimise this
 - put it onto heroku
+
+=============
+
+Map -> can come from OSD or persisted... should we persist OSD files? sounds like a plan!
+Map has a list of covered streets... because this is the slowest part, could persist this. have a file which lists covered streets, build the map from this. could hash the runs and only process new ones...
+
