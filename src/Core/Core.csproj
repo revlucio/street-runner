@@ -4,4 +4,7 @@
     <AssemblyName>StreetRunner.Core</AssemblyName>
     <RootNamespace>StreetRunner.Core</RootNamespace>
   </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+  </ItemGroup>
 </Project>

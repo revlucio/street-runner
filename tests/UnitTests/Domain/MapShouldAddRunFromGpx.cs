@@ -5,7 +5,7 @@ using Xunit;
 
 namespace StreetRunner.UnitTests.Domain
 {
-    public class MapShouldAddRun
+    public class MapShouldAddRunFromGpx
     {
         [Fact]
         public void WithName()

@@ -5,17 +5,16 @@ using StreetRunner.Core.Xml;
 
 namespace StreetRunner.Core.Mapping
 {
-    public class Run
+    public class Run : IRun
     {
-        private string runName;
-
         public Run(string runName, IEnumerable<Point> points)
         {
-            this.runName = runName;
-            this.Points = points;
+            Name = runName;
+            Points = points;
         }
 
-        public string Name => runName;
+        public string Name { get; }
+
         public IEnumerable<Point> Points { get; }
 
         public static Run FromGpx(string gpx)
@@ -23,7 +22,7 @@ namespace StreetRunner.Core.Mapping
             var gpxXml = XElement.Parse(gpx);
             var runXml = gpxXml.GetElement("trk");
             var name = runXml.GetElement("name").Value;
-            IEnumerable<Point> points = GetPoints(runXml);
+            var points = GetPoints(runXml);
 
             return new Run(name, points.ToList());
         }
