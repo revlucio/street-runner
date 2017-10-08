@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using System.Linq;
 
-namespace Web.Endpoints
+namespace StreetRunner.Web.Endpoints
 {
     public class MapEndpoint
     {

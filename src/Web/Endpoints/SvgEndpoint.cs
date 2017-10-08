@@ -1,6 +1,6 @@
 using StreetRunner.Core.Mapping;
 
-namespace Web.Endpoints
+namespace StreetRunner.Web.Endpoints
 {
     public class SvgEndpoint
     {

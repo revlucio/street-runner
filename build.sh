@@ -2,7 +2,7 @@
 
 if [ "$1" == "test" ]
 then
-    dotnet test ./tests/StreetRunner.Tests/tests.csproj
+    dotnet test ./tests//UnitTests/UnitTests.csproj
 fi
 
 if [ "$1" == "web" ]

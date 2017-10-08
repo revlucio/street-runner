@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-namespace tests
+namespace StreetRunner.UnitTests
 {
     public static class Settings
     {

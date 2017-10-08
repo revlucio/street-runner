@@ -7,7 +7,7 @@ using System.Xml.Linq;
 using StreetRunner.Core.Mapping;
 using StreetRunner.Core.Xml;
 
-namespace StreetRunner
+namespace StreetRunner.Cli
 {
     class Program
     {

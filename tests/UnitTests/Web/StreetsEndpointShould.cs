@@ -1,7 +1,7 @@
-using Web.Endpoints;
+using StreetRunner.Web.Endpoints;
 using Xunit;
 
-namespace tests.Web
+namespace StreetRunner.UnitTests.Web
 {
     public class StreetsEndpointShould
     {

@@ -1,7 +1,7 @@
 using System;
 using System.Diagnostics;
 
-namespace StreetRunner
+namespace StreetRunner.Cli
 {
     public static class Logger 
     {

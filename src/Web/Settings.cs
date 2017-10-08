@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace Web
+namespace StreetRunner.Web
 {
     public static class Settings
     {

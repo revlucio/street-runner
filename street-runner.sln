@@ -5,13 +5,13 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{65AEBDA5-0EB6-45A8-A143-64A0A1B2B1FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StreetRunner", "src\StreetRunner\StreetRunner.csproj", "{900A9F32-17DD-4344-A793-E30A8A351786}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cli", "src\Cli\Cli.csproj", "{900A9F32-17DD-4344-A793-E30A8A351786}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "src\Web\Web.csproj", "{6CE84A8D-C78D-4ED8-A8C7-3A65C6C0D935}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{F6687F17-6774-4E8E-8208-777F94E8313D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tests", "tests\StreetRunner.Tests\tests.csproj", "{E7FC7705-E654-44A5-8B77-967305E97559}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "tests\UnitTests\UnitTests.csproj", "{E7FC7705-E654-44A5-8B77-967305E97559}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "src\Core\Core.csproj", "{A7F85678-2E41-481F-B6F9-0F3050E42359}"
 EndProject

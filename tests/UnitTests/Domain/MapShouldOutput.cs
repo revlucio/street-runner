@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using StreetRunner.Core.Mapping;
 using Xunit;
 
-namespace tests.Domain
+namespace StreetRunner.UnitTests.Domain
 {
     public class MapShouldOutput
     {
