@@ -14,7 +14,7 @@ namespace StreetRunner.Web.Endpoints
 
         public string Get()
         {
-            var map = MapFactory.FromOsd(this.osm);
+            var map = MapFactory.FromOsm(this.osm);
             
             return map.Streets
                 .GroupBy(street => street.Type)

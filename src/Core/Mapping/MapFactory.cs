@@ -6,7 +6,7 @@ namespace StreetRunner.Core.Mapping
 {
     public class MapFactory
     {
-        public static Map FromOsd(string osd)
+        public static Map FromOsm(string osd)
         {
             var osdXml = XElement.Parse(osd);
 

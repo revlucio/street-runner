@@ -73,7 +73,7 @@ namespace StreetRunner.Cli
             var osd = File.ReadAllText(Directory.GetCurrentDirectory() + "/east-london.osm");
             var gpx = File.ReadAllText(Directory.GetCurrentDirectory() + "/east-london.gpx");
             
-            var map = MapFactory.FromOsd(osd);
+            var map = MapFactory.FromOsm(osd);
             map.AddRun(gpx);
             Console.WriteLine(map.ToSvg(500, 500));
             return map;

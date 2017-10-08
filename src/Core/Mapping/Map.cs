@@ -5,11 +5,11 @@ namespace StreetRunner.Core.Mapping
 {
     public class Map
     {
-        private readonly List<Run> _runs = new List<Run>();
+        private readonly List<IRun> _runs = new List<IRun>();
 
         public IEnumerable<Street> Streets { get; private set; }
 
-        public IEnumerable<Run> Runs => _runs;
+        public IEnumerable<IRun> Runs => _runs;
 
         public Map(IEnumerable<Street> streets)
         {
@@ -22,7 +22,7 @@ namespace StreetRunner.Core.Mapping
             AddRun(run);
         }
 
-        public void AddRun(Run run) {
+        public void AddRun(IRun run) {
             _runs.Add(run);
             Streets = Streets.Select(street => {
                 street.CheckIfCovered(run);

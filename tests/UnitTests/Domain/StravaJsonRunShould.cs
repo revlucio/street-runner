@@ -15,8 +15,7 @@ namespace StreetRunner.UnitTests.Domain
     {
         ""data"": []
     }
-]
-";
+]";
             IRun stravaJsonRun = new StravaJsonRun(json);
 
             Assert.Equal("Strava JSON Run", stravaJsonRun.Name);
@@ -33,8 +32,7 @@ namespace StreetRunner.UnitTests.Domain
             [ 33.3, 44.4 ]
         ]
     }
-]
-";
+]";
             IRun stravaJsonRun = new StravaJsonRun(json);
 
             Assert.Equal(11.1m, stravaJsonRun.Points.First().Lat);
