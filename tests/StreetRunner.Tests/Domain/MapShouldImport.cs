@@ -1,5 +1,5 @@
 using System.Linq;
-using StreetRunner.Mapping;
+using StreetRunner.Core.Mapping;
 using Xunit;
 
 namespace tests.Domain

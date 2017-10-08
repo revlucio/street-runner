@@ -1,6 +1,6 @@
 using System.Diagnostics;
 using System.IO;
-using StreetRunner.Mapping;
+using StreetRunner.Core.Mapping;
 using Xunit;
 
 namespace tests.Performance

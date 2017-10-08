@@ -1,4 +1,4 @@
-namespace StreetRunner.Mapping
+namespace StreetRunner.Core.Mapping
 {
     public class Rect 
     {

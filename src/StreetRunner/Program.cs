@@ -4,8 +4,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Xml.Linq;
-using StreetRunner.Mapping;
-using StreetRunner.Xml;
+using StreetRunner.Core.Mapping;
+using StreetRunner.Core.Xml;
 
 namespace StreetRunner
 {

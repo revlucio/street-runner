@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Xml.Linq;
 
-namespace StreetRunner.Mapping
+namespace StreetRunner.Core.Mapping
 {
     public class MapFactory
     {
