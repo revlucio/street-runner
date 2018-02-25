@@ -26,6 +26,15 @@ namespace StreetRunner.Web
             app.Map("/favicon.ico", HttpHandler.Return200Ok());
 
             app.MapTo("/stats", new StatsEndpoint(osm).Get);
+
+            app.Map("/api", api =>
+            {
+                api.Run(async context =>
+                {
+                    context.Response.ContentType = "application/json";
+                    await context.Response.WriteAsync("{}");
+                });
+            });
             
             app.Map("/map", map => 
             {

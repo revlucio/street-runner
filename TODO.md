@@ -1,5 +1,31 @@
 # TODO
 
+need to think of the actual UX and UI...
+want to hook into strava and then show a map with all the streets you have covered
+can start with east london map
+go through run by run, persisting the list of streets covered
+as a street is covered remove the points from the map to speed it up
+can be run in parallel to speed it up too
+want to list street names and plan routes in the future
+for now get my local area and start running all the streets in the area to get a nice map
+
+FEATURES:
+- persisting the runs for speed
+    - this will need to happen to scale, so can work on this
+    - probably just use the OSM format and annotate it
+    - setup a pipeline for OSM:
+        - strip out what we dont need
+        - run by run, add in streets covered
+
+- browsing the api
+    - root should be the stava auth / map view
+    - list all runs in a folder, click a button to process each one
+    - results are persisted and can be cleared (but maybe dont have to persist on disk if fast enough...)
+    - but if there are hundreds of runs will def have to persist, might as well
+- strava auth
+- handling multiple runs
+
+
 ## MVP TO SHOW ASIER
 
 - website hosted somewhere
