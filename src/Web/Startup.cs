@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -24,14 +23,10 @@ namespace StreetRunner.Web
             var osm = File.ReadAllText($"{dir}/east-london.osm");
             var gpx = File.ReadAllText($"{dir}/east-london-run.gpx");
 
-            app.Map("/favicon.ico", favicon => {
-                favicon.Run(async (context) => {
-                    context.Response.StatusCode = 200;
-                    await Task.CompletedTask;
-                });
-            });
+            app.Map("/favicon.ico", HttpHandler.Return200Ok());
 
             app.MapTo("/stats", new StatsEndpoint(osm).Get);
+            
             app.Map("/map", map => 
             {
                 map.Run(async (context) => 
@@ -47,7 +42,9 @@ namespace StreetRunner.Web
                     {
                         var mapFilename = context.Request.Path
                             .ToString()
-                            .Replace("/street", string.Empty);
+                            .Replace("/street", string.Empty)
+                            .Replace("/strava", string.Empty);
+                        
                         osm = File.ReadAllText($"{Settings.MapFilesDirectory()}/{mapFilename}.osm");
 
                         Console.WriteLine(context.Request.Path.ToString());
@@ -56,7 +53,11 @@ namespace StreetRunner.Web
                         {
                             response = new StreetsEndpoint(osm, gpx).Get();
                         }
-                        else 
+                        else if (context.Request.Path.ToString().EndsWith("/strava"))
+                        {
+                            response = new StravaEndpoint(new RestHttpClient(), osm).Get();
+                        }
+                        else
                         {
                             context.Response.ContentType = "text/html";
                             response = new SvgEndpoint(osm, gpx).Get();

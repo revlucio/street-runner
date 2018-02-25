@@ -1,5 +1,16 @@
 # TODO
 
+## MVP TO SHOW ASIER
+
+- website hosted somewhere
+- enter strava details
+(curl -G https://www.strava.com/api/v3/activities/1144313347 -H "Authorization: Bearer 93944545f252e152f5aeb0128fcca26760eadd01")
+start with hard-coded request
+
+curl -G https://www.strava.com/api/v3/activities/1144313347/streams/latlng -H "Authorization: Bearer 93944545f252e152f5aeb0128fcca26760eadd01"
+
+- shows map of london and the streets youve covered
+
 - tdd a json api for loading map and run files
 - the api will load up stats
 
