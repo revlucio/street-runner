@@ -1,3 +1,9 @@
+using System;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading;
+using System.Threading.Tasks;
 using StreetRunner.Web.Endpoints;
 using Xunit;
 
@@ -33,6 +39,24 @@ namespace StreetRunner.UnitTests.Web
             var actual = new SvgEndpoint(osm).Get();
 
             Assert.Equal(expected, actual);
+        }
+
+        [Fact(Skip="not ready yet")]
+        public async Task Request()
+        {
+                using (var client = new HttpClient())
+                {
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Add("Authorization", "Bearer 93944545f252e152f5aeb0128fcca26760eadd01");
+
+                    var response = await client.GetAsync("https://www.strava.com/api/v3/activities/1144313347/streams/latlng");
+                    var content = await response.Content.ReadAsStringAsync();
+                    
+                    Assert.Equal(response.StatusCode, HttpStatusCode.OK);
+                    Assert.True(content.Length > 0);
+                    Console.WriteLine("output: " +content);   
+                }
+
         }
     }
 }
