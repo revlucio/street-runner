@@ -21,7 +21,15 @@ namespace StreetRunner.Web
                     await context.Response.WriteAsync(response);
                 });
             });
-        }    
+        }
+        
+        public static IApplicationBuilder MapToJson(
+            this IApplicationBuilder app, 
+            PathString url, 
+            Func<string> func)
+        {
+            return app.MapTo(url, func, "application/json");
+        }
 
         public static void ReturnNotFound(this IApplicationBuilder app)
         {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -29,16 +30,7 @@ namespace StreetRunner.Web
                 return new StatsEndpoint(osm).Get();
             });
 
-            app.Map("/api", api =>
-            {
-                api.Run(async context =>
-                {
-                    context.Response.ContentType = "application/json";
-                    await context.Response.WriteAsync(@"{
-""url"": ""http://localhost:5000/map""
-}");
-                });
-            });
+            app.MapToJson("/api", new ApiRootEndpoint().Get);
             
             app.Map("/map", map => 
             {
@@ -58,7 +50,9 @@ namespace StreetRunner.Web
                             .Replace("/street", string.Empty)
                             .Replace("/strava", string.Empty);
                         
-                        var osm = File.ReadAllText($"{Settings.MapFilesDirectory()}/{mapFilename}.osm");
+                        var osm = File.ReadAllText($"{dir}/{mapFilename}.osm");
+                        var gpxList = Directory.EnumerateFiles(dir, "*.gpx")
+                            .Select(File.ReadAllText);
                         var gpx = File.ReadAllText($"{dir}/east-london-run.gpx");
 
                         Console.WriteLine(context.Request.Path.ToString());
@@ -74,7 +68,7 @@ namespace StreetRunner.Web
                         else
                         {
                             context.Response.ContentType = "text/html";
-                            response = new SvgEndpoint(osm, gpx).Get();
+                            response = new SvgEndpoint(osm, gpxList).Get();
                         }
                     }
 
