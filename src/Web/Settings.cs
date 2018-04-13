@@ -9,5 +9,7 @@ namespace StreetRunner.Web
         {
             return Path.Combine(AppContext.BaseDirectory, "map-files");
         }
+
+        public static string UrlRoot => "http://localhost:5000";
     }
 }

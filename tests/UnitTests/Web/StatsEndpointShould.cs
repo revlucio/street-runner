@@ -27,7 +27,7 @@ namespace StreetRunner.UnitTests.Web
 </osm>            
 ";
 
-            var actual = new StatsEndpoint(osm).Get();
+            var actual = new StatsEndpoint(new StubMapFinder(osm)).Get();
 
             Assert.Equal(expected, actual);
         }

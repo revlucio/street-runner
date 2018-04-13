@@ -24,12 +24,7 @@ namespace StreetRunner.Web
 
             app.Map("/favicon.ico", HttpHandler.Return200Ok());
 
-            app.MapTo("/stats", () =>
-            {
-                var osm = File.ReadAllText($"{dir}/east-london.osm");
-                return new StatsEndpoint(osm).Get();
-            });
-
+            app.MapTo("/api/stats", new StatsEndpoint(new FileSystemMapFinder()).Get);
             app.MapToJson("/api", new ApiRootEndpoint().Get);
             
             app.Map("/map", map => 

@@ -5,21 +5,21 @@ namespace StreetRunner.Web.Endpoints
 {
     public class StatsEndpoint
     {
-        private string osm;
-
-        public StatsEndpoint(string osm)
+        private readonly IMapFinder _mapFinder;
+        
+        public StatsEndpoint(IMapFinder mapFinder)
         {
-            this.osm = osm;
+            _mapFinder = mapFinder;
         }
 
         public string Get()
         {
-            var map = MapFactory.FromOsm(this.osm);
+            var map = MapFactory.FromOsm(_mapFinder.FindMapFiles().First());
             
             return map.Streets
                 .GroupBy(street => street.Type)
                 .OrderBy(type => type.Count())
-                .Aggregate(string.Empty, (result, type) => $"{type.Count().ToString("0000")} - {type.Key}\n{result}");
+                .Aggregate(string.Empty, (result, type) => $"{type.Count():0000} - {type.Key}\n{result}");
         }
     }
 }

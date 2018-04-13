@@ -1,6 +1,7 @@
 using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json.Linq;
 
 namespace StreetRunner.Web
 {
@@ -26,9 +27,9 @@ namespace StreetRunner.Web
         public static IApplicationBuilder MapToJson(
             this IApplicationBuilder app, 
             PathString url, 
-            Func<string> func)
+            Func<JObject> func)
         {
-            return app.MapTo(url, func, "application/json");
+            return app.MapTo(url, () => func().ToString(), "application/json");
         }
 
         public static void ReturnNotFound(this IApplicationBuilder app)

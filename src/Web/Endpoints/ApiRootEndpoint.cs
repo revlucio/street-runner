@@ -1,12 +1,15 @@
-﻿namespace StreetRunner.Web.Endpoints
+﻿using Newtonsoft.Json.Linq;
+
+namespace StreetRunner.Web.Endpoints
 {
     public class ApiRootEndpoint
     {
-        public string Get()
+        public JObject Get()
         {
-            return @"{
-""url"": ""http://localhost:5000/map""
-}";
+            return JObject.FromObject(new
+            {
+                url = $"{Settings.UrlRoot}/map"
+            });
         }
     }
 }
