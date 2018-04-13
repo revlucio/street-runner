@@ -20,19 +20,23 @@ namespace StreetRunner.Web
             app.UseDeveloperExceptionPage();
 
             var dir = Settings.MapFilesDirectory();
-            var osm = File.ReadAllText($"{dir}/east-london.osm");
-            var gpx = File.ReadAllText($"{dir}/east-london-run.gpx");
 
             app.Map("/favicon.ico", HttpHandler.Return200Ok());
 
-            app.MapTo("/stats", new StatsEndpoint(osm).Get);
+            app.MapTo("/stats", () =>
+            {
+                var osm = File.ReadAllText($"{dir}/east-london.osm");
+                return new StatsEndpoint(osm).Get();
+            });
 
             app.Map("/api", api =>
             {
                 api.Run(async context =>
                 {
                     context.Response.ContentType = "application/json";
-                    await context.Response.WriteAsync("{}");
+                    await context.Response.WriteAsync(@"{
+""url"": ""http://localhost:5000/map""
+}");
                 });
             });
             
@@ -54,7 +58,8 @@ namespace StreetRunner.Web
                             .Replace("/street", string.Empty)
                             .Replace("/strava", string.Empty);
                         
-                        osm = File.ReadAllText($"{Settings.MapFilesDirectory()}/{mapFilename}.osm");
+                        var osm = File.ReadAllText($"{Settings.MapFilesDirectory()}/{mapFilename}.osm");
+                        var gpx = File.ReadAllText($"{dir}/east-london-run.gpx");
 
                         Console.WriteLine(context.Request.Path.ToString());
 

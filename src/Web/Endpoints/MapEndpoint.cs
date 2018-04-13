@@ -9,8 +9,9 @@ namespace StreetRunner.Web.Endpoints
         public string Get()
         {
             var mapDirectory = Path.Combine(AppContext.BaseDirectory, "map-files");
+            
             var mapFiles = Directory
-                .EnumerateFiles(mapDirectory)
+                .EnumerateFiles(mapDirectory, "*.osm")
                 .Select(mapFile => mapFile.Replace(mapDirectory, string.Empty))
                 .Select(mapFile => mapFile.Replace(".osm", string.Empty))
                 .Select(mapFile => mapFile.Replace("/", string.Empty))
