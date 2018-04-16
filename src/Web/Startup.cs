@@ -4,6 +4,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using StreetRunner.Web.Endpoints;
@@ -14,6 +15,7 @@ namespace StreetRunner.Web
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddRouting();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -24,51 +26,55 @@ namespace StreetRunner.Web
 
             app.Map("/favicon.ico", HttpHandler.Return200Ok());
 
-            app.MapTo("/api/stats", new StatsEndpoint(new FileSystemMapFinder()).Get);
-            app.MapToJson("/api", new ApiRootEndpoint().Get);
-            
-            app.Map("/map", map => 
+            app.Map("/api", api =>
             {
-                map.Run(async (context) => 
+                api.MapTo("/stats", new StatsEndpoint(new FileSystemMapFinder()).Get);
+                
+                api.Map("/map", mapApi =>
                 {
-                    context.Response.ContentType = "text/plain";
-                    string response;
+                    mapApi.MapWhen(context => context.Request.Path.HasValue == false, emptyMap =>
+                    {
+                        emptyMap.MapToJson("", new MapEndpoint().GetJson);    
+                    });
 
-                    if (context.Request.Path == string.Empty) 
+                    mapApi.UseRouter(routes =>
                     {
-                        response = new MapEndpoint().Get();
-                    }
-                    else
-                    {
-                        var mapFilename = context.Request.Path
-                            .ToString()
-                            .Replace("/street", string.Empty)
-                            .Replace("/strava", string.Empty);
+                        routes.MapGet("{mapFilename}", (request, response, routeData) =>
+                        {
+                            var mapFilename = routeData.Values["mapFilename"].ToString();
+                                
+                            var osm = File.ReadAllText($"{dir}/{mapFilename}.osm");
+
+                            var gpxList = Directory
+                                .EnumerateFiles(dir, "*.gpx")
+                                .Select(File.ReadAllText);
+                    
+                            var svg = new SvgEndpoint(osm, gpxList).Get();
+                            return response.WriteAsync(svg);
+                        });
                         
-                        var osm = File.ReadAllText($"{dir}/{mapFilename}.osm");
-                        var gpxList = Directory.EnumerateFiles(dir, "*.gpx")
-                            .Select(File.ReadAllText);
-                        var gpx = File.ReadAllText($"{dir}/east-london-run.gpx");
-
-                        Console.WriteLine(context.Request.Path.ToString());
-
-                        if (context.Request.Path.ToString().EndsWith("/street"))
+                        routes.MapGet("{mapFilename}/street", (request, response, routeData) =>
                         {
-                            response = new StreetsEndpoint(osm, gpx).Get();
-                        }
-                        else if (context.Request.Path.ToString().EndsWith("/strava"))
+                            var mapFilename = routeData.Values["mapFilename"].ToString();
+                                
+                            var osm = File.ReadAllText($"{dir}/{mapFilename}.osm");
+                            var gpx = File.ReadAllText($"{dir}/east-london-run.gpx");
+                    
+                            return response.WriteAsync(new StreetsEndpoint(osm, gpx).Get());
+                        });
+                        
+                        routes.MapGet("{mapFilename}/strava", (request, response, routeData) =>
                         {
-                            response = new StravaEndpoint(new RestHttpClient(), osm).Get();
-                        }
-                        else
-                        {
-                            context.Response.ContentType = "text/html";
-                            response = new SvgEndpoint(osm, gpxList).Get();
-                        }
-                    }
-
-                    await context.Response.WriteAsync(response);
+                            var mapFilename = routeData.Values["mapFilename"].ToString();
+                            var osm = File.ReadAllText($"{dir}/{mapFilename}.osm");
+                    
+                            return response.WriteAsync(new StravaEndpoint(new RestHttpClient(), osm).Get());
+                        });
+                    });
                 });
+
+                api.MapToJson("", new ApiRootEndpoint().Get);
+                api.ReturnNotFound();
             });
 
             app.ReturnNotFound();

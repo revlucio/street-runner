@@ -8,7 +8,11 @@ namespace StreetRunner.Web.Endpoints
         {
             return JObject.FromObject(new
             {
-                url = $"{Settings.UrlRoot}/map"
+                urls = new []
+                {
+                    $"{Settings.UrlRoot}/api/map",  
+                    $"{Settings.UrlRoot}/api/stats",  
+                } 
             });
         }
     }
