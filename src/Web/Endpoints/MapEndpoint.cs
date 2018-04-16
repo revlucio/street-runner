@@ -8,6 +8,13 @@ namespace StreetRunner.Web.Endpoints
 {
     public class MapEndpoint
     {
+        private static IMapFinder _mapFinder;
+
+        public MapEndpoint(IMapFinder mapFinder)
+        {
+            _mapFinder = mapFinder;
+        }
+
         public string Get()
         {
             return string.Join(Environment.NewLine, MapFiles());
@@ -22,14 +29,8 @@ namespace StreetRunner.Web.Endpoints
         }
 
         private static IEnumerable<string> MapFiles()
-        {
-            var mapDirectory = Path.Combine(AppContext.BaseDirectory, "map-files");
-
-            var mapFiles = Directory
-                .EnumerateFiles(mapDirectory, "*.osm")
-                .Select(mapFile => mapFile.Replace(mapDirectory, string.Empty))
-                .Select(mapFile => mapFile.Replace(".osm", string.Empty))
-                .Select(mapFile => mapFile.Replace("/", string.Empty))
+        {            
+            var mapFiles = _mapFinder.FindMapFilenames()
                 .Select(mapFile => $"{Settings.UrlRoot}/api/map/{mapFile}");
             return mapFiles;
         }

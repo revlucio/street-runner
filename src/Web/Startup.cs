@@ -22,19 +22,19 @@ namespace StreetRunner.Web
         {
             app.UseDeveloperExceptionPage();
 
-            var dir = Settings.MapFilesDirectory();
-
             app.Map("/favicon.ico", HttpHandler.Return200Ok());
 
             app.Map("/api", api =>
             {
-                api.MapTo("/stats", new StatsEndpoint(new FileSystemMapFinder()).Get);
+                var mapFinder = new FileSystemMapFinder();
+                
+                api.MapTo("/stats", new StatsEndpoint(mapFinder).Get);
                 
                 api.Map("/map", mapApi =>
                 {
                     mapApi.MapWhen(context => context.Request.Path.HasValue == false, emptyMap =>
                     {
-                        emptyMap.MapToJson("", new MapEndpoint().GetJson);    
+                        emptyMap.MapToJson("", new MapEndpoint(mapFinder).GetJson);    
                     });
 
                     mapApi.UseRouter(routes =>
@@ -43,11 +43,8 @@ namespace StreetRunner.Web
                         {
                             var mapFilename = routeData.Values["mapFilename"].ToString();
                                 
-                            var osm = File.ReadAllText($"{dir}/{mapFilename}.osm");
-
-                            var gpxList = Directory
-                                .EnumerateFiles(dir, "*.gpx")
-                                .Select(File.ReadAllText);
+                            var osm = mapFinder.FindMap(mapFilename);
+                            var gpxList = mapFinder.FindRuns();
                     
                             var svg = new SvgEndpoint(osm, gpxList).Get();
                             return response.WriteAsync(svg);
@@ -57,8 +54,8 @@ namespace StreetRunner.Web
                         {
                             var mapFilename = routeData.Values["mapFilename"].ToString();
                                 
-                            var osm = File.ReadAllText($"{dir}/{mapFilename}.osm");
-                            var gpx = File.ReadAllText($"{dir}/east-london-run.gpx");
+                            var osm = mapFinder.FindMap(mapFilename);
+                            var gpx = mapFinder.FindRun("east-london-run");
                     
                             return response.WriteAsync(new StreetsEndpoint(osm, gpx).Get());
                         });
@@ -66,7 +63,7 @@ namespace StreetRunner.Web
                         routes.MapGet("{mapFilename}/strava", (request, response, routeData) =>
                         {
                             var mapFilename = routeData.Values["mapFilename"].ToString();
-                            var osm = File.ReadAllText($"{dir}/{mapFilename}.osm");
+                            var osm = mapFinder.FindMap(mapFilename);
                     
                             return response.WriteAsync(new StravaEndpoint(new RestHttpClient(), osm).Get());
                         });

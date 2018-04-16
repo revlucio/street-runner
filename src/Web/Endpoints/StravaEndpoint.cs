@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using StreetRunner.Core.Mapping;
 
 namespace StreetRunner.Web.Endpoints

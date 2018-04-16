@@ -17,5 +17,25 @@ namespace StreetRunner.UnitTests.Web
         {
             return new[] {_osm};
         }
+
+        public IEnumerable<string> FindMapFilenames()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public string FindMap(string filename)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public string FindRun(string filename)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public IEnumerable<string> FindRuns()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
