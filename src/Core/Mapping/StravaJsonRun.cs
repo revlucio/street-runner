@@ -19,5 +19,6 @@ namespace StreetRunner.Core.Mapping
         public string Name => "Strava JSON Run";
         
         public IEnumerable<Point> Points { get; }
+        public string Time { get; set; }
     }
 }

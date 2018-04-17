@@ -7,15 +7,17 @@ namespace StreetRunner.Core.Mapping
 {
     public class Run : IRun
     {
-        public Run(string runName, IEnumerable<Point> points)
+        public Run(string runName, IEnumerable<Point> points, string time)
         {
             Name = runName;
             Points = points;
+            Time = time;
         }
 
         public string Name { get; }
 
         public IEnumerable<Point> Points { get; }
+        public string Time { get; set; }
 
         public static Run FromGpx(string gpx)
         {
@@ -23,8 +25,9 @@ namespace StreetRunner.Core.Mapping
             var runXml = gpxXml.GetElement("trk");
             var name = runXml.GetElement("name").Value;
             var points = GetPoints(runXml);
+            var time = gpxXml.GetElement("metadata").GetElement("time").Value;// "2018-04-16T15:05:30Z";
 
-            return new Run(name, points.ToList());
+            return new Run(name, points.ToList(), time);
         }
 
         private static IEnumerable<Point> GetPoints(XElement runXml)

@@ -8,11 +8,31 @@ namespace StreetRunner.UnitTests.Domain
     public class MapShouldAddRunFromGpx
     {
         [Fact]
+        public void WithTime()
+        {
+            var map = new Map(Enumerable.Empty<Street>());
+            map.AddRun(@"
+<gpx xmlns=""http://www.topografix.com/GPX/1/1"">
+<metadata>
+  <time>2018-04-16T15:05:30Z</time>
+</metadata>
+<trk>
+    <name>Test Run</name>
+</trk>
+</gpx>");
+
+            Assert.Equal("2018-04-16T15:05:30Z", map.Runs.First().Time);
+        }
+        
+        [Fact]
         public void WithName()
         {
             var map = new Map(Enumerable.Empty<Street>());
             map.AddRun(@"
 <gpx xmlns=""http://www.topografix.com/GPX/1/1"">
+<metadata>
+  <time>2018-04-16T15:05:30Z</time>
+</metadata>
 <trk>
     <name>Test Run</name>
 </trk>
@@ -27,6 +47,9 @@ namespace StreetRunner.UnitTests.Domain
             var map = new Map(Enumerable.Empty<Street>());
             map.AddRun(@"
 <gpx xmlns=""http://www.topografix.com/GPX/1/1""> 
+<metadata>
+  <time>2018-04-16T15:05:30Z</time>
+</metadata>
 <trk>
     <name>Test Run</name>
     <trkseg>
@@ -48,6 +71,9 @@ namespace StreetRunner.UnitTests.Domain
             var map = new Map(Enumerable.Empty<Street>());
             map.AddRun(@"
 <gpx>
+<metadata>
+  <time>2018-04-16T15:05:30Z</time>
+</metadata>
 <trk>
     <name>Test Run</name>
     <trkseg>
@@ -73,7 +99,7 @@ namespace StreetRunner.UnitTests.Domain
             var run = new Run("name", new List<Point> {
                 new Point(100, 100),
                 new Point(200, 200),
-            });
+            }, "time");
             map.AddRun(run);
 
             var svg = map.ToSvg(100, 100);

@@ -20,11 +20,16 @@ namespace StreetRunner.Core.Mapping
 
         internal void CheckIfCovered(IRun run)
         {
-            if (this.Points.Any(streetPoint 
+            if (Covered)
+            {
+                return;
+            }
+            
+            if (Points.Any(streetPoint 
                 => run.Points.Any(runPoint 
                     => streetPoint.CalculateDistanceInMetres(runPoint) < 110))) 
             {
-                this.Covered = true;
+                Covered = true;
             }
         }
     }

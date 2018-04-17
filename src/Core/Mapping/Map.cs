@@ -24,11 +24,12 @@ namespace StreetRunner.Core.Mapping
 
         public void AddRun(IRun run) {
             _runs.Add(run);
-            Streets = Streets.Select(street => {
-                street.CheckIfCovered(run);
-                return street;
-            })
-            .ToList();
+            Streets = Streets
+                .Select(street => {
+                    street.CheckIfCovered(run);
+                    return street;
+                })
+                .ToList();
         }
     }
 }

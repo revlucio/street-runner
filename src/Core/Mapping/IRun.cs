@@ -6,5 +6,6 @@ namespace StreetRunner.Core.Mapping
     {
         string Name { get; }
         IEnumerable<Point> Points { get; }
+        string Time { get; set; }
     }
 }

@@ -19,7 +19,7 @@ namespace E2ETests
             var content = await response.Content.ReadAsStringAsync();
             
             Assert.Equal("application/json", response.Content.Headers.ContentType.ToString());
-            Assert.Equal("{}", content);
+            Assert.NotEmpty(content);
         }
     }
 }
