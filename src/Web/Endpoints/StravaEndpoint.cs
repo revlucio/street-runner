@@ -20,7 +20,6 @@ namespace StreetRunner.Web.Endpoints
             var url = "https://www.strava.com/api/v3/activities/1144313347/streams/latlng";
 
             map.AddRun(new StravaJsonRun(_httpClient.Get(url)));
-            Console.WriteLine("hello");
   
             var path = map.ToSvg(500, 500);
 
