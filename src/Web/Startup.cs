@@ -46,7 +46,7 @@ namespace StreetRunner.Web
                     
                             var svg = new SvgEndpoint(mapFilename, 
                                 new FileSystemMapRepository(mapFinder, 
-                                    new FileSystemRunRepository(mapFinder))).Get();
+                                    new StravaRunRepository(new StravaApiClient(), new FileCacheHttpClient(new StravaApiClient())))).Get();
                             
                             response.ContentType = "text/html";
                             return response.WriteAsync(svg);

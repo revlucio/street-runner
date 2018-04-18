@@ -9,3 +9,5 @@ east-london.gpx
 
 .idea/
 *.DotSettings.user
+
+src/Web/http-cache/*.json
