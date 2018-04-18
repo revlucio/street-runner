@@ -5,6 +5,6 @@ namespace StreetRunner.Web.Repositories
 {
     public interface IRunRepository
     {
-        IEnumerable<Run> GetAll();
+        IEnumerable<IRun> GetAll();
     }
 }

@@ -14,7 +14,7 @@ namespace StreetRunner.Web.Repositories
             _mapFinder = mapFinder;
         }
 
-        public IEnumerable<Run> GetAll()
+        public IEnumerable<IRun> GetAll()
         {
             return _mapFinder.FindRuns()
                 .Select(Run.FromGpx);

@@ -26,7 +26,7 @@ namespace E2ETests
         [Fact]
         public async void ShouldReturnMapAsSvg()
         {
-            var content = await GetContent("/api/map/east-london", "application/html");
+            var content = await GetContent("/api/map/east-london", "text/html");
 
             Assert.NotEmpty(content);
 

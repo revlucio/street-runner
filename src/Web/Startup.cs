@@ -48,7 +48,7 @@ namespace StreetRunner.Web
                                 new FileSystemMapRepository(mapFinder, 
                                     new FileSystemRunRepository(mapFinder))).Get();
                             
-                            response.ContentType = "application/html";
+                            response.ContentType = "text/html";
                             return response.WriteAsync(svg);
                         });
                         

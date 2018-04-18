@@ -4,6 +4,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
+using StreetRunner.Core.Mapping;
 using StreetRunner.Web;
 using StreetRunner.Web.Endpoints;
 using StreetRunner.Web.Repositories;
@@ -51,7 +53,6 @@ namespace StreetRunner.UnitTests.Web
     </trkseg>
 </trk>
 </gpx>";
-
             
             var stubFinder = new StubMapFinder(
                 new Dictionary<string, string>{ { "mapName", osm }}, 
@@ -61,22 +62,32 @@ namespace StreetRunner.UnitTests.Web
             Assert.Equal(expected, actual);
         }
 
-        [Fact(Skip="not ready yet")]
+        [Fact]
         public async Task Request()
         {
-                using (var client = new HttpClient())
-                {
-                    client.DefaultRequestHeaders.Accept.Clear();
-                    client.DefaultRequestHeaders.Add("Authorization", "Bearer 93944545f252e152f5aeb0128fcca26760eadd01");
+            using (var client = new HttpClient
+            {
+                BaseAddress = new Uri("https://www.strava.com")
+            })
+            {
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Add("Authorization", "Bearer 93944545f252e152f5aeb0128fcca26760eadd01");
 
-                    var response = await client.GetAsync("https://www.strava.com/api/v3/activities/1144313347/streams/latlng");
-                    var content = await response.Content.ReadAsStringAsync();
-                    
-                    Assert.Equal(response.StatusCode, HttpStatusCode.OK);
-                    Assert.True(content.Length > 0);
-                    Console.WriteLine("output: " +content);   
-                }
+                var response = await client.GetAsync("/api/v3/athlete/activities");
+                var content = await response.Content.ReadAsStringAsync();
 
+                var activityIds = JArray.Parse(content)
+                    .Select(activity => activity.Value<string>("id"))
+                    .ToList();
+                
+                response = await client.GetAsync($"/api/v3/activities/{activityIds.First()}/streams/latlng");
+                content = await response.Content.ReadAsStringAsync();
+
+                var run = new StravaJsonRun(content);
+                
+                Assert.Equal(response.StatusCode, HttpStatusCode.OK);
+                Assert.True(content.Length > 0);
+            }
         }
     }
 }

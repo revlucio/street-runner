@@ -25,7 +25,7 @@ namespace StreetRunner.Core.Mapping
             var runXml = gpxXml.GetElement("trk");
             var name = runXml.GetElement("name").Value;
             var points = GetPoints(runXml);
-            var time = gpxXml.GetElement("metadata").GetElement("time").Value;// "2018-04-16T15:05:30Z";
+            var time = gpxXml.GetElement("metadata").GetElement("time").Value;
 
             return new Run(name, points.ToList(), time);
         }
