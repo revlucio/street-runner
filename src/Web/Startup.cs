@@ -47,6 +47,8 @@ namespace StreetRunner.Web
                             var gpxList = mapFinder.FindRuns();
                     
                             var svg = new SvgEndpoint(osm, gpxList).Get();
+                            
+                            response.ContentType = "application/html";
                             return response.WriteAsync(svg);
                         });
                         
