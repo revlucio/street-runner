@@ -1,30 +1,22 @@
-using System.Collections.Generic;
-using System.Linq;
 using StreetRunner.Core.Mapping;
+using StreetRunner.Web.Repositories;
 
 namespace StreetRunner.Web.Endpoints
 {
     public class SvgEndpoint
     {
-        private readonly string _osm;
-        private readonly IEnumerable<string> _gpxList;
+        private readonly string _mapName;
+        private readonly IMapRepository _mapRepository;
 
-        public SvgEndpoint(string osm, params string[] gpxList) : this(osm, gpxList.ToList())
+        public SvgEndpoint(string mapName, IMapRepository mapRepository)
         {
-        }
-        
-        public SvgEndpoint(string osm, IEnumerable<string> gpxList)
-        {
-            _osm = osm;
-            _gpxList = gpxList;
+            _mapName = mapName;
+            _mapRepository = mapRepository;
         }
 
         public string Get()
         {
-            var map = MapFactory.FromOsm(_osm);
-            _gpxList.ToList().ForEach(gpx => map.AddRun(Run.FromGpx(gpx)));
-            
-            var path = map.ToSvg(500, 500);
+            var path = _mapRepository.Get(_mapName).ToSvg(500, 500);
 
             return 
 $@"<html>

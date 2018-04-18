@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using StreetRunner.Web.Endpoints;
+using StreetRunner.Web.Repositories;
 
 namespace StreetRunner.Web
 {
@@ -42,11 +43,10 @@ namespace StreetRunner.Web
                         routes.MapGet("{mapFilename}", (request, response, routeData) =>
                         {
                             var mapFilename = routeData.Values["mapFilename"].ToString();
-                                
-                            var osm = mapFinder.FindMap(mapFilename);
-                            var gpxList = mapFinder.FindRuns();
                     
-                            var svg = new SvgEndpoint(osm, gpxList).Get();
+                            var svg = new SvgEndpoint(mapFilename, 
+                                new FileSystemMapRepository(mapFinder, 
+                                    new FileSystemRunRepository(mapFinder))).Get();
                             
                             response.ContentType = "application/html";
                             return response.WriteAsync(svg);

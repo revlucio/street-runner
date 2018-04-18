@@ -1,8 +1,12 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using StreetRunner.Web;
 using StreetRunner.Web.Endpoints;
+using StreetRunner.Web.Repositories;
 using Xunit;
 
 namespace StreetRunner.UnitTests.Web
@@ -16,7 +20,8 @@ namespace StreetRunner.UnitTests.Web
 @"<html>
 <body>
 <svg width=""500"" height=""500"">
-<path d=""M 0 500 L 500 0.00000000000000000000000001 "" stroke=""black"" fill=""transparent""/>
+<path d=""M 0 500 L 500 0 "" stroke=""yellow"" fill=""transparent""/>
+<path d=""M 0 500 L 500 0 "" stroke=""red"" fill=""transparent""/>
 </svg>
 </body>
 </html>
@@ -24,17 +29,34 @@ namespace StreetRunner.UnitTests.Web
 
             var osm = @"
 <osm>
- <node id=""111"" lat=""11.1"" lon=""22.2""/>
- <node id=""222"" lat=""33.3"" lon=""44.4""/>
+ <node id=""1"" lat=""10"" lon=""10""/>
+ <node id=""2"" lat=""20"" lon=""20""/>
  <way>
-  <nd ref=""111""/>
-  <nd ref=""222""/>
+  <nd ref=""1""/>
+  <nd ref=""2""/>
   <tag k=""highway"" v=""secondary""/>
  </way>
 </osm>            
 ";
 
-            var actual = new SvgEndpoint(osm).Get();
+            var gpx = @"<gpx>
+<metadata>
+  <time>2018-04-16T15:05:30Z</time>
+</metadata>
+<trk>
+    <name>Test Run</name>
+    <trkseg>
+      <trkpt lat=""10"" lon=""10""></trkpt>
+      <trkpt lat=""20"" lon=""20""></trkpt>
+    </trkseg>
+</trk>
+</gpx>";
+
+            
+            var stubFinder = new StubMapFinder(
+                new Dictionary<string, string>{ { "mapName", osm }}, 
+                new List<string> { gpx });
+            var actual = new SvgEndpoint("mapName", new FileSystemMapRepository(stubFinder, new FileSystemRunRepository(stubFinder))).Get();
 
             Assert.Equal(expected, actual);
         }

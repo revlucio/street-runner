@@ -7,10 +7,19 @@ namespace StreetRunner.UnitTests.Web
     public class StubMapFinder : IMapFinder
     {
         private readonly string _osm;
+        private readonly Dictionary<string, string> _osmDict;
+        private readonly IEnumerable<string> _gpxList;
 
-        public StubMapFinder(string osm)
+        public StubMapFinder(string osm, IEnumerable<string> gpxList = null)
         {
             _osm = osm;
+            _gpxList = gpxList;
+        }
+        
+        public StubMapFinder(Dictionary<string, string> osmDict, IEnumerable<string> gpxList)
+        {
+            _osmDict = osmDict;
+            _gpxList = gpxList;
         }
 
         public IEnumerable<string> FindMapFiles()
@@ -25,7 +34,7 @@ namespace StreetRunner.UnitTests.Web
 
         public string FindMap(string filename)
         {
-            throw new System.NotImplementedException();
+            return _osmDict[filename];
         }
 
         public string FindRun(string filename)
@@ -35,7 +44,7 @@ namespace StreetRunner.UnitTests.Web
 
         public IEnumerable<string> FindRuns()
         {
-            throw new System.NotImplementedException();
+            return _gpxList;
         }
     }
 }
