@@ -16,10 +16,10 @@ namespace StreetRunner.Web.Endpoints
 
         public string Get()
         {
-            var map = MapFactory.FromOsm(_osm);
             var url = "https://www.strava.com/api/v3/activities/1144313347/streams/latlng";
+            var run = new StravaJsonRun(_httpClient.Get(url));
 
-            map.AddRun(new StravaJsonRun(_httpClient.Get(url)));
+            var map = MapFactory.FromOsm(_osm, new []{run});
   
             var path = map.ToSvg(500, 500);
 

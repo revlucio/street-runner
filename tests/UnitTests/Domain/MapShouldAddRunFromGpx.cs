@@ -10,8 +10,7 @@ namespace StreetRunner.UnitTests.Domain
         [Fact]
         public void WithTime()
         {
-            var map = new Map(Enumerable.Empty<Street>());
-            map.AddRun(@"
+            var run = Run.FromGpx(@"
 <gpx xmlns=""http://www.topografix.com/GPX/1/1"">
 <metadata>
   <time>2018-04-16T15:05:30Z</time>
@@ -20,6 +19,7 @@ namespace StreetRunner.UnitTests.Domain
     <name>Test Run</name>
 </trk>
 </gpx>");
+            var map = new Map(Enumerable.Empty<Street>(), new List<IRun> { run });
 
             Assert.Equal("2018-04-16T15:05:30Z", map.Runs.First().Time);
         }
@@ -27,8 +27,7 @@ namespace StreetRunner.UnitTests.Domain
         [Fact]
         public void WithName()
         {
-            var map = new Map(Enumerable.Empty<Street>());
-            map.AddRun(@"
+            var run = Run.FromGpx(@"
 <gpx xmlns=""http://www.topografix.com/GPX/1/1"">
 <metadata>
   <time>2018-04-16T15:05:30Z</time>
@@ -37,6 +36,7 @@ namespace StreetRunner.UnitTests.Domain
     <name>Test Run</name>
 </trk>
 </gpx>");
+            var map = new Map(Enumerable.Empty<Street>(), new List<IRun> { run });
 
             Assert.Equal("Test Run", map.Runs.First().Name);
         }
@@ -44,8 +44,7 @@ namespace StreetRunner.UnitTests.Domain
         [Fact]
         public void WithPoint()
         {
-            var map = new Map(Enumerable.Empty<Street>());
-            map.AddRun(@"
+            var run = Run.FromGpx(@"
 <gpx xmlns=""http://www.topografix.com/GPX/1/1""> 
 <metadata>
   <time>2018-04-16T15:05:30Z</time>
@@ -58,6 +57,7 @@ namespace StreetRunner.UnitTests.Domain
     </trkseg>
 </trk>
 </gpx>");
+            var map = new Map(Enumerable.Empty<Street>(), new List<IRun> { run });
 
             Assert.Equal(11.1m, map.Runs.First().Points.First().Lat);
             Assert.Equal(22.2m, map.Runs.First().Points.First().Lon);
@@ -68,8 +68,7 @@ namespace StreetRunner.UnitTests.Domain
         [Fact]
         public void ExportsRunInRed()
         {
-            var map = new Map(Enumerable.Empty<Street>());
-            map.AddRun(@"
+            var run = Run.FromGpx(@"
 <gpx>
 <metadata>
   <time>2018-04-16T15:05:30Z</time>
@@ -82,6 +81,7 @@ namespace StreetRunner.UnitTests.Domain
     </trkseg>
 </trk>
 </gpx>");
+            var map = new Map(Enumerable.Empty<Street>(), new List<IRun> { run });
 
             var svg = map.ToSvg(100, 100);
 
@@ -95,12 +95,11 @@ namespace StreetRunner.UnitTests.Domain
                 new Point(100, 100),
                 new Point(200, 200),
             });
-            var map = new Map(new List<Street> { street });
             var run = new Run("name", new List<Point> {
                 new Point(100, 100),
                 new Point(200, 200),
             }, "time");
-            map.AddRun(run);
+            var map = new Map(new List<Street> { street }, new [] {run});
 
             var svg = map.ToSvg(100, 100);
 

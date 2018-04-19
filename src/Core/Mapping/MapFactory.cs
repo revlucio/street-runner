@@ -1,12 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
 
 namespace StreetRunner.Core.Mapping
 {
-    public class MapFactory
+    public static class MapFactory
     {
         public static Map FromOsm(string osd)
+        {
+            return FromOsm(osd, Enumerable.Empty<IRun>());
+        }
+        
+        public static Map FromOsm(string osd, IEnumerable<IRun> runs)
         {
             var osdXml = XElement.Parse(osd);
 
@@ -47,7 +53,7 @@ namespace StreetRunner.Core.Mapping
                 })
                 .ToList();
 
-            return new Map(streets);
+            return new Map(streets, runs);
         }
     }
 }

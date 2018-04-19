@@ -15,14 +15,14 @@ namespace StreetRunner.Core.Mapping
         {
             Streets = streets;
         }
-
-        public void AddRun(string gpx)
+        
+        public Map(IEnumerable<Street> streets, IEnumerable<IRun> runs)
         {
-            var run = Run.FromGpx(gpx);
-            AddRun(run);
+            Streets = streets;
+            runs.ForEach(AddRun);
         }
 
-        public void AddRun(IRun run) {
+        private void AddRun(IRun run) {
             _runs.Add(run);
             Streets = Streets
                 .Select(street => {

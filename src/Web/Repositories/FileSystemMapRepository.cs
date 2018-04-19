@@ -18,11 +18,7 @@ namespace StreetRunner.Web.Repositories
         public Map Get(string mapName)
         {
             var osm = _mapFinder.FindMap(mapName);
-            var map = MapFactory.FromOsm(osm);
-            
-            _runRepository.GetAll()
-                .ToList()
-                .ForEach(run => map.AddRun(run));
+            var map = MapFactory.FromOsm(osm, _runRepository.GetAll());
 
             return map;
         }

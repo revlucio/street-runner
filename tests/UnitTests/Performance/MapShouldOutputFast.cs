@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using StreetRunner.Core.Mapping;
@@ -27,9 +28,12 @@ namespace StreetRunner.UnitTests.Performance
             var gpx = File.ReadAllText($"{filesDir}/east-london-run.gpx");
 
             var timer = Stopwatch.StartNew();
-            var map = MapFactory.FromOsm(osm);
-            map.AddRun(gpx);
-            var svg = map.ToSvg(500, 500);
+            
+            var run = Run.FromGpx(gpx);
+            var map = MapFactory.FromOsm(osm, new List<IRun>{run});
+            
+            map.ToSvg(500, 500);
+            
             timer.Stop();
             
             Assert.InRange(timer.ElapsedMilliseconds, 0, 400);
