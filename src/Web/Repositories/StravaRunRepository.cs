@@ -18,16 +18,12 @@ namespace StreetRunner.Web.Repositories
         
         public IEnumerable<IRun> GetAll()
         {
-            var activityIds = JArray
-                    .Parse(_httpClient.Get("/api/v3/athlete/activities"))
-                    .Select(activity => activity.Value<string>("id"))
-                    .ToList();
-
-            var activityJson = _cacheHttpClient.Get($"/api/v3/activities/{activityIds.First()}/streams/latlng");
-            
-            var run = new StravaJsonRun(activityJson);
-                
-            return new List<IRun> { run };
+            return JArray
+                .Parse(_httpClient.Get("/api/v3/athlete/activities"))
+                .Select(activity => activity.Value<string>("id"))
+                .Take(5)
+                .Select(activityId => _cacheHttpClient.Get($"/api/v3/activities/{activityId}/streams/latlng"))
+                .Select(activityJson => new StravaJsonRun(activityJson));
         }
     }
 }

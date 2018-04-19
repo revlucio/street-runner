@@ -28,6 +28,7 @@ namespace StreetRunner.Web
             app.Map("/api", api =>
             {
                 var mapFinder = new FileSystemMapFinder();
+                var stravaRunRepository = new StravaRunRepository(new StravaApiClient(), new FileCacheHttpClient(new StravaApiClient()));
                 
                 api.MapTo("/stats", new StatsEndpoint(mapFinder).Get);
                 
@@ -43,10 +44,10 @@ namespace StreetRunner.Web
                         routes.MapGet("{mapFilename}", (request, response, routeData) =>
                         {
                             var mapFilename = routeData.Values["mapFilename"].ToString();
-                    
-                            var svg = new SvgEndpoint(mapFilename, 
-                                new FileSystemMapRepository(mapFinder, 
-                                    new StravaRunRepository(new StravaApiClient(), new FileCacheHttpClient(new StravaApiClient())))).Get();
+
+                            var svg = new SvgEndpoint(
+                                mapFilename, 
+                                new FileSystemMapRepository(mapFinder, new FileSystemRunRepository(mapFinder))).Get();
                             
                             response.ContentType = "text/html";
                             return response.WriteAsync(svg);
@@ -65,9 +66,13 @@ namespace StreetRunner.Web
                         routes.MapGet("{mapFilename}/strava", (request, response, routeData) =>
                         {
                             var mapFilename = routeData.Values["mapFilename"].ToString();
-                            var osm = mapFinder.FindMap(mapFilename);
-                    
-                            return response.WriteAsync(new StravaEndpoint(new RestHttpClient(), osm).Get());
+
+                            var svg = new SvgEndpoint(
+                                mapFilename, 
+                                new FileSystemMapRepository(mapFinder, stravaRunRepository)).Get();
+                            
+                            response.ContentType = "text/html";
+                            return response.WriteAsync(svg);
                         });
                     });
                 });
