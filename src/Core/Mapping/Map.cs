@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json.Linq;
 
 namespace StreetRunner.Core.Mapping
 {
@@ -11,9 +12,8 @@ namespace StreetRunner.Core.Mapping
 
         public IEnumerable<IRun> Runs => _runs;
 
-        public Map(IEnumerable<Street> streets)
+        public Map(IEnumerable<Street> streets) : this(streets, Enumerable.Empty<IRun>())
         {
-            Streets = streets;
         }
         
         public Map(IEnumerable<Street> streets, IEnumerable<IRun> runs)
@@ -30,6 +30,17 @@ namespace StreetRunner.Core.Mapping
                     return street;
                 })
                 .ToList();
+        }
+
+        public JObject ToJson()
+        {
+            return JObject.FromObject(new
+            {
+                runIds = _runs.Select(run => run.Time),
+                coveredStreets = Streets
+                    .Where(street => street.Covered)
+                    .Select(street => street.Name)
+            });
         }
     }
 }
