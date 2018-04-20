@@ -8,7 +8,7 @@ namespace StreetRunner.UnitTests.Domain
     public class MapShouldAddRunFromGpx
     {
         [Fact]
-        public void WithTime()
+        public void WithId()
         {
             var run = Run.FromGpx(@"
 <gpx xmlns=""http://www.topografix.com/GPX/1/1"">
@@ -21,24 +21,7 @@ namespace StreetRunner.UnitTests.Domain
 </gpx>");
             var map = new Map(Enumerable.Empty<Street>(), new List<IRun> { run });
 
-            Assert.Equal("2018-04-16T15:05:30Z", map.Runs.First().Time);
-        }
-        
-        [Fact]
-        public void WithName()
-        {
-            var run = Run.FromGpx(@"
-<gpx xmlns=""http://www.topografix.com/GPX/1/1"">
-<metadata>
-  <time>2018-04-16T15:05:30Z</time>
-</metadata>
-<trk>
-    <name>Test Run</name>
-</trk>
-</gpx>");
-            var map = new Map(Enumerable.Empty<Street>(), new List<IRun> { run });
-
-            Assert.Equal("Test Run", map.Runs.First().Name);
+            Assert.Equal("2018-04-16T15:05:30Z", map.Runs.First().Id);
         }
 
         [Fact]
@@ -95,7 +78,7 @@ namespace StreetRunner.UnitTests.Domain
                 new Point(100, 100),
                 new Point(200, 200),
             });
-            var run = new Run("name", new List<Point> {
+            var run = new Run(new List<Point> {
                 new Point(100, 100),
                 new Point(200, 200),
             }, "time");

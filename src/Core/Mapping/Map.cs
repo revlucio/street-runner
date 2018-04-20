@@ -22,6 +22,25 @@ namespace StreetRunner.Core.Mapping
             runs.ForEach(AddRun);
         }
 
+        public Map(IEnumerable<Street> streets, IEnumerable<IRun> runs, JObject mapJson)
+        {
+            var coveredStreets = mapJson.Value<JArray>("coveredStreets").Values<string>().ToList();
+//            var cachedRuns = mapJson.Value<JArray>("runIds")
+            
+            Streets = streets
+                .Select(street =>
+                {
+                    if (coveredStreets.Contains(street.Name))
+                    {
+                        street.Covered = true;
+                    }
+                    return street;
+                });
+            runs
+                
+                .ForEach(AddRun);
+        }
+
         private void AddRun(IRun run) {
             _runs.Add(run);
             Streets = Streets
@@ -36,7 +55,7 @@ namespace StreetRunner.Core.Mapping
         {
             return JObject.FromObject(new
             {
-                runIds = _runs.Select(run => run.Time),
+                runIds = _runs.Select(run => run.Id),
                 coveredStreets = Streets
                     .Where(street => street.Covered)
                     .Select(street => street.Name)

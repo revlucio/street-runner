@@ -6,7 +6,7 @@ namespace StreetRunner.Core.Mapping
 {
     public class StravaJsonRun : IRun
     {
-        public StravaJsonRun(string json)
+        public StravaJsonRun(string json, string id="default")
         {
             Points = JArray
                 .Parse(json)
@@ -14,11 +14,11 @@ namespace StreetRunner.Core.Mapping
                 .Value<JArray>("data")
                 .Cast<JArray>()
                 .Select(point => new Point((decimal)point[0], (decimal)point[1]));
+
+            Id = id;
         }
 
-        public string Name => "Strava JSON Run";
-        
         public IEnumerable<Point> Points { get; }
-        public string Time { get; set; }
+        public string Id { get; }
     }
 }

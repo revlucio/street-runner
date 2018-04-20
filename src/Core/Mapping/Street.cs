@@ -16,7 +16,7 @@ namespace StreetRunner.Core.Mapping
         public string Name { get; }
         public string Type { get; }
         public IEnumerable<Point> Points { get; }
-        public bool Covered { get; private set; }
+        public bool Covered { get; set; }
 
         internal void CheckIfCovered(IRun run)
         {

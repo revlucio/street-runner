@@ -70,7 +70,7 @@ namespace StreetRunner.UnitTests.Domain
 
         private bool IsCovered(IEnumerable<Point> streetPoints, IEnumerable<Point> runPoints) {
             var street = new Street("name", streetPoints);
-            var run = new Run("name", runPoints, "time");
+            var run = new Run(runPoints, "time");
 
             var map = new Map(new List<Street>{street}, new List<IRun>{run});
 

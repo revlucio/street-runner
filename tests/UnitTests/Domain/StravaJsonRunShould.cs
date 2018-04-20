@@ -6,19 +6,6 @@ namespace StreetRunner.UnitTests.Domain
 {
     public class StravaJsonRunShould
     {
-        [Fact]
-        public void HaveDefaultName()
-        {
-            var json = @"
-[
-    {
-        ""data"": []
-    }
-]";
-            IRun stravaJsonRun = new StravaJsonRun(json);
-
-            Assert.Equal("Strava JSON Run", stravaJsonRun.Name);
-        }
 
         [Fact]
         public void HavePoints()
@@ -38,6 +25,20 @@ namespace StreetRunner.UnitTests.Domain
             Assert.Equal(22.2m, stravaJsonRun.Points.First().Lon);
             Assert.Equal(33.3m, stravaJsonRun.Points.ElementAt(1).Lat);
             Assert.Equal(44.4m, stravaJsonRun.Points.ElementAt(1).Lon);
+        }
+
+        [Fact]
+        public void HaveId()
+        {
+            var json = @"
+[
+    {
+        ""data"": []
+    }
+]";
+            IRun stravaJsonRun = new StravaJsonRun(json, "time");
+
+            Assert.Equal("time", stravaJsonRun.Id);
         }
     }
 }

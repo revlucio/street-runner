@@ -22,7 +22,7 @@ namespace StreetRunner.UnitTests.Domain
         public void NotHaveStreetsThatAreNotCovered()
         {
             var street = new Street("Main St", new [] {new Point(0,0), new Point(10,01)});
-            var run = new Run("", new [] {new Point(100,1000), new Point(200,200)}, "time");
+            var run = new Run(new [] {new Point(100,1000), new Point(200,200)}, "time");
             var map = new Map(new[] {street}, new[] {run});
 
             var json = map.ToJson();
@@ -35,13 +35,26 @@ namespace StreetRunner.UnitTests.Domain
         public void HaveStreetsThatAreCovered()
         {
             var street = new Street("Main St", new [] {new Point(0,0), new Point(10,01)});
-            var run = new Run("", new [] {new Point(0,0), new Point(10,01)}, "time");
+            var run = new Run(new [] {new Point(0,0), new Point(10,01)}, "time");
             var map = new Map(new[] {street}, new[] {run});
 
             var json = map.ToJson();
 
             Assert.Equal("time", json.Value<JArray>("runIds").Single());
             Assert.Equal("Main St", json.Value<JArray>("coveredStreets").Single());
+        }
+        
+        [Fact]
+        public void CoverStreetsFromJson()
+        {
+            var street = new Street("Main St", new [] {new Point(0,0), new Point(10,01)});
+            var mapJson = JObject.FromObject(new
+            {
+                coveredStreets = new[] {"Main St"}
+            });
+            var map = new Map(new[] {street}, Enumerable.Empty<IRun>(), mapJson);
+
+            Assert.True(map.Streets.Single().Covered);
         }
     }
 }
