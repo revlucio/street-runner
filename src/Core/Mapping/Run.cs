@@ -20,7 +20,6 @@ namespace StreetRunner.Core.Mapping
         {
             var gpxXml = XElement.Parse(gpx);
             var runXml = gpxXml.GetElement("trk");
-            var name = runXml.GetElement("name").Value;
             var points = GetPoints(runXml);
             var time = gpxXml.GetElement("metadata").GetElement("time").Value;
 
