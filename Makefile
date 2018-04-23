@@ -1,3 +1,9 @@
+deploy: publish
+	docker build -t street-runner .
+
+publish:
+	cd ./src/Web && dotnet publish -o ../../publish -c Release
+
 test: stop
 	dotnet test ./tests/UnitTests/UnitTests.csproj
 
