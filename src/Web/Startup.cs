@@ -24,7 +24,8 @@ namespace StreetRunner.Web
             app.UseDeveloperExceptionPage();
 
             app.Map("/favicon.ico", HttpHandler.Return200Ok());
-
+            app.MapWhen(context => context.Request.Path.Value == "/", HttpHandler.Return200Ok());
+            
             app.Map("/api", api =>
             {
                 var mapFinder = new FileSystemMapFinder();

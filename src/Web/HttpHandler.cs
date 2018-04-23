@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
 
 namespace StreetRunner.Web
 {
@@ -11,7 +11,8 @@ namespace StreetRunner.Web
             return app => {
                 app.Run(async (context) => {
                     context.Response.StatusCode = 200;
-                    await Task.CompletedTask;
+                    var response = "200 - OK";
+                    await context.Response.WriteAsync(response);
                 });
             };
         }
