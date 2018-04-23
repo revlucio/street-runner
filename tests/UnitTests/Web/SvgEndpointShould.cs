@@ -61,33 +61,5 @@ namespace StreetRunner.UnitTests.Web
 
             Assert.Equal(expected, actual);
         }
-
-        [Fact]
-        public async Task Request()
-        {
-            using (var client = new HttpClient
-            {
-                BaseAddress = new Uri("https://www.strava.com")
-            })
-            {
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Add("Authorization", "Bearer 93944545f252e152f5aeb0128fcca26760eadd01");
-
-                var response = await client.GetAsync("/api/v3/athlete/activities");
-                var content = await response.Content.ReadAsStringAsync();
-
-                var activityIds = JArray.Parse(content)
-                    .Select(activity => activity.Value<string>("id"))
-                    .ToList();
-                
-                response = await client.GetAsync($"/api/v3/activities/{activityIds.First()}/streams/latlng");
-                content = await response.Content.ReadAsStringAsync();
-
-                var run = new StravaJsonRun(content);
-                
-                Assert.Equal(response.StatusCode, HttpStatusCode.OK);
-                Assert.True(content.Length > 0);
-            }
-        }
     }
 }

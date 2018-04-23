@@ -19,7 +19,7 @@ namespace StreetRunner.UnitTests.Domain
         ]
     }
 ]";
-            IRun stravaJsonRun = new StravaJsonRun(json);
+            IRun stravaJsonRun = new StravaJsonRun(json, "id");
 
             Assert.Equal(11.1m, stravaJsonRun.Points.First().Lat);
             Assert.Equal(22.2m, stravaJsonRun.Points.First().Lon);
@@ -36,9 +36,9 @@ namespace StreetRunner.UnitTests.Domain
         ""data"": []
     }
 ]";
-            IRun stravaJsonRun = new StravaJsonRun(json, "time");
+            IRun stravaJsonRun = new StravaJsonRun(json, "id");
 
-            Assert.Equal("time", stravaJsonRun.Id);
+            Assert.Equal("id", stravaJsonRun.Id);
         }
     }
 }

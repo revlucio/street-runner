@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
+using Newtonsoft.Json.Linq;
 
 namespace StreetRunner.Core.Mapping
 {
@@ -11,8 +12,13 @@ namespace StreetRunner.Core.Mapping
         {
             return FromOsm(osd, Enumerable.Empty<IRun>());
         }
-        
+
         public static Map FromOsm(string osd, IEnumerable<IRun> runs)
+        {
+            return FromOsm(osd, runs, new JObject());
+        }
+        
+        public static Map FromOsm(string osd, IEnumerable<IRun> runs, JObject mapJson)
         {
             var osdXml = XElement.Parse(osd);
 
@@ -53,7 +59,7 @@ namespace StreetRunner.Core.Mapping
                 })
                 .ToList();
 
-            return new Map(streets, runs);
+            return new Map(streets, runs, mapJson);
         }
     }
 }

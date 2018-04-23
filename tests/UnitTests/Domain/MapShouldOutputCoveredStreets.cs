@@ -56,5 +56,13 @@ namespace StreetRunner.UnitTests.Domain
 
             Assert.True(map.Streets.Single().Covered);
         }
+        
+        [Fact]
+        public void HandleEmptyJson()
+        {
+            var map = new Map(Enumerable.Empty<Street>(), Enumerable.Empty<IRun>(), new JObject());
+
+            Assert.True(map != null);
+        }
     }
 }
