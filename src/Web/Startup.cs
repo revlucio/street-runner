@@ -4,9 +4,11 @@ using System.Linq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Linq;
 using StreetRunner.Web.Endpoints;
 using StreetRunner.Web.Repositories;
 
@@ -78,7 +80,22 @@ namespace StreetRunner.Web
                     });
                 });
 
-                api.MapToJson("", new ApiRootEndpoint().Get);
+                api.UseRouter(routes =>
+                {
+                    routes.MapGet("", (request, response, context) =>
+                    {
+                        var json = JObject.FromObject(new
+                        {
+                            urls = new[]
+                            {
+                                $"{request.GetBaseUrl()}/api/map",
+                                $"{request.GetBaseUrl()}/api/stats",
+                            }
+                        });
+                        response.ContentType = "application/json";
+                        return response.WriteAsync(json.ToString());
+                    });
+                });
                 api.ReturnNotFound();
             });
 

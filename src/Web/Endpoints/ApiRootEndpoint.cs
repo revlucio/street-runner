@@ -10,7 +10,7 @@ namespace StreetRunner.Web.Endpoints
             {
                 urls = new []
                 {
-                    $"{Settings.UrlRoot}/api/map",  
+                    $"/api/map",  
                     $"{Settings.UrlRoot}/api/stats",  
                 } 
             });

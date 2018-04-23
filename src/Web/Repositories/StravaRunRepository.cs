@@ -22,7 +22,7 @@ namespace StreetRunner.Web.Repositories
             return JArray
                 .Parse(_httpClient.Get("/api/v3/athlete/activities"))
                 .Select(activity => activity.Value<string>("id"))
-//                .Take(10)
+                .Take(5)
                 .Select(activityId => new
                 {
                     id = activityId,

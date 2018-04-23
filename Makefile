@@ -29,7 +29,7 @@ setupAzure:
 	az appservice plan create --name streetRunnerPlan --resource-group ukSouth --sku S1 --is-linux
 	az webapp create --resource-group ukSouth --plan streetRunnerPlan --name street-runner --deployment-container-image-name revlucio/street-runner
 	az webapp config appsettings set --resource-group ukSouth --name street-runner --settings WEBSITES_PORT=5000
-	az webapp config appsettings set --resource-group ukSouth --name street-runner --settings WEBSITES_CONTAINER_START_TIME_LIMIT=600
+	az webapp config appsettings set --resource-group ukSouth --name street-runner --settings ASPNETCORE_URLS=http://+:5000
 	# setup CD
 	
 deleteAzure:
