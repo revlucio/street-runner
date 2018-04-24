@@ -33,6 +33,7 @@ namespace StreetRunner.Web
                 var mapFinder = new FileSystemMapFinder();
                 var stravaRunRepository = new StravaRunRepository(new StravaApiClient(), new FileCacheHttpClient(new StravaApiClient()));
                 
+                api.MapGetToJson("", new ApiRootEndpoint().Get);
                 api.MapTo("/stats", new StatsEndpoint(mapFinder).Get);
                 
                 api.Map("/map", mapApi =>
@@ -79,23 +80,7 @@ namespace StreetRunner.Web
                         });
                     });
                 });
-
-                api.UseRouter(routes =>
-                {
-                    routes.MapGet("", (request, response, context) =>
-                    {
-                        var json = JObject.FromObject(new
-                        {
-                            urls = new[]
-                            {
-                                $"{request.GetBaseUrl()}/api/map",
-                                $"{request.GetBaseUrl()}/api/stats",
-                            }
-                        });
-                        response.ContentType = "application/json";
-                        return response.WriteAsync(json.ToString());
-                    });
-                });
+                
                 api.ReturnNotFound();
             });
 

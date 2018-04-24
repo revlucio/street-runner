@@ -1,6 +1,7 @@
 using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
 using Newtonsoft.Json.Linq;
 
 namespace StreetRunner.Web
@@ -40,6 +41,22 @@ namespace StreetRunner.Web
                 context.Response.ContentType = "text/plain";
                 context.Response.StatusCode = 404;
                 await context.Response.WriteAsync(response);
+            });
+        }
+
+        public static IApplicationBuilder MapGetToJson(
+            this IApplicationBuilder app,
+            string template,
+            Func<HttpRequest, HttpResponse, RouteData, JObject> func)
+        {
+            return app.UseRouter(routes =>
+            {
+                routes.MapGet(template, (req, res, routeData) =>
+                {
+                    var json = func(req, res, routeData);
+                    res.ContentType = "application/json";
+                    return res.WriteAsync(json.ToString());                    
+                });
             });
         }
     }
