@@ -7,7 +7,7 @@ namespace StreetRunner.Core.Mapping
     public class Map
     {
         private readonly List<IRun> _runs = new List<IRun>();
-        private List<string> _cachedRuns;
+        private readonly List<string> _cachedRuns = new List<string>();
 
         public IEnumerable<Street> Streets { get; private set; }
 

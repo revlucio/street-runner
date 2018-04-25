@@ -59,5 +59,47 @@ namespace StreetRunner.Web
                 });
             });
         }
+        
+        public static IApplicationBuilder MapGetToJson(
+            this IApplicationBuilder app,
+            string template,
+            Func<JObject> func)
+        {
+            return app.UseRouter(routes =>
+            {
+                routes.MapGet(template, (req, res, routeData) =>
+                {
+                    var json = func();
+                    res.ContentType = "application/json";
+                    return res.WriteAsync(json.ToString());                    
+                });
+            });
+        }
+        
+        public static IApplicationBuilder MapGetToHtml(
+            this IApplicationBuilder app,
+            string template,
+            Func<HttpRequest, HttpResponse, RouteData, string> func)
+        {
+            return app.UseRouter(routes =>
+            {
+                routes.MapGet(template, (req, res, routeData) =>
+                {
+                    var json = func(req, res, routeData);
+                    res.ContentType = "text/html";
+                    return res.WriteAsync(json);                    
+                });
+            });
+        }
+
+        public static IApplicationBuilder MapRootTo(
+            this IApplicationBuilder app,
+            string response)
+        {
+            return app.MapWhen(context => context.Request.Path.Value == "/", root =>
+            {
+                root.Run(context => context.Response.WriteAsync(response));
+            });
+        }
     }
 }

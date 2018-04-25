@@ -16,5 +16,10 @@ namespace StreetRunner.Web
                 });
             };
         }
+
+        public static string Ok()
+        {
+            return "200 - OK";
+        }
     }
 }

@@ -26,7 +26,7 @@ namespace StreetRunner.Web
             app.UseDeveloperExceptionPage();
 
             app.Map("/favicon.ico", HttpHandler.Return200Ok());
-            app.MapWhen(context => context.Request.Path.Value == "/", HttpHandler.Return200Ok());
+            app.MapRootTo(HttpHandler.Ok());
             
             app.Map("/api", api =>
             {
@@ -38,25 +38,19 @@ namespace StreetRunner.Web
                 
                 api.Map("/map", mapApi =>
                 {
-                    mapApi.MapWhen(context => context.Request.Path.HasValue == false, emptyMap =>
+                    mapApi.MapGetToJson("", new MapEndpoint(mapFinder).GetJson);
+
+                    mapApi.MapGetToHtml("{mapFilename}", (request, response, routeData) =>
                     {
-                        emptyMap.MapToJson("", new MapEndpoint(mapFinder).GetJson);    
+                        var svgEndpoint = new SvgEndpoint(
+                            routeData.Values["mapFilename"].ToString(),
+                            new FileSystemMapRepository(mapFinder, new FileSystemRunRepository(mapFinder)));
+                        
+                        return svgEndpoint.Get();
                     });
 
                     mapApi.UseRouter(routes =>
                     {
-                        routes.MapGet("{mapFilename}", (request, response, routeData) =>
-                        {
-                            var mapFilename = routeData.Values["mapFilename"].ToString();
-
-                            var svg = new SvgEndpoint(
-                                mapFilename, 
-                                new FileSystemMapRepository(mapFinder, new FileSystemRunRepository(mapFinder))).Get();
-                            
-                            response.ContentType = "text/html";
-                            return response.WriteAsync(svg);
-                        });
-                        
                         routes.MapGet("{mapFilename}/street", (request, response, routeData) =>
                         {
                             var mapFilename = routeData.Values["mapFilename"].ToString();
