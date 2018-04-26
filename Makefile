@@ -29,11 +29,11 @@ e2e: start
 	
 setupAzure:
 	az group create --name ukSouth --location "UK South"
-	az appservice plan create --name streetRunnerPlan --resource-group ukSouth --sku F1 --is-linux
+	az appservice plan create --name streetRunnerPlan --resource-group ukSouth --sku S1 --is-linux
 	az webapp create --resource-group ukSouth --plan streetRunnerPlan --name street-runner --deployment-container-image-name revlucio/street-runner
 	az webapp config appsettings set --resource-group ukSouth --name street-runner --settings WEBSITES_PORT=5000
 	az webapp config appsettings set --resource-group ukSouth --name street-runner --settings ASPNETCORE_URLS=http://+:5000
-	# setup CD
+	# setup webhook
 	
 deleteAzure:
 	az group delete --name ukSouth -y

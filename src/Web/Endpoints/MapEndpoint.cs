@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
@@ -17,24 +14,13 @@ namespace StreetRunner.Web.Endpoints
             _mapFinder = mapFinder;
         }
 
-        public string Get()
-        {
-            return string.Join(Environment.NewLine, MapFiles());
-        }
-
-        public JObject GetJson()
+        public JObject GetJson(HttpRequest request, HttpResponse response, RouteData routeData)
         {
             return JObject.FromObject(new
             {
-                maps = MapFiles()
+                maps = _mapFinder.FindMapFilenames()
+                    .Select(mapFile => $"{request.GetBaseUrl()}/api/map/{mapFile}")
             });
-        }
-
-        private static IEnumerable<string> MapFiles()
-        {            
-            var mapFiles = _mapFinder.FindMapFilenames()
-                .Select(mapFile => $"{Settings.UrlRoot}/api/map/{mapFile}");
-            return mapFiles;
         }
     }
 }

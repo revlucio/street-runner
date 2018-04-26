@@ -1,14 +1,9 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json.Linq;
 using StreetRunner.Web.Endpoints;
 using StreetRunner.Web.Repositories;
 
@@ -31,7 +26,8 @@ namespace StreetRunner.Web
             app.Map("/api", api =>
             {
                 var mapFinder = new FileSystemMapFinder();
-                var stravaRunRepository = new StravaRunRepository(new StravaApiClient(), new FileCacheHttpClient(new StravaApiClient()));
+             
+                api.UseMiddleware<AuthenticateWithStrava>();
                 
                 api.MapGetToJson("", new ApiRootEndpoint().Get);
                 api.MapTo("/stats", new StatsEndpoint(mapFinder).Get);
@@ -63,8 +59,11 @@ namespace StreetRunner.Web
                         
                         routes.MapGet("{mapFilename}/strava", (request, response, routeData) =>
                         {
+                            var token = request.Cookies["strava-token"];
                             var mapFilename = routeData.Values["mapFilename"].ToString();
 
+                            var runRepository = new StravaRunRepository(new ApiClient(), new FileCacheHttpClient(new ApiClient()), token);
+                            var stravaRunRepository = runRepository;
                             var svg = new SvgEndpoint(
                                 mapFilename, 
                                 new FileSystemMapRepository(mapFinder, stravaRunRepository)).Get();

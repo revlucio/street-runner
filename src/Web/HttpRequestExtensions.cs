@@ -8,5 +8,10 @@ namespace StreetRunner.Web
         {
             return $"{request.Scheme}://{request.Host}";
         }
+        
+        public static string GetUrlWithoutQueryString(this HttpRequest request)
+        {
+            return $"{request.GetBaseUrl()}{request.PathBase}{request.Path}";
+        }
     }
 }
