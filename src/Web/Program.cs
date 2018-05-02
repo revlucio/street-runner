@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Microsoft.AspNetCore.Hosting;
 
 namespace StreetRunner.Web
@@ -7,13 +8,19 @@ namespace StreetRunner.Web
     {
         public static void Main(string[] args)
         {
+            var port = Environment.GetEnvironmentVariable("PORT");
+
             var host = new WebHostBuilder()
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseStartup<Startup>()
-                .Build();
+                .UseStartup<Startup>();
 
-            host.Run();
+            if (string.IsNullOrWhiteSpace(port) == false)
+            {
+                host = host.UseUrls($"http://+:{port}");
+            }
+
+            host.Build().Run();
         }
     }
 }
