@@ -1,6 +1,6 @@
 deploy: publish
 	docker build -t revlucio/street-runner .
-	docker push revlucio/street-runner
+	#docker push revlucio/street-runner
 	
 publish:
 	cd ./src/Web && dotnet publish -o ../../out -c Release
@@ -37,3 +37,8 @@ setupAzure:
 	
 deleteAzure:
 	az group delete --name ukSouth -y
+	
+heroku:
+	docker login registry.heroku.com -u revlucio@gmail.com -p $(HEROKU_API_KEY)
+	docker tag revlucio/street-runner registry.heroku.com/street-runner/web
+	docker push registry.heroku.com/street-runner/web
