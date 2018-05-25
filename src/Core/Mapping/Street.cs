@@ -5,15 +5,20 @@ namespace StreetRunner.Core.Mapping
 {
     public class Street
     {
+        private readonly string _name;
+
         public Street(string name, IEnumerable<Point> points, string type = "?")
         {
-            Name = name;
+            _name = name;
             Points = points;
             Covered = false;
             Type = type;
         }
 
-        public string Name { get; }
+        public string Name => string.IsNullOrWhiteSpace(_name)
+            ? Points.Aggregate(string.Empty, (result, point) => $"{result}{point.Lat}{point.Lon}")
+            : _name;
+
         public string Type { get; }
         public IEnumerable<Point> Points { get; }
         public bool Covered { get; set; }
