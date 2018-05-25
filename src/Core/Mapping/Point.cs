@@ -16,14 +16,14 @@ namespace StreetRunner.Core.Mapping
         public int CalculateDistanceInMetres(Point otherPoint)
         {
             // disregarding far away points before doing the algorithm
-            if (Math.Abs(this.Lon - otherPoint.Lon) > 0.0015m || Math.Abs(this.Lat - otherPoint.Lat) > 0.0015m) 
+            if (Math.Abs(Lon - otherPoint.Lon) > 0.0015m || Math.Abs(Lat - otherPoint.Lat) > 0.0015m) 
             {
                 return 120;
             }
 
             var distanceInKiloMetres = DistanceAlgorithm.DistanceBetweenPlaces(
-                Convert.ToDouble(this.Lon), 
-                Convert.ToDouble(this.Lat), 
+                Convert.ToDouble(Lon), 
+                Convert.ToDouble(Lat), 
                 Convert.ToDouble(otherPoint.Lon), 
                 Convert.ToDouble(otherPoint.Lat));
 

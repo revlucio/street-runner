@@ -27,7 +27,7 @@ namespace StreetRunner.Core.Mapping
             
             if (Points.Any(streetPoint 
                 => run.Points.Any(runPoint 
-                    => streetPoint.CalculateDistanceInMetres(runPoint) < 110))) 
+                    => streetPoint.CalculateDistanceInMetres(runPoint) < 3))) 
             {
                 Covered = true;
             }

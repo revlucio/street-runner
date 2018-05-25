@@ -25,6 +25,10 @@ namespace StreetRunner.Web
             var response = context.Response;
             
             var applicationId = "20675";
+            if (Environment.GetEnvironmentVariables().Contains("STRAVA_SECRET") == false)
+            {
+                throw new ArgumentException("The STRAVA_SECRET environment variable must be set");
+            }
             var secret = Environment.GetEnvironmentVariable("STRAVA_SECRET");
 
             var url = request.GetUrlWithoutQueryString();
