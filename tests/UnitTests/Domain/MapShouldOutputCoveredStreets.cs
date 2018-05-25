@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json.Linq;
 using StreetRunner.Core.Mapping;
@@ -52,7 +53,7 @@ namespace StreetRunner.UnitTests.Domain
             {
                 coveredStreets = new[] {"Main St"}
             });
-            var map = new Map(new[] {street}, Enumerable.Empty<IRun>(), mapJson);
+            var map = new Map((IEnumerable<Street>) new[] {street}, Enumerable.Empty<IRun>());
 
             Assert.True(map.Streets.Single().Covered);
         }
@@ -60,7 +61,7 @@ namespace StreetRunner.UnitTests.Domain
         [Fact]
         public void HandleEmptyJson()
         {
-            var map = new Map(Enumerable.Empty<Street>(), Enumerable.Empty<IRun>(), new JObject());
+            var map = new Map(Enumerable.Empty<Street>(), Enumerable.Empty<IRun>());
 
             Assert.True(map != null);
         }

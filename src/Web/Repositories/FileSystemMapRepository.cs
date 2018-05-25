@@ -23,18 +23,12 @@ namespace StreetRunner.Web.Repositories
         {
             var osm = _mapFinder.FindMap(mapName);
             
-            var mapJsonPath = Path.Combine(MapDirectory, mapName + ".json");
-            var mapJson = File.Exists(mapJsonPath) 
-                ? JObject.Parse(File.ReadAllText(mapJsonPath)) 
-                : new JObject();
-            
-            var map = MapFactory.FromOsm(osm, _runRepository.GetAll(), mapJson);
+            var map = MapFactory.FromOsm(osm, _runRepository.GetAll());
             
             if (Directory.Exists(MapDirectory) == false)
             {
                 Directory.CreateDirectory(MapDirectory);
             }
-            File.WriteAllText(mapJsonPath, map.ToJson().ToString());
 
             return map;
         }

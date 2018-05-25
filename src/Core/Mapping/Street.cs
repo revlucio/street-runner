@@ -22,20 +22,22 @@ namespace StreetRunner.Core.Mapping
         public string Type { get; }
         public IEnumerable<Point> Points { get; }
         public bool Covered { get; set; }
-
-        internal void CheckIfCovered(IRun run)
+        
+        internal bool IsCoveredBy(IRun run)
         {
             if (Covered)
             {
-                return;
+                return true;
             }
             
             if (Points.Any(streetPoint 
                 => run.Points.Any(runPoint 
-                    => streetPoint.CalculateDistanceInMetres(runPoint) < 3))) 
+                    => streetPoint.CalculateDistanceInMetres(runPoint) < 3)))
             {
-                Covered = true;
+                return true;
             }
+
+            return false;
         }
     }
 }
