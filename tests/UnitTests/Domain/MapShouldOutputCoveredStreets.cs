@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json.Linq;
 using StreetRunner.Core.Mapping;
@@ -43,19 +42,6 @@ namespace StreetRunner.UnitTests.Domain
 
             Assert.Equal("time", json.Value<JArray>("runIds").Single());
             Assert.Equal("Main St", json.Value<JArray>("coveredStreets").Single());
-        }
-        
-        [Fact]
-        public void CoverStreetsFromJson()
-        {
-            var street = new Street("Main St", new [] {new Point(0,0), new Point(10,01)});
-            var mapJson = JObject.FromObject(new
-            {
-                coveredStreets = new[] {"Main St"}
-            });
-            var map = new Map((IEnumerable<Street>) new[] {street}, Enumerable.Empty<IRun>());
-
-            Assert.True(map.Streets.Single().Covered);
         }
         
         [Fact]

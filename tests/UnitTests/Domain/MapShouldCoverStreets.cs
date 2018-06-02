@@ -53,10 +53,10 @@ namespace StreetRunner.UnitTests.Domain
         }
 
         [Fact]
-        public void RunIsAtLeast100MetresToAnyStreetPoint_IsCovered() 
+        public void RunIsAtLeast1MetresToAnyStreetPoint_IsCovered() 
         {
-            // 0.0009 is approx 100m
-            var ninetyMetres = 0.0008m;
+            // 0.00009 is approx 1m
+            var ninetyMetres = 0.000008m;
             Assert.True(IsCovered(
                 new List<Point> 
                 {

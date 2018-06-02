@@ -22,7 +22,7 @@ namespace StreetRunner.Core.Mapping
             _runs = runs.ToList();
             Streets = streets.ToList();
             
-            var coveredStreetCalculator = new CacheCoveredStreetCalculator(new CoveredStreetCalculator());
+            var coveredStreetCalculator = new CoveredStreetCalculator();
             
             _runs
                 .ForEach(run =>
