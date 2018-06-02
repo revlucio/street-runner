@@ -4,7 +4,7 @@ using System.IO;
 using StreetRunner.Core.Mapping;
 using Xunit;
 
-namespace StreetRunner.UnitTests.Performance
+namespace PerformanceTests
 {
     public class MapShouldOutputFast
     {
