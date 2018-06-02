@@ -17,12 +17,15 @@ namespace StreetRunner.Core.Mapping
         {
         }
 
-        public Map(IEnumerable<Street> streets, IEnumerable<IRun> runs)
+        public Map(
+            IEnumerable<Street> streets, 
+            IEnumerable<IRun> runs, 
+            ICoveredStreetCalculator coveredStreetCalculator = null)
         {
             _runs = runs.ToList();
             Streets = streets.ToList();
             
-            var coveredStreetCalculator = new CoveredStreetCalculator();
+            coveredStreetCalculator = coveredStreetCalculator ?? new CoveredStreetCalculator();
             
             _runs
                 .ForEach(run =>

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using StreetRunner.Core.Mapping;
 using StreetRunner.Web.Endpoints;
 using StreetRunner.Web.Repositories;
 
@@ -26,6 +27,7 @@ namespace StreetRunner.Web
             app.Map("/api", api =>
             {
                 var mapFinder = new FileSystemMapFinder();
+                var cachedCoveredStreetCalculator = new CacheCoveredStreetCalculator(new CoveredStreetCalculator());
              
                 api.UseMiddleware<AuthenticateWithStrava>();
                 
@@ -40,7 +42,8 @@ namespace StreetRunner.Web
                     {
                         var svgEndpoint = new SvgEndpoint(
                             routeData.Values["mapFilename"].ToString(),
-                            new FileSystemMapRepository(mapFinder, new FileSystemRunRepository(mapFinder)));
+                            new FileSystemMapRepository(
+                                mapFinder, new FileSystemRunRepository(mapFinder), cachedCoveredStreetCalculator));
                         
                         return svgEndpoint.Get();
                     });
@@ -66,7 +69,8 @@ namespace StreetRunner.Web
                             var stravaRunRepository = runRepository;
                             var svg = new SvgEndpoint(
                                 mapFilename, 
-                                new FileSystemMapRepository(mapFinder, stravaRunRepository)).Get();
+                                new FileSystemMapRepository(mapFinder, stravaRunRepository, cachedCoveredStreetCalculator))
+                                .Get();
                             
                             response.ContentType = "text/html";
                             return response.WriteAsync(svg);

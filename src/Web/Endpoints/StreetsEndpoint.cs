@@ -27,7 +27,8 @@ namespace StreetRunner.Web.Endpoints
 
         public string Get()
         {
-            var map = MapFactory.FromOsm(_osm, _gpxList.Select(Run.FromGpx));
+            var cacheCoveredStreetCalculator = new CacheCoveredStreetCalculator(new CoveredStreetCalculator());
+            var map = MapFactory.FromOsm(_osm, _gpxList.Select(Run.FromGpx), cacheCoveredStreetCalculator);
             
             return map.Streets.Aggregate(
                     string.Empty, 

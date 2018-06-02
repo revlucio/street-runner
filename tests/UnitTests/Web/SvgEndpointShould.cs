@@ -1,12 +1,5 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Newtonsoft.Json.Linq;
 using StreetRunner.Core.Mapping;
-using StreetRunner.Web;
 using StreetRunner.Web.Endpoints;
 using StreetRunner.Web.Repositories;
 using Xunit;
@@ -57,7 +50,10 @@ namespace StreetRunner.UnitTests.Web
             var stubFinder = new StubMapFinder(
                 new Dictionary<string, string>{ { "mapName", osm }}, 
                 new List<string> { gpx });
-            var actual = new SvgEndpoint("mapName", new FileSystemMapRepository(stubFinder, new FileSystemRunRepository(stubFinder))).Get();
+            var actual = new SvgEndpoint("mapName", new FileSystemMapRepository(
+                stubFinder, 
+                new FileSystemRunRepository(stubFinder),
+                new CoveredStreetCalculator())).Get();
 
             Assert.Equal(expected, actual);
         }
