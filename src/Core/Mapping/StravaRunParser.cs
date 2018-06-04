@@ -11,7 +11,7 @@ namespace StreetRunner.Core.Mapping
         {
             try
             {
-                _run = new StravaJsonRun(json, id);
+                _run = StravaJsonRun.Parse(json, id);
                 _valid = true;
             }
             catch

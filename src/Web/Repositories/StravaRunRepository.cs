@@ -21,7 +21,6 @@ namespace StreetRunner.Web.Repositories
         
         public IEnumerable<IRun> GetAll()
         {
-
             return JArray
                 .Parse(_httpClient.Get($"https://www.strava.com/api/v3/athlete/activities?access_token={_token}"))
                 .Select(activity => activity.Value<string>("id"))
@@ -31,11 +30,13 @@ namespace StreetRunner.Web.Repositories
                     id = activityId,
                     json = _cacheHttpClient.Get($"https://www.strava.com/api/v3/activities/{activityId}/streams/latlng?access_token={_token}")
                 })
-                .Select(activity => new StravaJsonRun(activity.json, activity.id))
+                .Select(activity => new StravaRunParser(activity.json, activity.id))
+                .Where(run => run.IsValid())
+                .Select(run => run.Value)
                 .Where(IsInLondon);
         }
 
-        private bool IsInLondon(StravaJsonRun run)
+        private bool IsInLondon(IRun run)
         {
             return run.Points.ToList().Any(point => Math.Abs(point.Lon) < 5);
         }

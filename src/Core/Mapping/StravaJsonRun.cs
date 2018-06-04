@@ -6,7 +6,12 @@ namespace StreetRunner.Core.Mapping
 {
     public class StravaJsonRun : IRun
     {
-        public StravaJsonRun(string json, string id)
+        internal static StravaJsonRun Parse(string json, string id)
+        {
+            return new StravaJsonRun(json, id);
+        }
+
+        private StravaJsonRun(string json, string id)
         {
             Points = JArray
                 .Parse(json)
