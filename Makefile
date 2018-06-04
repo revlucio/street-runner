@@ -10,6 +10,7 @@ dockerRun:
 
 test: stop
 	dotnet test ./tests/UnitTests/UnitTests.csproj
+	dotnet test ./tests/PerformanceTests/PerformanceTests.csproj
 
 web: stop
 	cd ./src/Web && dotnet run
