@@ -1,6 +1,6 @@
 deploy: publish
 	docker build -t revlucio/street-runner .
-	#docker push revlucio/street-runner
+	docker push revlucio/street-runner
 	
 publish:
 	cd ./src/Web && dotnet publish -o ../../out -c Release
@@ -34,6 +34,8 @@ setupAzure:
 	az webapp config appsettings set --resource-group ukSouth --name street-runner --settings WEBSITES_PORT=5000
 	az webapp config appsettings set --resource-group ukSouth --name street-runner --settings ASPNETCORE_URLS=http://+:5000
 	# setup webhook
+	# setup STRAVA_SECRET env var
+	# add custom domain mystreets.run
 	
 deleteAzure:
 	az group delete --name ukSouth -y

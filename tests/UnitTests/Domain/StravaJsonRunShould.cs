@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using StreetRunner.Core.Mapping;
 using Xunit;
@@ -6,7 +7,6 @@ namespace StreetRunner.UnitTests.Domain
 {
     public class StravaJsonRunShould
     {
-
         [Fact]
         public void HavePoints()
         {
@@ -19,8 +19,11 @@ namespace StreetRunner.UnitTests.Domain
         ]
     }
 ]";
-            IRun stravaJsonRun = new StravaJsonRun(json, "id");
 
+            var parser = new StravaRunParser(json, "id");
+            Assert.Equal(true, parser.IsValid());
+
+            var stravaJsonRun = parser.Value;
             Assert.Equal(11.1m, stravaJsonRun.Points.First().Lat);
             Assert.Equal(22.2m, stravaJsonRun.Points.First().Lon);
             Assert.Equal(33.3m, stravaJsonRun.Points.ElementAt(1).Lat);
@@ -36,9 +39,26 @@ namespace StreetRunner.UnitTests.Domain
         ""data"": []
     }
 ]";
-            IRun stravaJsonRun = new StravaJsonRun(json, "id");
+            var parser = new StravaRunParser(json, "id");
+            Assert.Equal(true, parser.IsValid());
+
+            var stravaJsonRun = parser.Value;
 
             Assert.Equal("id", stravaJsonRun.Id);
+        }
+        
+        [Fact]
+        public void BeInvalidIsJsonIsNotCorrect()
+        {
+            var json = @"
+[
+    {
+    }
+]";
+            var parser = new StravaRunParser(json, "id");
+            Assert.Equal(false, parser.IsValid());
+            var ex = Assert.Throws<ArgumentException>(() => parser.Value);
+            Assert.Equal("JSON could not be parsed into a StravaJsonRun", ex.Message);
         }
     }
 }
