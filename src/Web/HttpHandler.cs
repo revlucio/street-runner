@@ -11,7 +11,7 @@ namespace StreetRunner.Web
             return app => {
                 app.Run(async (context) => {
                     context.Response.StatusCode = 200;
-                    var response = "200 - OK";
+                    var response = Ok();
                     await context.Response.WriteAsync(response);
                 });
             };
