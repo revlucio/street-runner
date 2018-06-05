@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using StreetRunner.Core.Mapping;
@@ -20,6 +21,8 @@ namespace StreetRunner.Web
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             app.UseDeveloperExceptionPage();
+            app.ViewDirectoryAndFiles("/cache", FileCacheHttpClient.CacheDirectory);
+            app.ViewDirectoryAndFiles("/logs", LoggerHttpClient.LogDirectory);
 
             app.Map("/favicon.ico", HttpHandler.Return200Ok());
             app.MapRootTo(HttpHandler.Ok());
@@ -65,7 +68,8 @@ namespace StreetRunner.Web
                             var token = request.Cookies["strava-token"];
                             var mapFilename = routeData.Values["mapFilename"].ToString();
 
-                            var runRepository = new StravaRunRepository(new ApiClient(), new FileCacheHttpClient(new ApiClient()), token);
+                            var httpClient = new LoggerHttpClient(new ApiClient());
+                            var runRepository = new StravaRunRepository(httpClient, new FileCacheHttpClient(httpClient), token);
                             var stravaRunRepository = runRepository;
                             var svg = new SvgEndpoint(
                                 mapFilename, 

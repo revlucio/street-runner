@@ -4,7 +4,7 @@ namespace StreetRunner.Web.Repositories
 {
     public class FileCacheHttpClient : IHttpClient
     {
-        private const string CacheDirectory = "/data/street-runner/http-cache";
+        public static string CacheDirectory => DirectoryHelper.EnsureExists("/data/street-runner/http-cache");
 
         private readonly IHttpClient _underlyingHttpClient;
 
@@ -15,17 +15,10 @@ namespace StreetRunner.Web.Repositories
         
         public string Get(string url)
         {
-            var escapedUrl = url.Replace('/', '-');
-            
-            var cacheFile = Path.Combine(CacheDirectory, escapedUrl + ".json");
+            var cacheFile = Path.Combine(CacheDirectory, url.EncodeForFileSystem() + ".json");
             if (File.Exists(cacheFile) == false)
             {
                 var response = _underlyingHttpClient.Get(url);
-                
-                if (Directory.Exists(CacheDirectory) == false)
-                {
-                    Directory.CreateDirectory(CacheDirectory);
-                }
                 File.WriteAllText(cacheFile, response);
             }
             
