@@ -18,7 +18,8 @@ namespace StreetRunner.Core.Mapping
                 .First
                 .Value<JArray>("data")
                 .Cast<JArray>()
-                .Select(point => new Point((decimal)point[0], (decimal)point[1]));
+                .Select(point => new Point((decimal)point[0], (decimal)point[1]))
+                .ToList();
 
             Id = id;
         }
