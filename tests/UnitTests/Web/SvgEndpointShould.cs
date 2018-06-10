@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Shouldly;
 using StreetRunner.Core.Mapping;
 using StreetRunner.Web.Endpoints;
 using StreetRunner.Web.Repositories;
@@ -54,8 +55,8 @@ namespace StreetRunner.UnitTests.Web
                 stubFinder, 
                 new FileSystemRunRepository(stubFinder),
                 new CoveredStreetCalculator())).Get();
-
-            Assert.Equal(expected, actual);
+                
+            actual.ShouldBe(expected);
         }
     }
 }

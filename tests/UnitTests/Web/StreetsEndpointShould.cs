@@ -1,3 +1,4 @@
+using Shouldly;
 using StreetRunner.Web.Endpoints;
 using Xunit;
 
@@ -27,8 +28,7 @@ namespace StreetRunner.UnitTests.Web
 ";
 
             var actual = new StreetsEndpoint(osm).Get();
-
-            Assert.Equal(expected, actual);
+            actual.ShouldBe(expected);
         }
     }
 }

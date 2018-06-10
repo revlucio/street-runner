@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Shouldly;
 using StreetRunner.Web.Repositories;
 using Xunit;
 
@@ -13,7 +14,7 @@ namespace StreetRunner.UnitTests.Web
             var repo = new StravaRunRepository(stubApiClient, new StubHttpClient(string.Empty), "token");
 
             var runs = repo.GetAll();
-            Assert.Equal(0, runs.Count());
+            runs.ShouldBeEmpty();
         }
         
         [Fact]
@@ -33,7 +34,7 @@ namespace StreetRunner.UnitTests.Web
             var repo = new StravaRunRepository(stubApiClient, runHttpClient, "token");
 
             var runs = repo.GetAll();
-            Assert.Equal(1, runs.Count());
+            runs.Count().ShouldBe(1);
         }
         
         [Fact]
@@ -45,7 +46,7 @@ namespace StreetRunner.UnitTests.Web
             var repo = new StravaRunRepository(stubApiClient, runHttpClient, "token");
 
             var runs = repo.GetAll();
-            Assert.Equal(0, runs.Count());
+            runs.ShouldBeEmpty();
         }
     }
 }
