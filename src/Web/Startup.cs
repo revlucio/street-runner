@@ -69,7 +69,10 @@ namespace StreetRunner.Web
                             var mapFilename = routeData.Values["mapFilename"].ToString();
 
                             var httpClient = new LoggerHttpClient(new ApiClient());
-                            var runRepository = new StravaRunRepository(httpClient, new FileCacheHttpClient(httpClient), token);
+                            var runRepository = new StravaRunRepository(
+                                httpClient, 
+                                new FileCacheHttpClient(httpClient), 
+                                token);
                             var stravaRunRepository = runRepository;
                             var svg = new SvgEndpoint(
                                 mapFilename, 
