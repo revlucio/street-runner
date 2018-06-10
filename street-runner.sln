@@ -23,6 +23,7 @@ ProjectSection(SolutionItems) = preProject
 	Dockerfile = Dockerfile
 	.travis.yml = .travis.yml
 	.gitignore = .gitignore
+	TODO.md = TODO.md
 EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerformanceTests", "tests\PerformanceTests\PerformanceTests.csproj", "{4FDEB7E6-6CE2-468B-9832-5AB693D4C034}"
