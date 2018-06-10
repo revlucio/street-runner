@@ -1,5 +1,6 @@
 using System.Linq;
 using Newtonsoft.Json.Linq;
+using Shouldly;
 using StreetRunner.Core.Mapping;
 using Xunit;
 
@@ -14,8 +15,8 @@ namespace StreetRunner.UnitTests.Domain
 
             var json = map.ToJson();
             
-            Assert.Empty(json["runIds"]);
-            Assert.Empty(json["coveredStreets"]);
+            json["runIds"].ShouldBeEmpty();
+            json["coveredStreets"].ShouldBeEmpty();
         }
         
         [Fact]
@@ -27,8 +28,8 @@ namespace StreetRunner.UnitTests.Domain
 
             var json = map.ToJson();
 
-            Assert.Equal("time", json.Value<JArray>("runIds").Single());
-            Assert.Empty(json["coveredStreets"]);
+            json.Value<JArray>("runIds").Single().ShouldBe("time");
+            json["coveredStreets"].ShouldBeEmpty();
         }
         
         [Fact]
@@ -40,16 +41,15 @@ namespace StreetRunner.UnitTests.Domain
 
             var json = map.ToJson();
 
-            Assert.Equal("time", json.Value<JArray>("runIds").Single());
-            Assert.Equal("Main St", json.Value<JArray>("coveredStreets").Single());
+            json.Value<JArray>("runIds").Single().ShouldBe("time");
+            json.Value<JArray>("coveredStreets").Single().ShouldBe("Main St");
         }
         
         [Fact]
         public void HandleEmptyJson()
         {
             var map = new Map(Enumerable.Empty<Street>(), Enumerable.Empty<IRun>());
-
-            Assert.True(map != null);
+            map.ShouldNotBeNull();
         }
     }
 }

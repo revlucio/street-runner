@@ -1,4 +1,5 @@
-﻿using StreetRunner.Core.Mapping;
+﻿using Shouldly;
+using StreetRunner.Core.Mapping;
 using Xunit;
 
 namespace StreetRunner.UnitTests.Domain
@@ -9,8 +10,7 @@ namespace StreetRunner.UnitTests.Domain
         public void GenerateNameFromPointsWhenNotGiven()
         {
             var street = new Street(string.Empty, new[] {new Point(1, 1)});
-            
-            Assert.Equal("11", street.Name);
+            street.Name.ShouldBe("11");
         }
     }
 }

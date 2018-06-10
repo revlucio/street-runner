@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Shouldly;
 using StreetRunner.Core.Mapping;
 using Xunit;
 
@@ -17,7 +18,7 @@ namespace StreetRunner.UnitTests.Domain
             var map = new Map(new List<Street>{street});
             var svg = map.ToSvg(100, 100);
 
-            Assert.Equal("<path d=\"M 0 100 L 100 0 \" stroke=\"black\" fill=\"transparent\"/>", svg);
+            svg.ShouldBe("<path d=\"M 0 100 L 100 0 \" stroke=\"black\" fill=\"transparent\"/>");
         }
 
         [Fact]
@@ -31,7 +32,7 @@ namespace StreetRunner.UnitTests.Domain
             var map = new Map(new List<Street>{street});
             var svg = map.ToSvg(400, 400);
 
-            Assert.Equal("<path d=\"M 0 400 L 400 0 \" stroke=\"black\" fill=\"transparent\"/>", svg);
+            svg.ShouldBe("<path d=\"M 0 400 L 400 0 \" stroke=\"black\" fill=\"transparent\"/>");
         }
 
         [Fact]
@@ -50,10 +51,9 @@ namespace StreetRunner.UnitTests.Domain
             var map = new Map(new List<Street>{street1, street2});
             var svg = map.ToSvg(400, 400);
 
-            Assert.Equal(
-@"<path d=""M 0 400 L 200 200 "" stroke=""black"" fill=""transparent""/>
-<path d=""M 200 200 L 400 0 "" stroke=""black"" fill=""transparent""/>"
-            , svg);
+            var expected = @"<path d=""M 0 400 L 200 200 "" stroke=""black"" fill=""transparent""/>
+<path d=""M 200 200 L 400 0 "" stroke=""black"" fill=""transparent""/>";
+            svg.ShouldBe(expected);
         }
     }
 }

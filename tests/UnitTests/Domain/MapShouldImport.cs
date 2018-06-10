@@ -1,4 +1,5 @@
 using System.Linq;
+using Shouldly;
 using StreetRunner.Core.Mapping;
 using Xunit;
 
@@ -16,7 +17,7 @@ namespace StreetRunner.UnitTests.Domain
  </way>
 </osm>");
 
-            Assert.Equal(1, map.Streets.Count());
+            map.Streets.Count().ShouldBe(1);
         }
 
         [Fact]
@@ -30,7 +31,7 @@ namespace StreetRunner.UnitTests.Domain
  </way>
 </osm>");
 
-            Assert.Equal("Main Street", map.Streets.First().Name);
+            map.Streets.First().Name.ShouldBe("Main Street");
         }
 
         [Fact]
@@ -43,7 +44,7 @@ namespace StreetRunner.UnitTests.Domain
  </way>
 </osm>");
 
-            Assert.Equal(0, map.Streets.Count());
+            map.Streets.ShouldBeEmpty();
         }
 
         [Fact]
@@ -56,7 +57,7 @@ namespace StreetRunner.UnitTests.Domain
  <way><tag k=""highway"" v=""secondary""/></way>
 </osm>");
 
-            Assert.Equal(3, map.Streets.Count());
+            map.Streets.Count().ShouldBe(3);
         }
 
         [Fact]
@@ -74,10 +75,10 @@ namespace StreetRunner.UnitTests.Domain
 </osm>");
 
             var street = map.Streets.First();
-            Assert.Equal(11.1m, street.Points.First().Lat);
-            Assert.Equal(22.2m, street.Points.First().Lon);
-            Assert.Equal(33.3m, street.Points.Last().Lat);
-            Assert.Equal(44.4m, street.Points.Last().Lon);
+            street.Points.First().Lat.ShouldBe(11.1m);
+            street.Points.First().Lon.ShouldBe(22.2m);
+            street.Points.Last().Lat.ShouldBe(33.3m);
+            street.Points.Last().Lon.ShouldBe(44.4m);
         }
     }
 }
