@@ -4,7 +4,7 @@ push: deploy
 run: deploy
 	docker run --env-file ./env.list -p 5001:5000 revlucio/street-runner
 
-deploy: publish
+deploy: buildWeb publish
 	docker build -t revlucio/street-runner .
 	
 publish:
