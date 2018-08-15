@@ -16,12 +16,12 @@ namespace StreetRunner.Web.Endpoints
 
         public string Get()
         {
-            var path = _mapRepository.Get(_mapName).ToSvg(500, 500);
+            var path = _mapRepository.Get(_mapName).ToSvgMaintainAspectRatio(1000);
 
             return 
 $@"<html>
 <body>
-<svg width=""500"" height=""500"">
+<svg width=""100%"" height=""100%"">
 {path}
 </svg>
 </body>

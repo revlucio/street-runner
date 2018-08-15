@@ -15,9 +15,9 @@ namespace StreetRunner.UnitTests.Web
             var expected = 
 @"<html>
 <body>
-<svg width=""500"" height=""500"">
-<path d=""M 0 500 L 500 0 "" stroke=""yellow"" fill=""transparent""/>
-<path d=""M 0 500 L 500 0 "" stroke=""red"" fill=""transparent""/>
+<svg width=""100%"" height=""100%"">
+<path d=""M 0 250 L 1000 0 "" stroke=""yellow"" fill=""transparent""/>
+<path d=""M 0 250 L 1000 0 "" stroke=""red"" fill=""transparent""/>
 </svg>
 </body>
 </html>

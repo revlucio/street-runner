@@ -34,6 +34,36 @@ namespace StreetRunner.UnitTests.Domain
 
             svg.ShouldBe("<path d=\"M 0 400 L 400 0 \" stroke=\"black\" fill=\"transparent\"/>");
         }
+        
+        [Fact]
+        public void OutputToSvgPath_AndScaleWidthWithoutDistortion() 
+        {
+            var street = new Street("name", new List<Point> 
+            {
+                { new Point(0m, 0m) },
+                { new Point(2m, 4m) },
+            });
+            
+            var map = new Map(new List<Street>{street});
+            var svg = map.ToSvgMaintainAspectRatio(10);
+
+            svg.ShouldBe("<path d=\"M 0 5 L 10 0 \" stroke=\"black\" fill=\"transparent\"/>");
+        }
+        
+        [Fact]
+        public void OutputToSvgPath_AndScaleHeightWithoutDistortion() 
+        {
+            var street = new Street("name", new List<Point> 
+            {
+                { new Point(1m, 1m) },
+                { new Point(4m, 2m) },
+            });
+            
+            var map = new Map(new List<Street>{street});
+            var svg = map.ToSvgMaintainAspectRatio(10);
+
+            svg.ShouldBe("<path d=\"M 0 1 L 10 0 \" stroke=\"black\" fill=\"transparent\"/>");
+        }
 
         [Fact]
         public void OutputMultipleStreetsToSvgPath_AndScale() 

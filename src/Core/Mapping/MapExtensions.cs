@@ -6,6 +6,20 @@ namespace StreetRunner.Core.Mapping
 {
     public static class MapExtensions
     {
+        public static string ToSvgMaintainAspectRatio(this Map map, int scaleToMax)
+        {
+            var rect = GetBoundingRect(map);
+            
+            var height = rect.MaxLat - rect.MinLat;
+            var width = rect.MaxLon - rect.MinLon;
+            var ratio = height / (width/4);
+            
+            var scaleLonTo = ratio < 1 ? Convert.ToInt32(scaleToMax * ratio) : scaleToMax;
+            var scaleLatTo = ratio > 1 ? Convert.ToInt32(scaleToMax / ratio) : scaleToMax;
+            
+            return map.ToSvg(scaleLatTo, scaleLonTo);
+        }
+        
         public static string ToSvg(this Map map, int scaleLatTo, int scaleLonTo)
         {
             var rect = GetBoundingRect(map);
@@ -59,7 +73,7 @@ namespace StreetRunner.Core.Mapping
                 .Select(p => new Point(Math.Abs((p.Lat * scaleLatBy) - scaleLatTo), (int)(p.Lon * scaleLonBy)));
 
             var path = string.Join("", scaledPoints
-                        .Select(p => $"L {p.Lon} {p.Lat} ")
+                        .Select(p => $"L {p.Lon} {Math.Round(p.Lat, 0)} ")
                         )
                 .Substring(1);
 
