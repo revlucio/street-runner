@@ -9,3 +9,4 @@
 - maybe convert the lat/lon into x/y to make svg and distance calc easier?
   prob dont need to take into account the curvature of the earth if its just london
   can then cache these x,y points instead of lat lon
+  problem is what does x y mean? what offset? and when to convert?

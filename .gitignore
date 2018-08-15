@@ -11,3 +11,5 @@ out/
 
 # list of environment variables for the docker container
 env.list
+
+node_modules/
