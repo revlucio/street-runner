@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using Shouldly;
 using StreetRunner.Core.Mapping;
 using Xunit;
 
@@ -14,10 +15,10 @@ namespace PerformanceTests
             var osm = File.ReadAllText($"{Settings.FilesDirectory()}/small-east-london.osm");
 
             var timer = Stopwatch.StartNew();
-            var svg = MapFactory.FromOsm(osm).ToSvg(500, 500);
+            MapFactory.FromOsm(osm).ToSvg(500, 500);
             timer.Stop();
             
-            Assert.InRange(timer.ElapsedMilliseconds, 0, 100);
+            timer.ElapsedMilliseconds.ShouldBeInRange(0, 100);
         }
 
         [Fact]
@@ -36,7 +37,7 @@ namespace PerformanceTests
             
             timer.Stop();
             
-            Assert.InRange(timer.ElapsedMilliseconds, 0, 400);
+            timer.ElapsedMilliseconds.ShouldBeInRange(0, 400);
         }
     }
 }

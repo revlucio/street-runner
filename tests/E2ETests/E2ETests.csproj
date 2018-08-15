@@ -8,4 +8,9 @@
     <PackageReference Include="xunit" Version="2.3.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Shouldly, Version=3.0.0.0, Culture=neutral, PublicKeyToken=6042cbcb05cbc941">
+      <HintPath>..\..\..\..\.nuget\packages\shouldly\3.0.0\lib\netstandard1.3\Shouldly.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>

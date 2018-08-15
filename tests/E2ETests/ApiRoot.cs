@@ -4,6 +4,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using Shouldly;
 using Xunit;
 
 namespace E2ETests
@@ -19,8 +20,7 @@ namespace E2ETests
         public async void ShouldReturnEndpoints()
         {
             var content = await GetContent("/api", "application/json");
-
-            Assert.NotEmpty(content);
+            content.ShouldNotBeEmpty();
         }
 
         [Fact]
@@ -28,11 +28,11 @@ namespace E2ETests
         {
             var content = await GetContent("/api/map/east-london", "text/html");
 
-            Assert.NotEmpty(content);
+            content.ShouldNotBeEmpty();
 
             var xml = XElement.Parse(content);
             var svg = xml.Element("body").Element("svg");
-            Assert.Equal(2431, svg.Elements("path").Count());
+            svg.Elements("path").Count().ShouldBe(2431);
         }
         
         private static async Task<string> GetContent(string url, string contentType)
@@ -40,7 +40,7 @@ namespace E2ETests
             var response = await HttpClient.GetAsync(url);
             response.EnsureSuccessStatusCode();
 
-            Assert.Equal(contentType, response.Content.Headers.ContentType?.ToString());
+            response.Content.Headers.ContentType?.ToString().ShouldBe(contentType);
 
             return await response.Content.ReadAsStringAsync();
         }

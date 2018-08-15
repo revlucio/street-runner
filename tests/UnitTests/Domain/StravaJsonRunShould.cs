@@ -58,7 +58,7 @@ namespace StreetRunner.UnitTests.Domain
 ]";
             var parser = new StravaRunParser(json, "id");
             parser.IsValid().ShouldBeFalse();
-            var ex = Assert.Throws<ArgumentException>(() => parser.Value);
+            var ex = Should.Throw<ArgumentException>(() => { var x = parser.Value; });
             ex.Message.ShouldBe("JSON could not be parsed into a StravaJsonRun");
         }
     }
