@@ -8,3 +8,6 @@ obj/
 *.DotSettings.user
 
 out/
+
+# list of environment variables for the docker container
+env.list

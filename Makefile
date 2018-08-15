@@ -1,12 +1,14 @@
+push: deploy
+	docker push revlucio/street-runner
+
 deploy: publish
 	docker build -t revlucio/street-runner .
-	docker push revlucio/street-runner
 	
 publish:
 	cd ./src/Web && dotnet publish -o ../../out -c Release
 
 dockerRun:
-	docker run -p 5001:5000 revlucio/street-runner
+	docker run --env-file ./env.list -p 5001:5000 revlucio/street-runner
 
 test: stop
 	dotnet test ./tests/UnitTests/UnitTests.csproj
