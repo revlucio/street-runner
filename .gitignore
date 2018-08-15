@@ -13,3 +13,5 @@ out/
 env.list
 
 node_modules/
+dist/
+src/Web/wwwroot/public/

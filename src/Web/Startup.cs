@@ -1,9 +1,13 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System;
+using System.IO;
+using System.Reflection;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
 using StreetRunner.Core.Mapping;
 using StreetRunner.Web.Endpoints;
@@ -21,6 +25,12 @@ namespace StreetRunner.Web
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             app.UseDeveloperExceptionPage();
+            var fileDir = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(fileDir)
+            });
+            
             app.ViewDirectoryAndFiles("/cache", FileCacheHttpClient.CacheDirectory);
             app.ViewDirectoryAndFiles("/logs", LoggerHttpClient.LogDirectory);
 

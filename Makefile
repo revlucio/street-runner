@@ -47,3 +47,8 @@ heroku:
 	docker login registry.heroku.com -u revlucio@gmail.com -p $(HEROKU_API_KEY)
 	docker tag revlucio/street-runner registry.heroku.com/street-runner/web
 	docker push registry.heroku.com/street-runner/web
+	
+buildWeb:
+	cd ./src/React && webpack --mode production
+	cp -R ./src/React/dist ./src/Web/wwwroot
+	cp -R ./src/React/public ./src/Web/wwwroot
