@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 
 namespace StreetRunner.Core.Mapping
 {
-    public class Map
+    public class Map : IMap
     {
         private readonly List<IRun> _runs;
 

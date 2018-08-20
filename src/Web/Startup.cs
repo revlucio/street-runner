@@ -67,15 +67,16 @@ namespace StreetRunner.Web
                         
                         routes.MapGet("{mapFilename}/strava", (request, response, routeData) =>
                         {
-                            var token = request.Cookies["strava-token"];
+                            // the map should already be loaded
                             var mapFilename = routeData.Values["mapFilename"].ToString();
 
+                            // the run repo should already be loaded
                             var httpClient = new LoggerHttpClient(new ApiClient());
-                            var runRepository = new StravaRunRepository(
+                            var stravaRunRepository = new StravaRunRepository(
                                 httpClient, 
                                 new FileCacheHttpClient(httpClient), 
-                                token);
-                            var stravaRunRepository = runRepository;
+                                request.Cookies["strava-token"]);
+                            
                             var svg = new SvgEndpoint(
                                 mapFilename, 
                                 new FileSystemMapRepository(mapFinder, stravaRunRepository, cachedCoveredStreetCalculator))
@@ -83,6 +84,25 @@ namespace StreetRunner.Web
                             
                             response.ContentType = "text/html";
                             return response.WriteAsync(svg);
+                        });
+                        
+                        routes.MapGet("{mapFilename}/summary", (request, response, routeData) =>
+                        {
+                            var mapFilename = routeData.Values["mapFilename"].ToString();
+                            
+                            var httpClient = new LoggerHttpClient(new ApiClient());
+                            var stravaRunRepository = new StravaRunRepository(
+                                httpClient, 
+                                new FileCacheHttpClient(httpClient), 
+                                request.Cookies["strava-token"]);
+                            
+                            var mapRepo = new FileSystemMapRepository(mapFinder, stravaRunRepository,
+                                cachedCoveredStreetCalculator);
+
+                            var json = new SummaryEndpoint(mapRepo.Get(mapFilename)).Get();
+                            
+                            response.ContentType = "application/json";
+                            return response.WriteAsync(json);
                         });
                     });
                 });
