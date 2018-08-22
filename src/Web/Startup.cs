@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using StreetRunner.Core.Mapping;
 using StreetRunner.Web.Endpoints;
 using StreetRunner.Web.Repositories;
+using IHttpClient = StreetRunner.Web.Endpoints.IHttpClient;
 
 namespace StreetRunner.Web
 {
@@ -15,6 +16,12 @@ namespace StreetRunner.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRouting();
+
+            services.AddScoped<StreetRunner.Web.Repositories.IHttpClient>(x => new LoggerHttpClient(new ApiClient()));
+            services.AddScoped<IMapFinder, FileSystemMapFinder>();
+            services.AddScoped<ICoveredStreetCalculator>(x => new CacheCoveredStreetCalculator(new CoveredStreetCalculator()));
+            services.AddScoped<IRunRepository, FileSystemRunRepository>();
+            services.AddScoped<IMapRepository, FileSystemMapRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -29,10 +36,13 @@ namespace StreetRunner.Web
             app.Map("/favicon.ico", HttpHandler.Return200Ok());
             app.MapRootTo(HttpHandler.Ok());
             
+            var httpClient = app.ApplicationServices.GetService<StreetRunner.Web.Repositories.IHttpClient>();
+            
             app.Map("/api", api =>
             {
-                var mapFinder = new FileSystemMapFinder();
-                var cachedCoveredStreetCalculator = new CacheCoveredStreetCalculator(new CoveredStreetCalculator());
+                var mapFinder = api.ApplicationServices.GetService<IMapFinder>();
+                var coveredStreetCalculator = api.ApplicationServices.GetService<ICoveredStreetCalculator>();
+                var mapRepository = api.ApplicationServices.GetService<IMapRepository>();
              
                 api.UseMiddleware<AuthenticateWithStrava>();
                 
@@ -47,8 +57,7 @@ namespace StreetRunner.Web
                     {
                         var svgEndpoint = new SvgEndpoint(
                             routeData.Values["mapFilename"].ToString(),
-                            new FileSystemMapRepository(
-                                mapFinder, new FileSystemRunRepository(mapFinder), cachedCoveredStreetCalculator));
+                            mapRepository);
                         
                         return svgEndpoint.Get();
                     });
@@ -71,7 +80,6 @@ namespace StreetRunner.Web
                             var mapFilename = routeData.Values["mapFilename"].ToString();
 
                             // the run repo should already be loaded
-                            var httpClient = new LoggerHttpClient(new ApiClient());
                             var stravaRunRepository = new StravaRunRepository(
                                 httpClient, 
                                 new FileCacheHttpClient(httpClient), 
@@ -79,7 +87,7 @@ namespace StreetRunner.Web
                             
                             var svg = new SvgEndpoint(
                                 mapFilename, 
-                                new FileSystemMapRepository(mapFinder, stravaRunRepository, cachedCoveredStreetCalculator))
+                                new FileSystemMapRepository(mapFinder, stravaRunRepository, coveredStreetCalculator))
                                 .Get();
                             
                             response.ContentType = "text/html";
@@ -90,14 +98,13 @@ namespace StreetRunner.Web
                         {
                             var mapFilename = routeData.Values["mapFilename"].ToString();
                             
-                            var httpClient = new LoggerHttpClient(new ApiClient());
                             var stravaRunRepository = new StravaRunRepository(
                                 httpClient, 
                                 new FileCacheHttpClient(httpClient), 
                                 request.Cookies["strava-token"]);
                             
                             var mapRepo = new FileSystemMapRepository(mapFinder, stravaRunRepository,
-                                cachedCoveredStreetCalculator);
+                                coveredStreetCalculator);
 
                             var json = new SummaryEndpoint(mapRepo.Get(mapFilename)).Get();
                             

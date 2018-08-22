@@ -23,7 +23,7 @@ namespace StreetRunner.Web.Repositories
             return JArray
                 .Parse(_httpClient.Get($"https://www.strava.com/api/v3/athlete/activities?access_token={_token}"))
                 .Select(activity => activity.Value<string>("id"))
-                .Take(20)
+                .Take(1)
                 .Select(activityId => new
                 {
                     id = activityId,
