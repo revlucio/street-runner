@@ -5,18 +5,16 @@ namespace StreetRunner.Web.Endpoints
 {
     public class SvgEndpoint
     {
-        private readonly string _mapName;
         private readonly IMapRepository _mapRepository;
 
-        public SvgEndpoint(string mapName, IMapRepository mapRepository)
+        public SvgEndpoint(IMapRepository mapRepository)
         {
-            _mapName = mapName;
             _mapRepository = mapRepository;
         }
 
-        public string Get()
+        public string Get(string mapName)
         {
-            var path = _mapRepository.Get(_mapName).ToSvgMaintainAspectRatio(1000);
+            var path = _mapRepository.Get(mapName).ToSvgMaintainAspectRatio(1000);
 
             return 
 $@"<html>

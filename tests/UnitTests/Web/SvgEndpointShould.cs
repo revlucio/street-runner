@@ -51,10 +51,10 @@ namespace StreetRunner.UnitTests.Web
             var stubFinder = new StubMapFinder(
                 new Dictionary<string, string>{ { "mapName", osm }}, 
                 new List<string> { gpx });
-            var actual = new SvgEndpoint("mapName", new FileSystemMapRepository(
+            var actual = new SvgEndpoint(new FileSystemMapRepository(
                 stubFinder, 
                 new FileSystemRunRepository(stubFinder),
-                new CoveredStreetCalculator())).Get();
+                new CoveredStreetCalculator())).Get("mapName");
                 
             actual.ShouldBe(expected);
         }
