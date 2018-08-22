@@ -1,7 +1,19 @@
 # TODO
 
-- basic UI using react
-- improve performance with different levels of caching
+## FEATURES
+
+- loading in a map file and trimming it down via the api
+- add a page to view all runs, the dates, and if theyre in london
+- add a timeline showing % going up over time
+- take into account the length of roads in the covered %
+- make a single page with SVG and stats that uses multiple endpoints¡
+
+## PERFORMANCE
+
+- start caching the map object
+- add caching headers
+- process the runs in the background, add a spinner
+- progressively add the runs as discovered
 - get e2e tests working against a docker instance
 - get a bigger map file for london
 - trim down the map file

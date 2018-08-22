@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json.Linq;
@@ -24,7 +23,7 @@ namespace StreetRunner.Web.Repositories
             return JArray
                 .Parse(_httpClient.Get($"https://www.strava.com/api/v3/athlete/activities?access_token={_token}"))
                 .Select(activity => activity.Value<string>("id"))
-                .Take(5)
+                .Take(20)
                 .Select(activityId => new
                 {
                     id = activityId,
@@ -33,12 +32,7 @@ namespace StreetRunner.Web.Repositories
                 .Select(activity => new StravaRunParser(activity.json, activity.id))
                 .Where(run => run.IsValid())
                 .Select(run => run.Value)
-                .Where(IsInLondon);
-        }
-
-        private bool IsInLondon(IRun run)
-        {
-            return run.Points.ToList().Any(point => Math.Abs(point.Lon) < 5);
+                .Where(run => run.IsInLondon());
         }
     }
 }
