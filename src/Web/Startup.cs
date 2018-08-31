@@ -20,8 +20,10 @@ namespace StreetRunner.Web
             services.AddScoped<ICoveredStreetCalculator>(x => new CacheCoveredStreetCalculator(new CoveredStreetCalculator()));
             services.AddScoped<IRunRepository, FileSystemRunRepository>();
             services.AddScoped<IMapRepository, FileSystemMapRepository>();
+            services.AddScoped<Repositories.IHttpClient, ApiClient>();
 
             services.AddScoped<MapEndpoint>();
+            services.AddScoped<SvgEndpoint>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
