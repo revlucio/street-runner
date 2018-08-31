@@ -14,16 +14,17 @@ namespace StreetRunner.Web
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRouting();
-
-            services.AddScoped<IMapFinder, FileSystemMapFinder>();
-            services.AddScoped<ICoveredStreetCalculator>(x => new CacheCoveredStreetCalculator(new CoveredStreetCalculator()));
-            services.AddScoped<IRunRepository, FileSystemRunRepository>();
-            services.AddScoped<IMapRepository, FileSystemMapRepository>();
-            services.AddScoped<Repositories.IHttpClient, ApiClient>();
-
-            services.AddScoped<MapEndpoint>();
-            services.AddScoped<SvgEndpoint>();
+            services
+                .AddRouting()
+                .AddScoped<IMapFinder, FileSystemMapFinder>()
+                .AddScoped<ICoveredStreetCalculator>(_ => new CacheCoveredStreetCalculator(new CoveredStreetCalculator()))
+                .AddScoped<IRunRepository, FileSystemRunRepository>()
+                .AddScoped<IMapRepository, FileSystemMapRepository>()
+                .AddScoped<Repositories.IHttpClient, ApiClient>()
+                .AddScoped<MapEndpoint>()
+                .AddScoped<ApiRootEndpoint>()
+                .AddScoped<StatsEndpoint>()
+                ;
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -31,11 +32,11 @@ namespace StreetRunner.Web
             app.UseDeveloperExceptionPage();
 
             app.UseStaticFiles("wwwroot", "public/index.html");
-
             app.ViewDirectoryAndFiles("/cache", FileCacheHttpClient.CacheDirectory);
             app.ViewDirectoryAndFiles("/logs", LoggerHttpClient.LogDirectory);
 
             app.Map("/favicon.ico", HttpHandler.Return200Ok());
+            
             app.MapRootTo(HttpHandler.Ok());
 
             var services = app.ApplicationServices;
@@ -47,8 +48,8 @@ namespace StreetRunner.Web
             {
                 api.UseMiddleware<AuthenticateWithStrava>();
                 
-                api.MapGetToJson("", new ApiRootEndpoint().Get);
-                api.MapTo("/stats", new StatsEndpoint(mapFinder).Get);
+                api.MapGetToJson("", services.GetService<ApiRootEndpoint>().Get);
+                api.MapTo("/stats", services.GetService<StatsEndpoint>().Get);
                 
                 api.Map("/map", mapApi =>
                 {
