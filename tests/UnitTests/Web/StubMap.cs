@@ -13,16 +13,21 @@ namespace StreetRunner.UnitTests.Web
 
         public IEnumerable<IRun> Runs => _runs;
 
-        public void AddStreet(string street = "street")
+        public void AddStreet(string name = "street", decimal length = 10m, bool covered = false)
         {
-            _streets.Add(new Street(street, Enumerable.Empty<Point>()));
+            var points = new List<Point>
+            {
+                new Point(0, 0),
+                new Point(0.000009m * length, 0),
+            };
+            var street = new Street(name, points);
+            street.Covered = covered;
+            _streets.Add(street);
         }
 
         public void AddCoveredStreet()
         {
-            var street = new Street("street", Enumerable.Empty<Point>());
-            street.Covered = true;
-            _streets.Add(street);
+            AddStreet(covered: true);
         }
 
         public void AddRunInLondon()

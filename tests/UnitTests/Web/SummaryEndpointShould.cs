@@ -48,5 +48,21 @@ namespace StreetRunner.UnitTests.Web
             var summary = JObject.Parse(summaryJson);
             summary["coveredPercentage"].ShouldBe(50m);
         }
+        
+        [Fact]
+        public void ReturnTotalLengthCovered()
+        {
+            var stubMap = new StubMap();
+            stubMap.AddStreet(length: 20m);
+            stubMap.AddStreet(length: 10m);
+            stubMap.AddStreet(length: 20m, covered: true);
+            
+            var summaryJson = new SummaryEndpoint(stubMap).Get();
+
+            var summary = JObject.Parse(summaryJson);
+            summary.Value<decimal>("totalLengthInMetres").ShouldBe(50);
+            summary.Value<decimal>("totalLengthCoveredInMetres").ShouldBe(20);
+            summary.Value<decimal>("distanceCoveredPercentage").ShouldBe(40);
+        }
     }
 }

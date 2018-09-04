@@ -17,20 +17,15 @@ namespace StreetRunner.Web.Endpoints
         {
             var json = new
             {
-                streets = _map.Streets.Select(street => street.Name),
+                streets = _map.Streets.Select(street => new
+                {
+                    name = street.Name,
+                    covered = street.Covered,
+                    length = street.Length
+                }),
             };
             
             return JObject.FromObject(json).ToString();
-            
-//            return map.Streets.Aggregate(
-//                    string.Empty, 
-//                    (result, street) => $"{result}{FormatStreetStatus(street)}{Environment.NewLine}");
-        }
-
-        private string FormatStreetStatus(Street street) 
-        {
-            var mark = street.Covered ? "X" : " ";
-            return $"{mark} {street.Name}";
         }
     }
 }

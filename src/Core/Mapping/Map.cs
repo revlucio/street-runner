@@ -23,7 +23,9 @@ namespace StreetRunner.Core.Mapping
             ICoveredStreetCalculator coveredStreetCalculator = null)
         {
             _runs = runs.ToList();
-            Streets = streets.ToList();
+            Streets = streets
+                //.Where(street => street.Length > 50m) // exclude smaller streets
+                .ToList();
             
             coveredStreetCalculator = coveredStreetCalculator ?? new CoveredStreetCalculator();
             

@@ -22,7 +22,11 @@ namespace StreetRunner.Core.Mapping
         public string Type { get; }
         public IEnumerable<Point> Points { get; }
         public bool Covered { get; set; }
-        
+
+        public decimal Length => Points.Count() < 2 
+            ? 0 
+            : Points.First().CalculateDistanceInMetres(Points.Last());
+
         internal bool IsCoveredBy(IRun run)
         {
             if (Covered)
