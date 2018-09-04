@@ -19,14 +19,13 @@ namespace StreetRunner.UnitTests.Web
             _factory = factory;
         }
         
-        [Fact(Skip = "needs a lot of setup first")]
+        [Fact]
         public async void Load()
         {
-            // had to handle content root somehow
             // have to manually load in east-london map through fs instead of api
-            // load this from file or stub it out
             // need to stub out strava API
             Environment.SetEnvironmentVariable("STRAVA_SECRET", "99b638c3a276b3ad3813dd5c8a667b3d670ea555");
+            Environment.SetEnvironmentVariable("STRAVA_URL", "http://localhost/fake-strava");
             
             var client = _factory.CreateClient();
             
@@ -37,13 +36,13 @@ namespace StreetRunner.UnitTests.Web
             {
                 var parser = new HtmlParser();
                 var document = parser.Parse(content);
-                var error = document.GetElementsByClassName("stackerror").Single();
+                var error = document.GetElementsByClassName("stackerror").First();
                 
                 response.StatusCode.ShouldNotBe(HttpStatusCode.InternalServerError, error.TextContent);
             }
             
-//            response.StatusCode.ShouldNotBe(HttpStatusCode.NotFound, response.RequestMessage.RequestUri.ToString());
-//            response.EnsureSuccessStatusCode();
+            response.StatusCode.ShouldNotBe(HttpStatusCode.NotFound, response.RequestMessage.RequestUri.ToString());
+            response.EnsureSuccessStatusCode();
         }
     }
 }

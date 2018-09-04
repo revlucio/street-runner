@@ -6,6 +6,8 @@
   </PropertyGroup>
   <ItemGroup>
     <None Update="files\*.*" CopyToOutputDirectory="Always" />
+    <None Update="map-files\*.*" CopyToOutputDirectory="Always" />
+    <None Update="wwwroot\*.*" CopyToOutputDirectory="Always" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AngleSharp" Version="0.9.10" />
@@ -16,5 +18,8 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
     <ProjectReference Include="../../src/Core/Core.csproj" />
     <ProjectReference Include="../../src/Web/Web.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot" />
   </ItemGroup>
 </Project>

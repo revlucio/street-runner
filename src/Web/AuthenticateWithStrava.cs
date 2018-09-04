@@ -36,7 +36,7 @@ namespace StreetRunner.Web
             if (request.Query.ContainsKey("code") == false && request.Cookies.ContainsKey("strava-token") == false)
             {
                 var authUrl = QueryHelpers.AddQueryString(
-                    "https://www.strava.com/oauth/authorize",
+                    $"{Settings.StravaUrl}/oauth/authorize",
                     new Dictionary<string, string>
                     {
                         {"client_id", applicationId},
@@ -54,7 +54,7 @@ namespace StreetRunner.Web
 
                 var client = new HttpClient();
                 var authUrl = QueryHelpers.AddQueryString(
-                    "https://www.strava.com/oauth/token",
+                    $"{Settings.StravaUrl}/oauth/token",
                     new Dictionary<string, string>
                     {
                         {"client_id", applicationId},

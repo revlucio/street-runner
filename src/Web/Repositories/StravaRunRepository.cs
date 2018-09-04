@@ -21,13 +21,13 @@ namespace StreetRunner.Web.Repositories
         public IEnumerable<IRun> GetAll()
         {
             return JArray
-                .Parse(_httpClient.Get($"https://www.strava.com/api/v3/athlete/activities?access_token={_token}"))
+                .Parse(_httpClient.Get($"{Settings.StravaUrl}/api/v3/athlete/activities?access_token={_token}"))
                 .Select(activity => activity.Value<string>("id"))
                 .Take(1)
                 .Select(activityId => new
                 {
                     id = activityId,
-                    json = _cacheHttpClient.Get($"https://www.strava.com/api/v3/activities/{activityId}/streams/latlng?access_token={_token}")
+                    json = _cacheHttpClient.Get($"{Settings.StravaUrl}/api/v3/activities/{activityId}/streams/latlng?access_token={_token}")
                 })
                 .Select(activity => new StravaRunParser(activity.json, activity.id))
                 .Where(run => run.IsValid())

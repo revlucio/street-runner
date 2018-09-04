@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
@@ -43,6 +44,22 @@ namespace StreetRunner.Web
             var httpClient = services.GetService<Repositories.IHttpClient>();
             var mapFinder = services.GetService<IMapFinder>();
             var coveredStreetCalculator = services.GetService<ICoveredStreetCalculator>();
+
+            app.Map("/fake-strava", fakeStrava =>
+            {
+                fakeStrava.Map("/oauth", fakeAuth =>
+                {
+                    fakeAuth.Run(async context =>
+                    {
+                        var url = context.Request.Query["redirect_uri"];
+                        context.Response.Redirect(url);
+                        context.Response.Cookies.Append("strava-token", "fake-token");
+                        await Task.CompletedTask;
+                    });    
+                });
+                
+                fakeStrava.ReturnNotFound();
+            });
             
             app.Map("/api", api =>
             {
