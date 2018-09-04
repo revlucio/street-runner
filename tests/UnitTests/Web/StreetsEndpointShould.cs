@@ -1,5 +1,6 @@
 using Newtonsoft.Json.Linq;
 using Shouldly;
+using StreetRunner.Core.Mapping;
 using StreetRunner.Web.Endpoints;
 using Xunit;
 
@@ -10,20 +11,11 @@ namespace StreetRunner.UnitTests.Web
         [Fact]
         public void OutputStreeNames()
         {
-            var osm = @"
-<osm>
- <way>
-  <tag k=""highway"" v=""secondary""/>
-  <tag k=""name"" v=""Main Street""/>
- </way>
- <way>
-  <tag k=""highway"" v=""secondary""/>
-  <tag k=""name"" v=""Wall Street""/>
- </way>
-</osm>            
-";
+            var map = new StubMap();
+            map.AddStreet("Main Street");
+            map.AddStreet("Wall Street");
 
-            var streetsJson = new StreetsEndpoint(osm).Get();
+            var streetsJson = new StreetsEndpoint(map).Get();
             var actual = JObject.Parse(streetsJson);
             
                 actual.Value<JArray>("streets")[0].ShouldBe("Main Street");
@@ -33,12 +25,9 @@ namespace StreetRunner.UnitTests.Web
         [Fact]
         public void OutputEmptyListWhenThereAreNoStreets()
         {
-            var osm = @"
-<osm>
-</osm>            
-";
+            var map = new StubMap();
 
-            var streetsJson = new StreetsEndpoint(osm).Get();
+            var streetsJson = new StreetsEndpoint(map).Get();
             var actual = JObject.Parse(streetsJson);
             
             actual.Value<JArray>("streets").ShouldBeEmpty();

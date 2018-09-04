@@ -13,9 +13,9 @@ namespace StreetRunner.UnitTests.Web
 
         public IEnumerable<IRun> Runs => _runs;
 
-        public void AddStreet()
+        public void AddStreet(string street = "street")
         {
-            _streets.Add(new Street("street", Enumerable.Empty<Point>()));
+            _streets.Add(new Street(street, Enumerable.Empty<Point>()));
         }
 
         public void AddCoveredStreet()

@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json.Linq;
 using StreetRunner.Core.Mapping;
@@ -9,33 +6,21 @@ namespace StreetRunner.Web.Endpoints
 {
     public class StreetsEndpoint
     {
-        private readonly string _osm;
-        private readonly IEnumerable<string> _gpxList;
+        private readonly IMap _map;
 
-        public StreetsEndpoint(string osm) : this(osm, Enumerable.Empty<string>())
+        public StreetsEndpoint(IMap map)
         {
-        }
-
-        public StreetsEndpoint(string osm, string gpx) : this(osm, new []{gpx})
-        {
-        }
-
-        private StreetsEndpoint(string osm, IEnumerable<string> gpxList)
-        {
-            _osm = osm;
-            _gpxList = gpxList;
+            _map = map;
         }
 
         public string Get()
         {
-            var cacheCoveredStreetCalculator = new CacheCoveredStreetCalculator(new CoveredStreetCalculator());
-            var map = MapFactory.FromOsm(_osm, _gpxList.Select(Run.FromGpx), cacheCoveredStreetCalculator);
-
-                var json = new
-                {
-                    streets = map.Streets.Select(street => street.Name),
-                };
-                return JObject.FromObject(json).ToString();
+            var json = new
+            {
+                streets = _map.Streets.Select(street => street.Name),
+            };
+            
+            return JObject.FromObject(json).ToString();
             
 //            return map.Streets.Aggregate(
 //                    string.Empty, 

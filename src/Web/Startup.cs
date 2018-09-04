@@ -93,11 +93,9 @@ namespace StreetRunner.Web
                         routes.MapGet("{mapFilename}/street", (request, response, routeData) =>
                         {
                             var mapFilename = routeData.Values["mapFilename"].ToString();
-                                
-                            var osm = mapFinder.FindMap(mapFilename);
-                            var gpx = mapFinder.FindRun("east-london-run");
-                    
-                            return response.WriteAsync(new StreetsEndpoint(osm, gpx).Get());
+                            var json = new StreetsEndpoint(mapRepo.Get(mapFilename)).Get();
+                            response.ContentType = "application/json";
+                            return response.WriteAsync(json);
                         });
 
                         routes.MapGet("{mapFilename}/strava", (request, response, routeData) =>

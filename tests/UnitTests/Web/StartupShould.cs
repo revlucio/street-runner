@@ -19,13 +19,11 @@ namespace StreetRunner.UnitTests.Web
             _factory = factory;
         }
         
-        [Fact]
+        [Fact(Skip="needs more thinking")]
         public async void Load()
         {
             // have to manually load in east-london map through fs instead of api
             // need to stub out strava API
-            Environment.SetEnvironmentVariable("STRAVA_SECRET", "99b638c3a276b3ad3813dd5c8a667b3d670ea555");
-            Environment.SetEnvironmentVariable("STRAVA_URL", "http://localhost/fake-strava");
             
             var client = _factory.CreateClient();
             
