@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Linq;
 using Shouldly;
 using StreetRunner.Web.Endpoints;
 using Xunit;
@@ -7,13 +8,8 @@ namespace StreetRunner.UnitTests.Web
     public class StreetsEndpointShould
     {
         [Fact]
-        public void OutputListOfStreets()
+        public void OutputStreeNames()
         {
-            var expected = 
-@"  Main Street
-  Wall Street
-";
-
             var osm = @"
 <osm>
  <way>
@@ -27,8 +23,25 @@ namespace StreetRunner.UnitTests.Web
 </osm>            
 ";
 
-            var actual = new StreetsEndpoint(osm).Get();
-            actual.ShouldBe(expected);
+            var streetsJson = new StreetsEndpoint(osm).Get();
+            var actual = JObject.Parse(streetsJson);
+            
+                actual.Value<JArray>("streets")[0].ShouldBe("Main Street");
+                actual.Value<JArray>("streets")[1].ShouldBe("Wall Street");
+        }
+        
+        [Fact]
+        public void OutputEmptyListWhenThereAreNoStreets()
+        {
+            var osm = @"
+<osm>
+</osm>            
+";
+
+            var streetsJson = new StreetsEndpoint(osm).Get();
+            var actual = JObject.Parse(streetsJson);
+            
+            actual.Value<JArray>("streets").ShouldBeEmpty();
         }
     }
 }

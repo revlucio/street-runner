@@ -2,11 +2,23 @@
 
 ## FEATURES
 
+- take into account the length of roads in the covered %
+    - streets are made up of segments
+    - each segment has a calculated length
+    - then the % covered can be calculated
+
 - loading in a map file and trimming it down via the api
 - add a page to view all runs, the dates, and if theyre in london
 - add a timeline showing % going up over time
-- take into account the length of roads in the covered %
 - make a single page with SVG and stats that uses multiple endpoints¡
+- offline mode
+    - start by finding out where docker stores files
+    - map to filesystem so we can cache outside of the app
+    
+## BUGS
+
+- unathorised isnt handled properly
+
 
 ## PERFORMANCE
 

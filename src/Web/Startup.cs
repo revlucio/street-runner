@@ -16,6 +16,7 @@ namespace StreetRunner.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services
+                .AddSingleton<IHttpContextAccessor, HttpContextAccessor>()
                 .AddRouting()
                 .AddScoped<IMapFinder, FileSystemMapFinder>()
                 .AddScoped<ICoveredStreetCalculator>(_ => new CacheCoveredStreetCalculator(new CoveredStreetCalculator()))
@@ -25,6 +26,7 @@ namespace StreetRunner.Web
                 .AddScoped<MapEndpoint>()
                 .AddScoped<ApiRootEndpoint>()
                 .AddScoped<StatsEndpoint>()
+                .AddScoped<StravaRunRepository>()
                 ;
         }
 
@@ -44,6 +46,13 @@ namespace StreetRunner.Web
             var httpClient = services.GetService<Repositories.IHttpClient>();
             var mapFinder = services.GetService<IMapFinder>();
             var coveredStreetCalculator = services.GetService<ICoveredStreetCalculator>();
+            
+            var stravaRunRepository = new StravaRunRepository(
+                httpClient, 
+                new FileCacheHttpClient(httpClient), 
+                services.GetService<IHttpContextAccessor>());
+
+            var mapRepo = new FileSystemMapRepository(mapFinder, stravaRunRepository, coveredStreetCalculator);
 
             app.Map("/fake-strava", fakeStrava =>
             {
@@ -90,20 +99,12 @@ namespace StreetRunner.Web
                     
                             return response.WriteAsync(new StreetsEndpoint(osm, gpx).Get());
                         });
-                        
+
                         routes.MapGet("{mapFilename}/strava", (request, response, routeData) =>
                         {
-                            // the map should already be loaded
                             var mapFilename = routeData.Values["mapFilename"].ToString();
-
-                            // the run repo should already be loaded
-                            var stravaRunRepository = new StravaRunRepository(
-                                httpClient, 
-                                new FileCacheHttpClient(httpClient), 
-                                request.Cookies["strava-token"]);
                             
-                            var svg = new SvgEndpoint(new FileSystemMapRepository(mapFinder, stravaRunRepository, coveredStreetCalculator))
-                                .Get(mapFilename);
+                            var svg = new SvgEndpoint(mapRepo).Get(mapFilename);
                             
                             response.ContentType = "text/html";
                             return response.WriteAsync(svg);
@@ -113,14 +114,6 @@ namespace StreetRunner.Web
                         {
                             var mapFilename = routeData.Values["mapFilename"].ToString();
                             
-                            var stravaRunRepository = new StravaRunRepository(
-                                httpClient, 
-                                new FileCacheHttpClient(httpClient), 
-                                request.Cookies["strava-token"]);
-                            
-                            var mapRepo = new FileSystemMapRepository(mapFinder, stravaRunRepository,
-                                coveredStreetCalculator);
-
                             var json = new SummaryEndpoint(mapRepo.Get(mapFilename)).Get();
                             
                             response.ContentType = "application/json";
