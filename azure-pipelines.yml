@@ -5,22 +5,13 @@ variables:
   imageName: 'street-runner:$(build.buildId)'
 
 steps:
-#- script: docker build -f Dockerfile -t $(imageName) .
-#  displayName: 'docker build'
-#- script: docker push $(imageName) 
-
 - task: Docker@1
-  displayName: 'Build an image'
+  displayName: Login
   inputs:
-    imageName: 'revlucio.azurecr.io/repositoryname:$(Build.BuildId)'
-#- task: Docker@1
-#  displayName: Login
-#  inputs:
-#    azureSubscriptionEndpoint: 'ContosoAzureSubscription'
-#    azureContainerRegistry: revlucio.azurecr.io
-#    command: login
-#- task: Docker@1
-#  displayName: 'Push an image'
-#  inputs:
-#    command: 'push'
-#    imageName: 'revlucio.azurecr.io/repositoryname:$(Build.BuildId)'
+    azureSubscriptionEndpoint: 'RevlucioAzureSubscription'
+    azureContainerRegistry: revlucio.azurecr.io
+    command: login
+- bash: |
+   docker build -t revlucio.azurecr.io/street-runner:$(Build.BuildId) .
+   docker push revlucio.azurecr.io/street-runner:$(Build.BuildId) 
+   displayName: 'Build, tag and push image'
